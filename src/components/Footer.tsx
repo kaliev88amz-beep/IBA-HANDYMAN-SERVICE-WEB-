@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
           {/* Brand info */}
           <div className="space-y-4">
             <div className="pt-1">
-              <IbaHandymanLogo size="md" theme="dark" />
+              <IbaHandymanLogo size="md" theme="on-dark" />
             </div>
 
             <p className="text-slate-400 leading-relaxed text-xs">
@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
               <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
                 Audio-Video Specialty Division:
               </span>
-              <IbaTvMountingLogo size="sm" theme="dark" />
+              <IbaTvMountingLogo size="sm" theme="on-dark" />
             </div>
           </div>
 

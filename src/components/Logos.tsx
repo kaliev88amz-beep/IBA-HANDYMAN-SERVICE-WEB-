@@ -2,7 +2,8 @@ import React from 'react';
 
 export interface LogoProps {
   className?: string;
-  theme?: 'dark' | 'light' | 'blue';
+  // 'dark' = theme-aware page background; 'on-dark' = always-dark surfaces (e.g. footer)
+  theme?: 'dark' | 'on-dark' | 'light' | 'blue';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   layout?: 'horizontal' | 'stacked' | 'icon-only';
   showSubtitle?: boolean;
@@ -52,9 +53,9 @@ export const IbaHandymanLogo: React.FC<LogoProps> = ({
   size = 'md',
   showSubtitle = true,
 }) => {
-  const isDark = theme === 'dark';
-  const textColor = isDark ? 'text-white' : 'text-slate-900';
-  const subColor = isDark ? 'text-slate-300' : 'text-slate-700';
+  const isDark = theme === 'dark' || theme === 'on-dark';
+  const textColor = theme === 'on-dark' ? 'text-white' : isDark ? 'text-ink' : 'text-slate-900';
+  const subColor = theme === 'on-dark' ? 'text-slate-300' : isDark ? 'text-ink-300' : 'text-slate-700';
 
   if (layout === 'icon-only') {
     return <IbaHandymanIcon className={size === 'lg' ? 'w-14 h-14' : size === 'sm' ? 'w-8 h-8' : 'w-10 h-10'} />;
@@ -151,7 +152,7 @@ export const IbaTvMountingIcon: React.FC<{
   // Crops the TV-on-arm mark (x 285-1045, y 70-665 of the artwork)
   return (
     <span
-      className={`inline-flex items-center justify-center ${className}`}
+      className={`tv-logo-plate inline-flex items-center justify-center ${className}`}
       role="img"
       aria-label="IBA TV Mounting Icon"
     >
@@ -175,15 +176,15 @@ export const IbaTvMountingLogo: React.FC<LogoProps> = ({
   layout = 'horizontal',
   showSubtitle = true,
 }) => {
-  const isDark = theme === 'dark';
-  const textColor = isDark ? 'text-white' : 'text-slate-900';
+  const isDark = theme === 'dark' || theme === 'on-dark';
+  const textColor = theme === 'on-dark' ? 'text-white' : isDark ? 'text-ink' : 'text-slate-900';
 
   if (layout === 'stacked') {
     return (
       <img
         src={TV_LOGO_SRC}
         alt="IBA TV Mounting by IBA Handyman Services"
-        className={`mix-blend-lighten h-auto ${
+        className={`tv-logo-plate mix-blend-lighten h-auto ${
           className || (size === 'xl' ? 'w-72' : size === 'lg' ? 'w-56' : size === 'sm' ? 'w-32' : 'w-44')
         }`}
       />
@@ -208,8 +209,7 @@ export const IbaTvMountingLogo: React.FC<LogoProps> = ({
           <span
             className={`font-black tracking-tight uppercase ${
               size === 'lg' ? 'text-2xl' : size === 'sm' ? 'text-base' : 'text-lg sm:text-xl'
-            }`}
-            style={{ color: TV_YELLOW }}
+            } ${theme === 'on-dark' ? 'text-[#FFD400]' : 'text-tv-ink'}`}
           >
             TV MOUNTING
           </span>
@@ -219,7 +219,7 @@ export const IbaTvMountingLogo: React.FC<LogoProps> = ({
             <span className="w-3 h-0.5" style={{ backgroundColor: TV_YELLOW }} />
             <span
               className={`text-[9px] sm:text-[11px] font-medium leading-none ${
-                isDark ? 'text-slate-200' : 'text-slate-600'
+                theme === 'on-dark' ? 'text-slate-200' : isDark ? 'text-ink-200' : 'text-ink-600'
               }`}
             >
               by IBA Handyman Services
@@ -247,13 +247,13 @@ export const BrandIdentityModal: React.FC<{
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-[#141414] border border-[#c9a24b]/40 rounded-3xl max-w-4xl w-full p-6 sm:p-8 text-white max-h-[90vh] overflow-y-auto shadow-2xl">
-        <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+      <div className="bg-surface border border-accent/40 rounded-3xl max-w-4xl w-full p-6 sm:p-8 text-ink max-h-[90vh] overflow-y-auto shadow-2xl">
+        <div className="flex items-center justify-between pb-4 border-b border-line/10 mb-6">
           <div>
-            <h3 className="text-xl sm:text-2xl font-editorial font-bold text-white">
+            <h3 className="text-xl sm:text-2xl font-editorial font-bold text-ink">
               {language === 'ru' ? 'Официальная айдентика и логотипы IBA' : 'Official Brand Identity & Logos'}
             </h3>
-            <p className="text-xs text-[#c9a24b] mt-0.5">
+            <p className="text-xs text-accent-ink mt-0.5">
               {language === 'ru'
                 ? 'Цветовая палитра и разделение суббрендов IBA Handyman Services'
                 : 'Color palettes & sub-brand distinction for IBA Handyman Services'}
@@ -261,7 +261,7 @@ export const BrandIdentityModal: React.FC<{
           </div>
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            className="w-9 h-9 rounded-full bg-line/10 hover:bg-line/20 flex items-center justify-center text-ink transition-colors"
           >
             ✕
           </button>
@@ -269,7 +269,7 @@ export const BrandIdentityModal: React.FC<{
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* 1. BLUE HANDYMAN LOGO */}
-          <div className="p-6 rounded-2xl bg-[#0d0d0d] border border-[#03A9F4]/40 flex flex-col justify-between">
+          <div className="p-6 rounded-2xl bg-page border border-[#03A9F4]/40 flex flex-col justify-between">
             <div>
               <div className="inline-block px-3 py-1 rounded-full bg-[#03A9F4]/15 text-[#03A9F4] text-[11px] font-bold uppercase tracking-wider mb-4 border border-[#03A9F4]/30">
                 {language === 'ru' ? 'Основной бренд сервиса' : 'Primary Service Brand'}
@@ -279,10 +279,10 @@ export const BrandIdentityModal: React.FC<{
                 <IbaHandymanLogo size="lg" layout="stacked" theme="dark" />
               </div>
 
-              <h4 className="text-base font-bold text-white mb-2">
+              <h4 className="text-base font-bold text-ink mb-2">
                 IBA Handyman Services
               </h4>
-              <p className="text-xs text-slate-300 leading-relaxed mb-4">
+              <p className="text-xs text-ink-300 leading-relaxed mb-4">
                 {language === 'ru'
                   ? 'Специальный синий знак: архитектурный свод и шеврон крыши. Символизирует надёжность, плотницкие, малярные и ремонтные работы.'
                   : 'Signature Blue crest with architectural roof gable & chevron. Represents precision craftsmanship, carpentry, repairs, and general handyman services.'}
@@ -290,31 +290,31 @@ export const BrandIdentityModal: React.FC<{
             </div>
 
             {/* Colors */}
-            <div className="pt-4 border-t border-white/10">
-              <div className="text-[11px] font-bold text-slate-400 mb-2 uppercase tracking-wider">
+            <div className="pt-4 border-t border-line/10">
+              <div className="text-[11px] font-bold text-ink-400 mb-2 uppercase tracking-wider">
                 {language === 'ru' ? 'Цветовая гамма' : 'Color Palette'}:
               </div>
               <div className="grid grid-cols-3 gap-2 text-center text-[10px]">
                 <div className="p-2 rounded-lg bg-[#03A9F4]/20 border border-[#03A9F4]">
                   <div className="font-bold text-[#03A9F4]">#03A9F4</div>
-                  <div className="text-slate-400">IBA Blue</div>
+                  <div className="text-ink-400">IBA Blue</div>
                 </div>
-                <div className="p-2 rounded-lg bg-[#2B2B2B] border border-white/25">
-                  <div className="font-bold text-slate-200">#2B2B2B</div>
-                  <div className="text-slate-400">Charcoal</div>
+                <div className="p-2 rounded-lg bg-[#2B2B2B] border border-line/25">
+                  <div className="font-bold text-ink-200">#2B2B2B</div>
+                  <div className="text-ink-400">Charcoal</div>
                 </div>
                 <div className="p-2 rounded-lg bg-white border border-white">
                   <div className="font-bold text-[#2B2B2B]">#FFFFFF</div>
-                  <div className="text-slate-500">White</div>
+                  <div className="text-ink-500">White</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* 2. YELLOW TV MOUNTING LOGO */}
-          <div className="p-6 rounded-2xl bg-[#0d0d0d] border border-[#FFD400]/40 flex flex-col justify-between">
+          <div className="p-6 rounded-2xl bg-page border border-[#FFD400]/40 flex flex-col justify-between">
             <div>
-              <div className="inline-block px-3 py-1 rounded-full bg-[#FFD400]/15 text-[#FFD400] text-[11px] font-bold uppercase tracking-wider mb-4 border border-[#FFD400]/30">
+              <div className="inline-block px-3 py-1 rounded-full bg-[#FFD400]/15 text-tv-ink text-[11px] font-bold uppercase tracking-wider mb-4 border border-[#FFD400]/30">
                 {language === 'ru' ? 'Премиум суббренд' : 'Premium Sub-brand'}
               </div>
 
@@ -322,10 +322,10 @@ export const BrandIdentityModal: React.FC<{
                 <IbaTvMountingLogo size="lg" layout="stacked" theme="dark" />
               </div>
 
-              <h4 className="text-base font-bold text-white mb-2">
+              <h4 className="text-base font-bold text-ink mb-2">
                 IBA TV MOUNTING by IBA Handyman Services
               </h4>
-              <p className="text-xs text-slate-300 leading-relaxed mb-4">
+              <p className="text-xs text-ink-300 leading-relaxed mb-4">
                 {language === 'ru'
                   ? 'Жёлто-чёрный знак: телевизор на поворотном кронштейне, буква «A» в виде крыши — как в основном логотипе IBA. Обозначает профессиональный монтаж ТВ и скрытую прокладку проводов.'
                   : 'Yellow & black emblem featuring a TV on an articulating wall mount, with the roof-shaped "A" echoing the main IBA mark. Dedicated to professional TV mounting and wire concealment.'}
@@ -333,22 +333,22 @@ export const BrandIdentityModal: React.FC<{
             </div>
 
             {/* Colors */}
-            <div className="pt-4 border-t border-white/10">
-              <div className="text-[11px] font-bold text-slate-400 mb-2 uppercase tracking-wider">
+            <div className="pt-4 border-t border-line/10">
+              <div className="text-[11px] font-bold text-ink-400 mb-2 uppercase tracking-wider">
                 {language === 'ru' ? 'Цветовая гамма' : 'Color Palette'}:
               </div>
               <div className="grid grid-cols-3 gap-2 text-center text-[10px]">
                 <div className="p-2 rounded-lg bg-[#FFD400]/20 border border-[#FFD400]">
-                  <div className="font-bold text-[#FFD400]">#FFD400</div>
-                  <div className="text-slate-400">Signal Yellow</div>
+                  <div className="font-bold text-tv-ink">#FFD400</div>
+                  <div className="text-ink-400">Signal Yellow</div>
                 </div>
-                <div className="p-2 rounded-lg bg-black border border-white/25">
-                  <div className="font-bold text-white">#000000</div>
-                  <div className="text-slate-400">Black</div>
+                <div className="p-2 rounded-lg bg-black border border-line/25">
+                  <div className="font-bold text-ink">#000000</div>
+                  <div className="text-ink-400">Black</div>
                 </div>
                 <div className="p-2 rounded-lg bg-white border border-white">
                   <div className="font-bold text-black">#FFFFFF</div>
-                  <div className="text-slate-500">White</div>
+                  <div className="text-ink-500">White</div>
                 </div>
               </div>
             </div>
@@ -358,7 +358,7 @@ export const BrandIdentityModal: React.FC<{
         <div className="text-center">
           <button
             onClick={onClose}
-            className="px-8 py-3 bg-[#C9A24B] hover:bg-[#D8B359] text-black font-black uppercase tracking-wider text-xs rounded-xl shadow-lg transition-all"
+            className="px-8 py-3 bg-accent hover:bg-accent-hover text-black font-black uppercase tracking-wider text-xs rounded-xl shadow-lg transition-all"
           >
             {language === 'ru' ? 'Закрыть руководство' : 'Close Brand Guide'}
           </button>

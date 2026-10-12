@@ -1,16 +1,102 @@
 @import "tailwindcss";
 
+/* Theme-aware color utilities (bg-page, text-ink, border-accent, ...) */
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
+@theme inline {
+  --color-page: var(--c-page);
+  --color-page-deep: var(--c-page-deep);
+  --color-surface: var(--c-surface);
+  --color-surface-2: var(--c-surface-2);
+  --color-ink: var(--c-ink);
+  --color-ink-200: var(--c-ink-200);
+  --color-ink-300: var(--c-ink-300);
+  --color-ink-400: var(--c-ink-400);
+  --color-ink-500: var(--c-ink-500);
+  --color-ink-600: var(--c-ink-600);
+  --color-line: var(--c-line);
+  --color-accent: var(--c-accent);
+  --color-accent-hover: var(--c-accent-hover);
+  --color-accent-ink: var(--c-accent-ink);
+  --color-accent-soft: var(--c-accent-soft);
+  --color-tv-ink: var(--c-tv-ink);
+  --color-ok: var(--c-ok);
+  --color-ok-strong: var(--c-ok-strong);
+  --color-bad: var(--c-bad);
+  --color-bad-strong: var(--c-bad-strong);
+}
+
+/* Dark (default): the original black & gold look */
+:root {
+  --c-page: #0d0d0d;
+  --c-page-deep: #0a0a0a;
+  --c-surface: #141414;
+  --c-surface-2: #181818;
+  --c-ink: #ffffff;
+  --c-ink-200: #e5e5e5;
+  --c-ink-300: #d4d4d4;
+  --c-ink-400: #a3a3a3;
+  --c-ink-500: #737373;
+  --c-ink-600: #525252;
+  --c-line: #ffffff;
+  --c-accent: #c9a24b;
+  --c-accent-hover: #d8b359;
+  --c-accent-ink: #c9a24b;
+  --c-accent-soft: #e4be65;
+  --c-tv-ink: #ffd400;
+  --c-ok: #6ee7b7;
+  --c-ok-strong: #34d399;
+  --c-bad: #fecdd3;
+  --c-bad-strong: #fb7185;
+  --accent-rgb: 201 162 75;
+  --c-card: rgba(20, 20, 20, 0.85);
+  --c-gradient: linear-gradient(135deg, #f6e05e 0%, #c9a24b 50%, #9f7d23 100%);
+  color-scheme: dark;
+}
+
+/* Light: IBA logo colors — white, charcoal #2B2B2B, IBA blue #03A9F4 */
+[data-theme="light"] {
+  --c-page: #ffffff;
+  --c-page-deep: #f4f6f9;
+  --c-surface: #f7f9fc;
+  --c-surface-2: #eef2f7;
+  --c-ink: #2b2b2b;
+  --c-ink-200: #343a40;
+  --c-ink-300: #444b54;
+  --c-ink-400: #5c6570;
+  --c-ink-500: #6b7480;
+  --c-ink-600: #9aa3ad;
+  --c-line: #1e293b;
+  --c-accent: #03a9f4;
+  --c-accent-hover: #29b6f6;
+  --c-accent-ink: #0277bd;
+  --c-accent-soft: #0277bd;
+  --c-tv-ink: #6b5600;
+  --c-ok: #047857;
+  --c-ok-strong: #059669;
+  --c-bad: #9f1239;
+  --c-bad-strong: #e11d48;
+  --accent-rgb: 3 169 244;
+  --c-card: #ffffff;
+  --c-gradient: linear-gradient(135deg, #29b6f6 0%, #0288d1 55%, #01579b 100%);
+  color-scheme: light;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #0d0d0d;
-    color: #f3f4f6;
+    background-color: var(--c-page);
+    color: var(--c-ink-200);
   }
   body {
     overflow-x: hidden;
-    background-color: #0d0d0d;
-    color: #f3f4f6;
+    background-color: var(--c-page);
+    color: var(--c-ink-200);
+  }
+  ::selection {
+    background-color: var(--c-accent);
+    color: #000000;
   }
   /* Keep anchored section titles clear of the sticky header */
   section[id] {
@@ -27,29 +113,38 @@
   }
 }
 
-/* Custom luxury gold accents and gradients */
+/* Accent gradient text (gold in dark, IBA blue in light) */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #f6e05e 0%, #c9a24b 50%, #9f7d23 100%);
+  background: var(--c-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gold-border {
-  border-color: rgba(201, 162, 75, 0.25);
+  border-color: rgb(var(--accent-rgb) / 0.25);
 }
 
 .gold-glow {
-  box-shadow: 0 0 25px -5px rgba(201, 162, 75, 0.15);
+  box-shadow: 0 0 25px -5px rgb(var(--accent-rgb) / 0.15);
 }
 
 .dark-card {
-  background: rgba(20, 20, 20, 0.85);
+  background: var(--c-card);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(201, 162, 75, 0.15);
+  border: 1px solid rgb(var(--accent-rgb) / 0.15);
 }
 
 .dark-card:hover {
-  border-color: rgba(201, 162, 75, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(201, 162, 75, 0.12);
+  border-color: rgb(var(--accent-rgb) / 0.4);
+  box-shadow: 0 10px 30px -10px rgb(var(--accent-rgb) / 0.12);
 }
 
+[data-theme="light"] .dark-card {
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 8px 24px -12px rgba(15, 23, 42, 0.12);
+}
+
+/* The TV Mounting artwork has a black background: give it a black plate on light pages */
+[data-theme="light"] .tv-logo-plate {
+  background-color: #000000;
+  border-radius: 0.75rem;
+}

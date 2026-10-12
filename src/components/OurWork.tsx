@@ -28,25 +28,25 @@ export const OurWork: React.FC = () => {
   };
 
   return (
-    <section id="work" className="py-20 sm:py-28 bg-[#0d0d0d] border-b border-[#c9a24b]/20 relative">
+    <section id="work" className="py-20 sm:py-28 bg-page border-b border-accent/20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header with Editorial Serif */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#141414] border border-[#c9a24b]/30 text-[#c9a24b] text-[11px] font-bold uppercase tracking-widest mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#c9a24b]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface border border-accent/30 text-accent-ink text-[11px] font-bold uppercase tracking-widest mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-accent-ink" />
             <span>{t.workSection.badge}</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight mb-4 font-editorial">
+          <h2 className="text-3xl sm:text-5xl font-normal text-ink tracking-tight mb-4 font-editorial">
             {t.workSection.title}
           </h2>
-          <div className="w-16 h-0.5 bg-[#c9a24b] mx-auto mb-5" />
-          <p className="text-sm sm:text-base text-neutral-400 font-light">
+          <div className="w-16 h-0.5 bg-accent mx-auto mb-5" />
+          <p className="text-sm sm:text-base text-ink-400 font-light">
             {t.workSection.subtitle}
           </p>
 
           {/* Genuine Placeholder Notice */}
-          <div className="mt-5 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-neutral-400 text-xs font-light">
-            <ImageIcon className="w-3.5 h-3.5 text-[#c9a24b]" />
+          <div className="mt-5 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-line/5 border border-line/10 text-ink-400 text-xs font-light">
+            <ImageIcon className="w-3.5 h-3.5 text-accent-ink" />
             <span>{t.workSection.placeholderBadge}</span>
           </div>
         </div>
@@ -64,8 +64,8 @@ export const OurWork: React.FC = () => {
               onClick={() => setActiveCategory(tab.id)}
               className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeCategory === tab.id
-                  ? 'bg-[#c9a24b] text-black shadow-[0_0_15px_rgba(201,162,75,0.3)]'
-                  : 'bg-[#141414] text-neutral-400 hover:text-white border border-white/10 hover:border-[#c9a24b]/40'
+                  ? 'bg-accent text-black shadow-[0_0_15px_rgb(var(--accent-rgb)/0.3)]'
+                  : 'bg-surface text-ink-400 hover:text-ink border border-line/10 hover:border-accent/40'
               }`}
             >
               {tab.label}
@@ -84,7 +84,7 @@ export const OurWork: React.FC = () => {
             return (
               <div
                 key={item.id}
-                className="dark-card rounded-3xl overflow-hidden border border-[#c9a24b]/20 shadow-xl flex flex-col justify-between"
+                className="dark-card rounded-3xl overflow-hidden border border-accent/20 shadow-xl flex flex-col justify-between"
               >
                 {/* Interactive Before/After Visual Frame */}
                 <div className="relative aspect-16/10 select-none overflow-hidden bg-black">
@@ -95,7 +95,7 @@ export const OurWork: React.FC = () => {
                     className="absolute inset-0 w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-[#c9a24b] border border-[#c9a24b]/40 text-[10px] font-black uppercase px-3 py-1 rounded-full z-10 shadow-lg tracking-wider">
+                  <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-accent-ink border border-accent/40 text-[10px] font-black uppercase px-3 py-1 rounded-full z-10 shadow-lg tracking-wider">
                     {t.workSection.afterLabel}
                   </div>
 
@@ -111,17 +111,17 @@ export const OurWork: React.FC = () => {
                       style={{ width: '100%', minWidth: '100%', height: '100%' }}
                       loading="lazy"
                     />
-                    <div className="absolute top-4 left-4 bg-[#c9a24b] text-black text-[10px] font-black uppercase px-3 py-1 rounded-full z-10 shadow-lg tracking-wider">
+                    <div className="absolute top-4 left-4 bg-accent text-black text-[10px] font-black uppercase px-3 py-1 rounded-full z-10 shadow-lg tracking-wider">
                       {t.workSection.beforeLabel}
                     </div>
                   </div>
 
                   {/* Gold Divider Line */}
                   <div
-                    className="absolute top-0 bottom-0 w-1 bg-[#c9a24b] shadow-[0_0_10px_#c9a24b] pointer-events-none z-20"
+                    className="absolute top-0 bottom-0 w-1 bg-accent shadow-[0_0_10px_var(--color-accent)] pointer-events-none z-20"
                     style={{ left: `calc(${sliderPos}% - 2px)` }}
                   >
-                    <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#141414] border-2 border-[#c9a24b] shadow-xl flex items-center justify-center text-[#c9a24b]">
+                    <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-surface border-2 border-accent shadow-xl flex items-center justify-center text-accent-ink">
                       <SlidersHorizontal className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -140,19 +140,19 @@ export const OurWork: React.FC = () => {
 
                 {/* Information Card Content */}
                 <div className="p-7 space-y-3">
-                  <div className="text-[11px] font-bold text-[#c9a24b] uppercase tracking-widest">
+                  <div className="text-[11px] font-bold text-accent-ink uppercase tracking-widest">
                     {item.category.replace('_', ' ')}
                   </div>
 
-                  <h3 className="font-normal text-white text-lg sm:text-xl font-editorial leading-snug">
+                  <h3 className="font-normal text-ink text-lg sm:text-xl font-editorial leading-snug">
                     {title}
                   </h3>
 
-                  <p className="text-xs text-neutral-400 leading-relaxed font-light">
+                  <p className="text-xs text-ink-400 leading-relaxed font-light">
                     {caption}
                   </p>
 
-                  <div className="pt-3 border-t border-white/10 text-[11px] font-light text-neutral-400">
+                  <div className="pt-3 border-t border-line/10 text-[11px] font-light text-ink-400">
                     {details}
                   </div>
                 </div>
@@ -168,13 +168,13 @@ export const OurWork: React.FC = () => {
               href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#141414] border border-[#c9a24b]/40 hover:border-[#c9a24b] text-white text-xs font-bold uppercase tracking-wider transition-colors"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-surface border border-accent/40 hover:border-accent text-ink text-xs font-bold uppercase tracking-wider transition-colors"
             >
-              <InstagramIcon className="w-4 h-4 text-[#c9a24b]" />
+              <InstagramIcon className="w-4 h-4 text-accent-ink" />
               <span>
                 {language === 'ru' ? 'Больше наших работ в Instagram' : 'See more of our work on Instagram'}
               </span>
-              <span className="text-neutral-400 normal-case tracking-normal font-medium hidden sm:inline">
+              <span className="text-ink-400 normal-case tracking-normal font-medium hidden sm:inline">
                 {SOCIAL_LINKS.instagramHandle}
               </span>
             </a>

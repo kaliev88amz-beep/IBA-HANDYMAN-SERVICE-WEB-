@@ -164,45 +164,45 @@ export const ContactFormSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-[#0d0d0d] border-b border-[#c9a24b]/20 text-white relative">
+    <section id="contact" className="py-20 sm:py-28 bg-page border-b border-accent/20 text-ink relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#141414] text-[#c9a24b] border border-[#c9a24b]/30 text-xs font-bold uppercase tracking-widest mb-4">
-            <Send className="w-3.5 h-3.5 text-[#c9a24b]" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-surface text-accent-ink border border-accent/30 text-xs font-bold uppercase tracking-widest mb-4">
+            <Send className="w-3.5 h-3.5 text-accent-ink" />
             <span>{t.contactSection.badge}</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight mb-4 font-editorial">
+          <h2 className="text-3xl sm:text-5xl font-normal text-ink tracking-tight mb-4 font-editorial">
             {t.contactSection.title}
           </h2>
-          <div className="w-16 h-0.5 bg-[#c9a24b] mx-auto mb-4" />
-          <p className="text-xs sm:text-sm text-neutral-400 max-w-xl mx-auto font-light leading-relaxed">
+          <div className="w-16 h-0.5 bg-accent mx-auto mb-4" />
+          <p className="text-xs sm:text-sm text-ink-400 max-w-xl mx-auto font-light leading-relaxed">
             {t.contactSection.subtitle}
           </p>
 
           {/* Active estimate pill if transferred */}
           {currentQuote && (
-            <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#141414] border border-[#c9a24b]/50 text-xs font-bold text-[#c9a24b] shadow-lg">
-              <Sparkles className="w-3.5 h-3.5 text-[#c9a24b]" />
+            <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-accent/50 text-xs font-bold text-accent-ink shadow-lg">
+              <Sparkles className="w-3.5 h-3.5 text-accent-ink" />
               <span>Attached Calculator Estimate: ${currentQuote.total}</span>
             </div>
           )}
         </div>
 
         {/* Form Container */}
-        <div className="dark-card rounded-3xl p-6 sm:p-10 border border-[#c9a24b]/30 shadow-2xl">
+        <div className="dark-card rounded-3xl p-6 sm:p-10 border border-accent/30 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Step 1 Short Form Section */}
             <div>
-              <div className="border-b border-white/10 pb-3 mb-5">
-                <h3 className="font-normal text-white text-lg sm:text-xl font-editorial">
+              <div className="border-b border-line/10 pb-3 mb-5">
+                <h3 className="font-normal text-ink text-lg sm:text-xl font-editorial">
                   {t.contactSection.shortFormHeader}
                 </h3>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-neutral-300 mb-1.5">
+                  <label className="block text-xs font-bold text-ink-300 mb-1.5">
                     {t.contactSection.firstName}
                   </label>
                   <input
@@ -211,17 +211,17 @@ export const ContactFormSection: React.FC = () => {
                     value={firstName}
                     onChange={e => setFirstName(e.target.value)}
                     placeholder="e.g. Alex"
-                    className={`w-full px-3.5 py-2.5 text-xs rounded-xl border bg-[#121212] text-white focus:outline-hidden focus:ring-2 focus:ring-[#c9a24b] font-medium ${
-                      formErrors.firstName ? 'border-rose-400 bg-rose-950/20' : 'border-white/15 focus:border-[#c9a24b]'
+                    className={`w-full px-3.5 py-2.5 text-xs rounded-xl border bg-surface text-ink focus:outline-hidden focus:ring-2 focus:ring-accent font-medium ${
+                      formErrors.firstName ? 'border-rose-400 bg-rose-950/20' : 'border-line/15 focus:border-accent'
                     }`}
                   />
                   {formErrors.firstName && (
-                    <span className="text-[11px] text-rose-400 mt-1 block">{formErrors.firstName}</span>
+                    <span className="text-[11px] text-bad-strong mt-1 block">{formErrors.firstName}</span>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-neutral-300 mb-1.5">
+                  <label className="block text-xs font-bold text-ink-300 mb-1.5">
                     {t.contactSection.phone}
                   </label>
                   <input
@@ -230,17 +230,17 @@ export const ContactFormSection: React.FC = () => {
                     value={phone}
                     onChange={e => setPhone(e.target.value)}
                     placeholder="(919) 264-6101"
-                    className={`w-full px-3.5 py-2.5 text-xs rounded-xl border bg-[#121212] text-white focus:outline-hidden focus:ring-2 focus:ring-[#c9a24b] font-medium ${
-                      formErrors.phone ? 'border-rose-400 bg-rose-950/20' : 'border-white/15 focus:border-[#c9a24b]'
+                    className={`w-full px-3.5 py-2.5 text-xs rounded-xl border bg-surface text-ink focus:outline-hidden focus:ring-2 focus:ring-accent font-medium ${
+                      formErrors.phone ? 'border-rose-400 bg-rose-950/20' : 'border-line/15 focus:border-accent'
                     }`}
                   />
                   {formErrors.phone && (
-                    <span className="text-[11px] text-rose-400 mt-1 block">{formErrors.phone}</span>
+                    <span className="text-[11px] text-bad-strong mt-1 block">{formErrors.phone}</span>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-neutral-300 mb-1.5">
+                  <label className="block text-xs font-bold text-ink-300 mb-1.5">
                     {t.contactSection.zip}
                   </label>
                   <input
@@ -250,23 +250,23 @@ export const ContactFormSection: React.FC = () => {
                     onChange={e => setZip(e.target.value.slice(0, 5))}
                     placeholder="27601"
                     maxLength={5}
-                    className={`w-full px-3.5 py-2.5 text-xs rounded-xl border bg-[#121212] text-white focus:outline-hidden focus:ring-2 focus:ring-[#c9a24b] font-medium ${
-                      formErrors.zip ? 'border-rose-400 bg-rose-950/20' : 'border-white/15 focus:border-[#c9a24b]'
+                    className={`w-full px-3.5 py-2.5 text-xs rounded-xl border bg-surface text-ink focus:outline-hidden focus:ring-2 focus:ring-accent font-medium ${
+                      formErrors.zip ? 'border-rose-400 bg-rose-950/20' : 'border-line/15 focus:border-accent'
                     }`}
                   />
                   {formErrors.zip && (
-                    <span className="text-[11px] text-rose-400 mt-1 block">{formErrors.zip}</span>
+                    <span className="text-[11px] text-bad-strong mt-1 block">{formErrors.zip}</span>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-neutral-300 mb-1.5">
+                  <label className="block text-xs font-bold text-ink-300 mb-1.5">
                     {t.contactSection.serviceType}
                   </label>
                   <select
                     value={serviceId}
                     onChange={e => setServiceId(e.target.value)}
-                    className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-white/15 bg-[#121212] focus:outline-hidden focus:ring-2 focus:ring-[#c9a24b] font-medium text-white"
+                    className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-line/15 bg-surface focus:outline-hidden focus:ring-2 focus:ring-accent font-medium text-ink"
                   >
                     {HANDYMAN_SERVICES.map(s => (
                       <option key={s.id} value={s.id}>
@@ -277,7 +277,7 @@ export const ContactFormSection: React.FC = () => {
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-bold text-neutral-300 mb-1.5">
+                  <label className="block text-xs font-bold text-ink-300 mb-1.5">
                     {t.contactSection.description}
                   </label>
                   <textarea
@@ -286,7 +286,7 @@ export const ContactFormSection: React.FC = () => {
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                     placeholder={t.contactSection.descriptionPlaceholder}
-                    className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-white/15 bg-[#121212] focus:outline-hidden focus:ring-2 focus:ring-[#c9a24b] font-medium text-white resize-y placeholder-neutral-500"
+                    className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-line/15 bg-surface focus:outline-hidden focus:ring-2 focus:ring-accent font-medium text-ink resize-y placeholder-neutral-500"
                   />
                 </div>
               </div>
@@ -297,17 +297,17 @@ export const ContactFormSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setShowExtendedFields(!showExtendedFields)}
-                className="w-full py-3 px-4 bg-[#141414] hover:bg-[#1a1a1a] rounded-xl border border-[#c9a24b]/30 flex items-center justify-between text-xs font-bold text-neutral-200 transition-colors cursor-pointer"
+                className="w-full py-3 px-4 bg-surface hover:bg-surface-2 rounded-xl border border-accent/30 flex items-center justify-between text-xs font-bold text-ink-200 transition-colors cursor-pointer"
               >
                 <span>{t.contactSection.expandedFormHeader}</span>
-                {showExtendedFields ? <ChevronUp className="w-4 h-4 text-[#c9a24b]" /> : <ChevronDown className="w-4 h-4 text-[#c9a24b]" />}
+                {showExtendedFields ? <ChevronUp className="w-4 h-4 text-accent-ink" /> : <ChevronDown className="w-4 h-4 text-accent-ink" />}
               </button>
 
               {showExtendedFields && (
-                <div className="mt-4 p-5 sm:p-6 rounded-2xl bg-[#0e0e0e] border border-[#c9a24b]/20 space-y-4 animate-in fade-in duration-150">
+                <div className="mt-4 p-5 sm:p-6 rounded-2xl bg-page-deep border border-accent/20 space-y-4 animate-in fade-in duration-150">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-neutral-300 mb-1.5">
+                      <label className="block text-xs font-bold text-ink-300 mb-1.5">
                         {t.contactSection.lastName}
                       </label>
                       <input
@@ -315,12 +315,12 @@ export const ContactFormSection: React.FC = () => {
                         value={lastName}
                         onChange={e => setLastName(e.target.value)}
                         placeholder="e.g. Miller"
-                        className="w-full px-3 py-2 text-xs rounded-xl border border-white/10 bg-[#141414] text-white font-medium focus:border-[#c9a24b] focus:outline-hidden"
+                        className="w-full px-3 py-2 text-xs rounded-xl border border-line/10 bg-surface text-ink font-medium focus:border-accent focus:outline-hidden"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-neutral-300 mb-1.5">
+                      <label className="block text-xs font-bold text-ink-300 mb-1.5">
                         {t.contactSection.email}
                       </label>
                       <input
@@ -328,12 +328,12 @@ export const ContactFormSection: React.FC = () => {
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         placeholder="alex@example.com"
-                        className="w-full px-3 py-2 text-xs rounded-xl border border-white/10 bg-[#141414] text-white font-medium focus:border-[#c9a24b] focus:outline-hidden"
+                        className="w-full px-3 py-2 text-xs rounded-xl border border-line/10 bg-surface text-ink font-medium focus:border-accent focus:outline-hidden"
                       />
                     </div>
 
                     <div className="sm:col-span-2">
-                      <label className="block text-xs font-bold text-neutral-300 mb-1.5">
+                      <label className="block text-xs font-bold text-ink-300 mb-1.5">
                         {t.contactSection.address}
                       </label>
                       <input
@@ -341,36 +341,36 @@ export const ContactFormSection: React.FC = () => {
                         value={streetAddress}
                         onChange={e => setStreetAddress(e.target.value)}
                         placeholder="123 Main St, Apt 4"
-                        className="w-full px-3 py-2 text-xs rounded-xl border border-white/10 bg-[#141414] text-white font-medium focus:border-[#c9a24b] focus:outline-hidden"
+                        className="w-full px-3 py-2 text-xs rounded-xl border border-line/10 bg-surface text-ink font-medium focus:border-accent focus:outline-hidden"
                       />
                     </div>
                   </div>
 
                   {/* Scheduling Request */}
-                  <div className="p-4 bg-[#141414] rounded-xl border border-white/10 space-y-3">
+                  <div className="p-4 bg-surface rounded-xl border border-line/10 space-y-3">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-bold text-neutral-300 mb-1.5 flex items-center gap-1.5">
-                          <Calendar className="w-3.5 h-3.5 text-[#c9a24b]" />
+                        <label className="block text-xs font-bold text-ink-300 mb-1.5 flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5 text-accent-ink" />
                           <span>{t.contactSection.preferredDate}</span>
                         </label>
                         <input
                           type="date"
                           value={requestedDate}
                           onChange={e => setRequestedDate(e.target.value)}
-                          className="w-full px-3 py-2 text-xs rounded-lg border border-white/10 bg-[#121212] text-white font-medium"
+                          className="w-full px-3 py-2 text-xs rounded-lg border border-line/10 bg-surface text-ink font-medium"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-neutral-300 mb-1.5 flex items-center gap-1.5">
-                          <Clock className="w-3.5 h-3.5 text-[#c9a24b]" />
+                        <label className="block text-xs font-bold text-ink-300 mb-1.5 flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5 text-accent-ink" />
                           <span>{t.contactSection.preferredTime}</span>
                         </label>
                         <select
                           value={requestedTimeSlot}
                           onChange={e => setRequestedTimeSlot(e.target.value as any)}
-                          className="w-full px-3 py-2 text-xs rounded-lg border border-white/10 bg-[#121212] text-white font-medium"
+                          className="w-full px-3 py-2 text-xs rounded-lg border border-line/10 bg-surface text-ink font-medium"
                         >
                           <option value="morning">{t.contactSection.timeMorning}</option>
                           <option value="afternoon">{t.contactSection.timeAfternoon}</option>
@@ -380,14 +380,14 @@ export const ContactFormSection: React.FC = () => {
                     </div>
 
                     {/* Explicit Date Disclaimer */}
-                    <p className="text-[11px] text-[#e4be65] bg-[#1a1712] p-2.5 rounded-lg font-light border border-[#c9a24b]/20">
+                    <p className="text-[11px] text-accent-soft bg-surface p-2.5 rounded-lg font-light border border-accent/20">
                       {t.contactSection.dateDisclaimer}
                     </p>
                   </div>
 
                   {/* Preferred contact method */}
                   <div>
-                    <label className="block text-xs font-bold text-neutral-300 mb-2">
+                    <label className="block text-xs font-bold text-ink-300 mb-2">
                       {t.contactSection.contactMethod}
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -402,8 +402,8 @@ export const ContactFormSection: React.FC = () => {
                           onClick={() => setPreferredContactMethod(m.id as any)}
                           className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${
                             preferredContactMethod === m.id
-                              ? 'bg-[#c9a24b] text-black border-[#c9a24b] shadow-sm'
-                              : 'bg-[#141414] text-neutral-300 border-white/10 hover:border-[#c9a24b]/40'
+                              ? 'bg-accent text-black border-accent shadow-sm'
+                              : 'bg-surface text-ink-300 border-line/10 hover:border-accent/40'
                           }`}
                         >
                           {m.label}
@@ -414,7 +414,7 @@ export const ContactFormSection: React.FC = () => {
 
                   {/* Photos go via WhatsApp (the email service doesn't carry attachments) */}
                   <div>
-                    <label className="block text-xs font-bold text-neutral-300 mb-1">
+                    <label className="block text-xs font-bold text-ink-300 mb-1">
                       {t.contactSection.photosLabel}
                     </label>
                     <a
@@ -425,9 +425,9 @@ export const ContactFormSection: React.FC = () => {
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-2 border-dashed border-[#c9a24b]/30 rounded-xl p-4 bg-[#141414] hover:bg-[#181818] transition-colors flex flex-col items-center gap-1.5 text-xs text-neutral-300 font-medium text-center"
+                      className="border-2 border-dashed border-accent/30 rounded-xl p-4 bg-surface hover:bg-surface-2 transition-colors flex flex-col items-center gap-1.5 text-xs text-ink-300 font-medium text-center"
                     >
-                      <Camera className="w-5 h-5 text-[#c9a24b]" />
+                      <Camera className="w-5 h-5 text-accent-ink" />
                       <span>{t.contactSection.photosUploadHint}</span>
                     </a>
                   </div>
@@ -436,23 +436,23 @@ export const ContactFormSection: React.FC = () => {
             </div>
 
             {/* Separate Unchecked Optional Marketing Consents */}
-            <div className="space-y-2 pt-2 border-t border-white/10">
-              <label className="flex items-start gap-2.5 cursor-pointer text-xs text-neutral-400 select-none font-light">
+            <div className="space-y-2 pt-2 border-t border-line/10">
+              <label className="flex items-start gap-2.5 cursor-pointer text-xs text-ink-400 select-none font-light">
                 <input
                   type="checkbox"
                   checked={optInSms}
                   onChange={e => setOptInSms(e.target.checked)}
-                  className="mt-0.5 rounded border-white/20 text-[#c9a24b] focus:ring-[#c9a24b] accent-[#c9a24b]"
+                  className="mt-0.5 rounded border-line/20 text-accent-ink focus:ring-accent accent-accent"
                 />
                 <span>{t.contactSection.smsConsent}</span>
               </label>
 
-              <label className="flex items-start gap-2.5 cursor-pointer text-xs text-neutral-400 select-none font-light">
+              <label className="flex items-start gap-2.5 cursor-pointer text-xs text-ink-400 select-none font-light">
                 <input
                   type="checkbox"
                   checked={optInMarketingEmail}
                   onChange={e => setOptInMarketingEmail(e.target.checked)}
-                  className="mt-0.5 rounded border-white/20 text-[#c9a24b] focus:ring-[#c9a24b] accent-[#c9a24b]"
+                  className="mt-0.5 rounded border-line/20 text-accent-ink focus:ring-accent accent-accent"
                 />
                 <span>{t.contactSection.emailConsent}</span>
               </label>
@@ -462,7 +462,7 @@ export const ContactFormSection: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4.5 bg-[#c9a24b] hover:bg-[#d8b359] text-black font-black uppercase tracking-wider text-xs sm:text-sm rounded-xl shadow-[0_0_25px_rgba(201,162,75,0.4)] hover:shadow-[0_0_35px_rgba(201,162,75,0.6)] transition-all flex items-center justify-center gap-2 group active:scale-98 cursor-pointer"
+              className="w-full py-4.5 bg-accent hover:bg-accent-hover text-black font-black uppercase tracking-wider text-xs sm:text-sm rounded-xl shadow-[0_0_25px_rgb(var(--accent-rgb)/0.4)] hover:shadow-[0_0_35px_rgb(var(--accent-rgb)/0.6)] transition-all flex items-center justify-center gap-2 group active:scale-98 cursor-pointer"
             >
               <Send className="w-4 h-4 text-black group-hover:translate-x-0.5 transition-transform" />
               <span>
@@ -475,8 +475,8 @@ export const ContactFormSection: React.FC = () => {
             </button>
 
             {submitError && (
-              <div className="p-4 rounded-2xl bg-rose-950/30 border border-rose-500/40 text-xs text-rose-200 flex items-start gap-2.5">
-                <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+              <div className="p-4 rounded-2xl bg-rose-950/30 border border-rose-500/40 text-xs text-bad flex items-start gap-2.5">
+                <AlertCircle className="w-4 h-4 text-bad-strong shrink-0 mt-0.5" />
                 <span>
                   {language === 'ru' ? 'Не удалось отправить заявку. Позвоните нам по ' : "Sorry, we couldn't send your request. Please call us at "}
                   <a href={t.phoneHref} className="font-bold underline">{t.phoneDisplay}</a>
@@ -489,7 +489,7 @@ export const ContactFormSection: React.FC = () => {
         </div>
 
         {/* Social profiles */}
-        <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-xs text-neutral-400">
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-xs text-ink-400">
           <span>
             {language === 'ru'
               ? 'Смотрите наши работы и отзывы в соцсетях:'
@@ -500,22 +500,22 @@ export const ContactFormSection: React.FC = () => {
 
         {/* Submitted confirmation */}
         {submittedLeadId && (
-          <div className="mt-8 p-6 sm:p-7 rounded-3xl bg-[#141414] text-white border border-[#c9a24b]/60 shadow-[0_0_30px_rgba(201,162,75,0.2)] animate-in zoom-in-95 duration-150">
+          <div className="mt-8 p-6 sm:p-7 rounded-3xl bg-surface text-ink border border-accent/60 shadow-[0_0_30px_rgb(var(--accent-rgb)/0.2)] animate-in zoom-in-95 duration-150">
             <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-2xl bg-[#c9a24b] flex items-center justify-center text-black shrink-0 shadow-md">
+              <div className="w-11 h-11 rounded-2xl bg-accent flex items-center justify-center text-black shrink-0 shadow-md">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <div className="space-y-2 flex-1">
-                <h4 className="text-xl font-normal text-white font-editorial">
+                <h4 className="text-xl font-normal text-ink font-editorial">
                   {t.contactSection.successModalTitle}
                 </h4>
-                <p className="text-xs text-neutral-300 leading-relaxed font-light">
+                <p className="text-xs text-ink-300 leading-relaxed font-light">
                   {t.contactSection.successModalMsg}
                 </p>
                 <div className="flex flex-wrap items-center gap-3 pt-3">
                   <button
                     onClick={() => setSubmittedLeadId(null)}
-                    className="px-4 py-2.5 text-xs text-neutral-400 hover:text-white font-medium cursor-pointer"
+                    className="px-4 py-2.5 text-xs text-ink-400 hover:text-ink font-medium cursor-pointer"
                   >
                     {t.contactSection.closeBtn}
                   </button>

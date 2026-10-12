@@ -85,9 +85,9 @@ export const TvMountingHub: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#0d0d0d] min-h-screen text-slate-100">
+    <div className="bg-page min-h-screen text-ink">
       {/* Branded Hub Header */}
-      <div className="bg-[#141414] text-white border-b border-[#FFD400]/20 py-12 sm:py-16 relative overflow-hidden">
+      <div className="bg-surface text-ink border-b border-[#FFD400]/20 py-12 sm:py-16 relative overflow-hidden">
         {/* Ambient Warm Backlight */}
         <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[550px] h-[320px] bg-[#FFD400]/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
@@ -104,27 +104,27 @@ export const TvMountingHub: React.FC = () => {
                 <span>Your TV. Our Expertise.</span>
               </div>
 
-              <p className="text-sm sm:text-base text-neutral-300 max-w-2xl leading-relaxed font-light">
+              <p className="text-sm sm:text-base text-ink-300 max-w-2xl leading-relaxed font-light">
                 Transform your space — one install at a time. Professional TV wall mounting, safe fireplace installations, and clean wire concealment across Raleigh, Cary, Apex, Durham, Chapel Hill & surrounding Triangle areas.
               </p>
 
               {/* 4 Feature Badges from Banner */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
-                <div className="p-2.5 rounded-xl bg-[#0a0a0a] border border-[#FFD400]/20 flex items-center gap-2 text-xs">
-                  <Zap className="w-4 h-4 text-[#FFD400] shrink-0" />
-                  <span className="font-semibold text-neutral-200">Same-Day Service</span>
+                <div className="p-2.5 rounded-xl bg-page-deep border border-[#FFD400]/20 flex items-center gap-2 text-xs">
+                  <Zap className="w-4 h-4 text-tv-ink shrink-0" />
+                  <span className="font-semibold text-ink-200">Same-Day Service</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-[#0a0a0a] border border-[#FFD400]/20 flex items-center gap-2 text-xs">
-                  <CheckCircle2 className="w-4 h-4 text-[#FFD400] shrink-0" />
-                  <span className="font-semibold text-neutral-200">Clean Cable Routing</span>
+                <div className="p-2.5 rounded-xl bg-page-deep border border-[#FFD400]/20 flex items-center gap-2 text-xs">
+                  <CheckCircle2 className="w-4 h-4 text-tv-ink shrink-0" />
+                  <span className="font-semibold text-ink-200">Clean Cable Routing</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-[#0a0a0a] border border-[#FFD400]/20 flex items-center gap-2 text-xs">
+                <div className="p-2.5 rounded-xl bg-page-deep border border-[#FFD400]/20 flex items-center gap-2 text-xs">
                   <IbaTvMountingIcon className="w-4 h-4 shrink-0" houseColor="#FFD400" />
-                  <span className="font-semibold text-neutral-200">Local & Owner-Operated</span>
+                  <span className="font-semibold text-ink-200">Local & Owner-Operated</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-[#0a0a0a] border border-[#FFD400]/20 flex items-center gap-2 text-xs">
-                  <Star className="w-4 h-4 text-[#FFD400] fill-[#FFD400] shrink-0" />
-                  <span className="font-semibold text-neutral-200">5-Star Rated</span>
+                <div className="p-2.5 rounded-xl bg-page-deep border border-[#FFD400]/20 flex items-center gap-2 text-xs">
+                  <Star className="w-4 h-4 text-tv-ink fill-[#FFD400] shrink-0" />
+                  <span className="font-semibold text-ink-200">5-Star Rated</span>
                 </div>
               </div>
 
@@ -138,52 +138,52 @@ export const TvMountingHub: React.FC = () => {
                 </a>
                 <a
                   href="tel:9192646101"
-                  className="px-4 py-3 bg-[#141414] hover:bg-[#1a1a1a] text-[#FFD400] text-xs sm:text-sm font-bold rounded-xl transition-colors flex items-center gap-2 border border-[#FFD400]/30"
+                  className="px-4 py-3 bg-surface hover:bg-surface-2 text-tv-ink text-xs sm:text-sm font-bold rounded-xl transition-colors flex items-center gap-2 border border-[#FFD400]/30"
                 >
                   <Phone className="w-4 h-4" />
                   <span>Call (919) 264-6101</span>
                 </a>
                 <a
                   href="#rates-table"
-                  className="px-4 py-3 bg-white/5 hover:bg-white/10 text-neutral-300 text-xs sm:text-sm font-semibold rounded-xl transition-colors flex items-center gap-2 border border-white/10"
+                  className="px-4 py-3 bg-line/5 hover:bg-line/10 text-ink-300 text-xs sm:text-sm font-semibold rounded-xl transition-colors flex items-center gap-2 border border-line/10"
                 >
-                  <Table className="w-4 h-4 text-[#FFD400]" />
+                  <Table className="w-4 h-4 text-tv-ink" />
                   <span>{t.tvPage.ratesAnchor}</span>
                 </a>
               </div>
             </div>
 
             {/* Right: Golden Banner Card */}
-            <div className="lg:col-span-4 bg-gradient-to-br from-[#1a1712] to-[#141414] border border-[#FFD400]/40 rounded-3xl p-6 text-white shadow-2xl relative">
-              <div className="text-[11px] font-black uppercase tracking-widest text-[#FFD400] mb-1">
+            <div className="lg:col-span-4 bg-gradient-to-br from-surface to-surface border border-[#FFD400]/40 rounded-3xl p-6 text-ink shadow-2xl relative">
+              <div className="text-[11px] font-black uppercase tracking-widest text-tv-ink mb-1">
                 TRANSFORM YOUR SPACE
               </div>
-              <div className="text-xl font-normal text-white mb-3 leading-tight font-editorial">
+              <div className="text-xl font-normal text-ink mb-3 leading-tight font-editorial">
                 ONE INSTALL AT A TIME
               </div>
-              <div className="space-y-2 text-xs font-bold text-neutral-200 bg-black/40 backdrop-blur-xs p-3.5 rounded-2xl border border-white/5">
+              <div className="space-y-2 text-xs font-bold text-ink-200 bg-black/40 backdrop-blur-xs p-3.5 rounded-2xl border border-line/5">
                 <div className="flex justify-between">
-                  <span className="text-neutral-400 font-normal">Standard Mounting:</span>
-                  <span className="font-extrabold text-white">From $129</span>
+                  <span className="text-ink-400 font-normal">Standard Mounting:</span>
+                  <span className="font-extrabold text-ink">From $129</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-400 font-normal">Tilting Mount Install:</span>
-                  <span className="font-extrabold text-white">From $149</span>
+                  <span className="text-ink-400 font-normal">Tilting Mount Install:</span>
+                  <span className="font-extrabold text-ink">From $149</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-400 font-normal">Full-Motion Articulating:</span>
-                  <span className="font-extrabold text-white">From $189</span>
+                  <span className="text-ink-400 font-normal">Full-Motion Articulating:</span>
+                  <span className="font-extrabold text-ink">From $189</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-400 font-normal">In-Wall Wire Concealment:</span>
-                  <span className="font-extrabold text-[#FFD400]">From $99</span>
+                  <span className="text-ink-400 font-normal">In-Wall Wire Concealment:</span>
+                  <span className="font-extrabold text-tv-ink">From $99</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-400 font-normal">Fireplace Mounting:</span>
-                  <span className="font-extrabold text-white">From $229</span>
+                  <span className="text-ink-400 font-normal">Fireplace Mounting:</span>
+                  <span className="font-extrabold text-ink">From $229</span>
                 </div>
               </div>
-              <div className="mt-3 text-[11px] font-semibold text-[#FFD400] text-center tracking-wider uppercase">
+              <div className="mt-3 text-[11px] font-semibold text-tv-ink text-center tracking-wider uppercase">
                 Raleigh • Cary • Apex • Durham • Chapel Hill
               </div>
             </div>
@@ -192,23 +192,23 @@ export const TvMountingHub: React.FC = () => {
       </div>
 
       {/* Calculator Section */}
-      <section id="calculator" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 bg-[#0d0d0d]">
+      <section id="calculator" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 bg-page">
         <div className="mb-12">
-          <div className="flex items-center gap-2 text-xs font-bold text-[#FFD400] uppercase tracking-widest mb-3">
-            <Sparkles className="w-4 h-4 text-[#FFD400]" />
+          <div className="flex items-center gap-2 text-xs font-bold text-tv-ink uppercase tracking-widest mb-3">
+            <Sparkles className="w-4 h-4 text-tv-ink" />
             <span>Interactive Cost Estimator</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight font-editorial">
+          <h2 className="text-3xl sm:text-5xl font-normal text-ink tracking-tight font-editorial">
             {t.tvPage.calcTitle}
           </h2>
           <div className="w-16 h-0.5 bg-[#FFD400] my-4" />
-          <p className="text-xs sm:text-sm text-neutral-400 mt-1 max-w-3xl font-light">
+          <p className="text-xs sm:text-sm text-ink-400 mt-1 max-w-3xl font-light">
             {t.tvPage.calcSubtitle}
           </p>
 
           {/* Pricing Notice */}
-          <div className="mt-5 p-4 rounded-2xl bg-[#141414] border border-[#FFD400]/30 text-[#FFE04D] text-xs flex items-start gap-3 shadow-lg">
-            <Info className="w-4 h-4 text-[#FFD400] shrink-0 mt-0.5" />
+          <div className="mt-5 p-4 rounded-2xl bg-surface border border-[#FFD400]/30 text-tv-ink text-xs flex items-start gap-3 shadow-lg">
+            <Info className="w-4 h-4 text-tv-ink shrink-0 mt-0.5" />
             <span className="font-light">{t.tvPage.demoRatesNotice}</span>
           </div>
         </div>
@@ -218,9 +218,9 @@ export const TvMountingHub: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             {/* Step 1: Screen Size */}
             <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20">
-              <label className="block text-sm font-bold text-white mb-4 flex items-center justify-between">
-                <span className="font-editorial text-lg text-white">{t.tvPage.step1}</span>
-                <span className="text-[11px] font-normal text-neutral-400">Diagonal screen measurement</span>
+              <label className="block text-sm font-bold text-ink mb-4 flex items-center justify-between">
+                <span className="font-editorial text-lg text-ink">{t.tvPage.step1}</span>
+                <span className="text-[11px] font-normal text-ink-400">Diagonal screen measurement</span>
               </label>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -233,12 +233,12 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, tvSize: sizeKey }))}
                       className={`p-3.5 rounded-2xl text-left border text-xs font-semibold transition-all cursor-pointer ${
                         isSelected
-                          ? 'border-[#FFD400] bg-[#FFD400]/15 text-white ring-1 ring-[#FFD400] shadow-[0_0_15px_rgba(255,212,0,0.2)]'
-                          : 'border-white/10 bg-[#141414] text-neutral-300 hover:border-[#FFD400]/40 hover:bg-white/5'
+                          ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] shadow-[0_0_15px_rgba(255,212,0,0.2)]'
+                          : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40 hover:bg-line/5'
                       }`}
                     >
-                      <div className="font-bold text-white text-sm mb-0.5">{sizeData.label}</div>
-                      <div className="text-[11px] text-[#FFD400]">From ${sizeData.price}</div>
+                      <div className="font-bold text-ink text-sm mb-0.5">{sizeData.label}</div>
+                      <div className="text-[11px] text-tv-ink">From ${sizeData.price}</div>
                     </button>
                   );
                 })}
@@ -247,7 +247,7 @@ export const TvMountingHub: React.FC = () => {
 
             {/* Step 2: Wall Material */}
             <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20">
-              <label className="block text-sm font-bold text-white mb-4 font-editorial text-lg">
+              <label className="block text-sm font-bold text-ink mb-4 font-editorial text-lg">
                 {t.tvPage.step2}
               </label>
 
@@ -264,12 +264,12 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, wallMaterial: opt.id }))}
                       className={`p-3.5 rounded-2xl text-left border text-xs transition-all flex items-center justify-between cursor-pointer ${
                         isSelected
-                          ? 'border-[#FFD400] bg-[#FFD400]/15 text-white ring-1 ring-[#FFD400] font-semibold'
-                          : 'border-white/10 bg-[#141414] text-neutral-300 hover:border-[#FFD400]/40 hover:bg-white/5'
+                          ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-semibold'
+                          : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40 hover:bg-line/5'
                       }`}
                     >
                       <span>{label}</span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-white/5 text-[#FFD400] border border-[#FFD400]/20">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-line/5 text-tv-ink border border-[#FFD400]/20">
                         {extra}
                       </span>
                     </button>
@@ -280,7 +280,7 @@ export const TvMountingHub: React.FC = () => {
 
             {/* Step 3: Fireplace */}
             <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20">
-              <label className="block text-sm font-bold text-white mb-4 font-editorial text-lg">
+              <label className="block text-sm font-bold text-ink mb-4 font-editorial text-lg">
                 {t.tvPage.step3}
               </label>
 
@@ -290,12 +290,12 @@ export const TvMountingHub: React.FC = () => {
                   onClick={() => setTv1(prev => ({ ...prev, aboveFireplace: false }))}
                   className={`p-4 rounded-2xl text-left border text-xs transition-all cursor-pointer ${
                     !tv1.aboveFireplace
-                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-white ring-1 ring-[#FFD400] font-bold'
-                      : 'border-white/10 bg-[#141414] text-neutral-300 hover:border-[#FFD400]/40 hover:bg-white/5'
+                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-bold'
+                      : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40 hover:bg-line/5'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <Check className={`w-4 h-4 ${!tv1.aboveFireplace ? 'text-[#FFD400]' : 'text-neutral-500'}`} />
+                    <Check className={`w-4 h-4 ${!tv1.aboveFireplace ? 'text-tv-ink' : 'text-ink-500'}`} />
                     <span>{t.tvPage.fireplaceNo}</span>
                   </div>
                 </button>
@@ -305,12 +305,12 @@ export const TvMountingHub: React.FC = () => {
                   onClick={() => setTv1(prev => ({ ...prev, aboveFireplace: true }))}
                   className={`p-4 rounded-2xl text-left border text-xs transition-all cursor-pointer ${
                     tv1.aboveFireplace
-                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-white ring-1 ring-[#FFD400] font-bold'
-                      : 'border-white/10 bg-[#141414] text-neutral-300 hover:border-[#FFD400]/40 hover:bg-white/5'
+                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-bold'
+                      : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40 hover:bg-line/5'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <Flame className={`w-4 h-4 ${tv1.aboveFireplace ? 'text-[#FFD400]' : 'text-neutral-500'}`} />
+                    <Flame className={`w-4 h-4 ${tv1.aboveFireplace ? 'text-tv-ink' : 'text-ink-500'}`} />
                     <span>{t.tvPage.fireplaceYes}</span>
                   </div>
                 </button>
@@ -319,7 +319,7 @@ export const TvMountingHub: React.FC = () => {
 
             {/* Step 4: Bracket / Mount */}
             <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20">
-              <label className="block text-sm font-bold text-white mb-4 font-editorial text-lg">
+              <label className="block text-sm font-bold text-ink mb-4 font-editorial text-lg">
                 {t.tvPage.step4}
               </label>
 
@@ -330,8 +330,8 @@ export const TvMountingHub: React.FC = () => {
                     onClick={() => setTv1(prev => ({ ...prev, mountOwnership: 'customer_mount' }))}
                     className={`p-3.5 rounded-2xl text-left border text-xs transition-all cursor-pointer ${
                       tv1.mountOwnership === 'customer_mount'
-                        ? 'border-[#FFD400] bg-[#FFD400]/15 text-white ring-1 ring-[#FFD400] font-bold'
-                        : 'border-white/10 bg-[#141414] text-neutral-300 hover:border-[#FFD400]/40'
+                        ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-bold'
+                        : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40'
                     }`}
                   >
                     <span>{t.tvPage.bracketCustomer}</span>
@@ -342,8 +342,8 @@ export const TvMountingHub: React.FC = () => {
                     onClick={() => setTv1(prev => ({ ...prev, mountOwnership: 'handyman_mount' }))}
                     className={`p-3.5 rounded-2xl text-left border text-xs transition-all cursor-pointer ${
                       tv1.mountOwnership === 'handyman_mount'
-                        ? 'border-[#FFD400] bg-[#FFD400]/15 text-white ring-1 ring-[#FFD400] font-bold'
-                        : 'border-white/10 bg-[#141414] text-neutral-300 hover:border-[#FFD400]/40'
+                        ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-bold'
+                        : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40'
                     }`}
                   >
                     <span>{t.tvPage.bracketPro}</span>
@@ -351,18 +351,18 @@ export const TvMountingHub: React.FC = () => {
                 </div>
 
                 {tv1.mountOwnership === 'handyman_mount' && (
-                  <div className="pt-3 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  <div className="pt-3 border-t border-line/10 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     <button
                       type="button"
                       onClick={() => setTv1(prev => ({ ...prev, mountType: 'fixed' }))}
                       className={`p-3 rounded-xl text-left border text-xs transition-all cursor-pointer ${
                         tv1.mountType === 'fixed'
-                          ? 'border-[#FFD400] bg-[#FFD400]/20 text-white font-bold'
-                          : 'border-white/10 bg-[#181818] text-neutral-300 hover:bg-white/5'
+                          ? 'border-[#FFD400] bg-[#FFD400]/20 text-ink font-bold'
+                          : 'border-line/10 bg-surface-2 text-ink-300 hover:bg-line/5'
                       }`}
                     >
-                      <div className="font-bold text-white">Fixed Flat</div>
-                      <div className="text-[10px] text-[#FFD400]">+$20</div>
+                      <div className="font-bold text-ink">Fixed Flat</div>
+                      <div className="text-[10px] text-tv-ink">+$20</div>
                     </button>
 
                     <button
@@ -370,12 +370,12 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, mountType: 'tilting' }))}
                       className={`p-3 rounded-xl text-left border text-xs transition-all cursor-pointer ${
                         tv1.mountType === 'tilting'
-                          ? 'border-[#FFD400] bg-[#FFD400]/20 text-white font-bold'
-                          : 'border-white/10 bg-[#181818] text-neutral-300 hover:bg-white/5'
+                          ? 'border-[#FFD400] bg-[#FFD400]/20 text-ink font-bold'
+                          : 'border-line/10 bg-surface-2 text-ink-300 hover:bg-line/5'
                       }`}
                     >
-                      <div className="font-bold text-white">Tilting (Popular)</div>
-                      <div className="text-[10px] text-[#FFD400]">+$20 ($149 total)</div>
+                      <div className="font-bold text-ink">Tilting (Popular)</div>
+                      <div className="text-[10px] text-tv-ink">+$20 ($149 total)</div>
                     </button>
 
                     <button
@@ -383,12 +383,12 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, mountType: 'full_motion' }))}
                       className={`p-3 rounded-xl text-left border text-xs transition-all cursor-pointer ${
                         tv1.mountType === 'full_motion'
-                          ? 'border-[#FFD400] bg-[#FFD400]/20 text-white font-bold'
-                          : 'border-white/10 bg-[#181818] text-neutral-300 hover:bg-white/5'
+                          ? 'border-[#FFD400] bg-[#FFD400]/20 text-ink font-bold'
+                          : 'border-line/10 bg-surface-2 text-ink-300 hover:bg-line/5'
                       }`}
                     >
-                      <div className="font-bold text-white">Full-Motion Swivel</div>
-                      <div className="text-[10px] text-[#FFD400]">+$60 ($189 total)</div>
+                      <div className="font-bold text-ink">Full-Motion Swivel</div>
+                      <div className="text-[10px] text-tv-ink">+$60 ($189 total)</div>
                     </button>
                   </div>
                 )}
@@ -397,7 +397,7 @@ export const TvMountingHub: React.FC = () => {
 
             {/* Step 5: Wire Management & NEC disclaimer */}
             <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20">
-              <label className="block text-sm font-bold text-white mb-4 font-editorial text-lg">
+              <label className="block text-sm font-bold text-ink mb-4 font-editorial text-lg">
                 {t.tvPage.step5}
               </label>
 
@@ -415,12 +415,12 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, wireManagement: item.id }))}
                       className={`w-full p-3.5 rounded-2xl text-left border text-xs transition-all flex items-center justify-between cursor-pointer ${
                         isSelected
-                          ? 'border-[#FFD400] bg-[#FFD400]/15 text-white ring-1 ring-[#FFD400] font-semibold'
-                          : 'border-white/10 bg-[#141414] text-neutral-300 hover:border-[#FFD400]/40 hover:bg-white/5'
+                          ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-semibold'
+                          : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40 hover:bg-line/5'
                       }`}
                     >
                       <span>{item.label}</span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-white/5 text-[#FFD400] border border-[#FFD400]/20">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-line/5 text-tv-ink border border-[#FFD400]/20">
                         {item.cost}
                       </span>
                     </button>
@@ -429,15 +429,15 @@ export const TvMountingHub: React.FC = () => {
               </div>
 
               {/* Electrical Code Disclaimer */}
-              <div className="p-3.5 bg-[#141414] border border-[#FFD400]/20 rounded-2xl text-[11px] text-neutral-400 leading-relaxed flex items-start gap-2.5 font-light">
-                <ShieldAlert className="w-4 h-4 text-[#FFD400] shrink-0 mt-0.5" />
+              <div className="p-3.5 bg-surface border border-[#FFD400]/20 rounded-2xl text-[11px] text-ink-400 leading-relaxed flex items-start gap-2.5 font-light">
+                <ShieldAlert className="w-4 h-4 text-tv-ink shrink-0 mt-0.5" />
                 <span>{t.tvPage.wireDisclaimer}</span>
               </div>
             </div>
 
             {/* Step 6: Add-ons & Second TV Toggle */}
             <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20 space-y-4">
-              <label className="block text-sm font-bold text-white font-editorial text-lg">
+              <label className="block text-sm font-bold text-ink font-editorial text-lg">
                 {t.tvPage.step6}
               </label>
 
@@ -447,12 +447,12 @@ export const TvMountingHub: React.FC = () => {
                   onClick={() => setTv1(prev => ({ ...prev, soundbar: !prev.soundbar }))}
                   className={`p-3.5 rounded-2xl text-left border text-xs transition-all flex items-center justify-between cursor-pointer ${
                     tv1.soundbar
-                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-white font-bold ring-1 ring-[#FFD400]'
-                      : 'border-white/10 bg-[#141414] text-neutral-300 hover:border-[#FFD400]/40'
+                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink font-bold ring-1 ring-[#FFD400]'
+                      : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40'
                   }`}
                 >
                   <span>{t.tvPage.addonSoundbar}</span>
-                  <div className={`w-4 h-4 rounded border flex items-center justify-center ${tv1.soundbar ? 'bg-[#FFD400] border-[#FFD400]' : 'border-neutral-600'}`}>
+                  <div className={`w-4 h-4 rounded border flex items-center justify-center ${tv1.soundbar ? 'bg-[#FFD400] border-[#FFD400]' : 'border-ink-600'}`}>
                     {tv1.soundbar && <Check className="w-3 h-3 text-black" />}
                   </div>
                 </button>
@@ -462,38 +462,38 @@ export const TvMountingHub: React.FC = () => {
                   onClick={() => setTv1(prev => ({ ...prev, floatingShelf: !prev.floatingShelf }))}
                   className={`p-3.5 rounded-2xl text-left border text-xs transition-all flex items-center justify-between cursor-pointer ${
                     tv1.floatingShelf
-                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-white font-bold ring-1 ring-[#FFD400]'
-                      : 'border-white/10 bg-[#141414] text-neutral-300 hover:border-[#FFD400]/40'
+                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink font-bold ring-1 ring-[#FFD400]'
+                      : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40'
                   }`}
                 >
                   <span>{t.tvPage.addonShelf}</span>
-                  <div className={`w-4 h-4 rounded border flex items-center justify-center ${tv1.floatingShelf ? 'bg-[#FFD400] border-[#FFD400]' : 'border-neutral-600'}`}>
+                  <div className={`w-4 h-4 rounded border flex items-center justify-center ${tv1.floatingShelf ? 'bg-[#FFD400] border-[#FFD400]' : 'border-ink-600'}`}>
                     {tv1.floatingShelf && <Check className="w-3 h-3 text-black" />}
                   </div>
                 </button>
               </div>
 
               {/* Second TV Toggle Button */}
-              <div className="pt-3 border-t border-white/10">
+              <div className="pt-3 border-t border-line/10">
                 {!hasSecondTv ? (
                   <button
                     type="button"
                     onClick={() => setHasSecondTv(true)}
-                    className="w-full py-3 px-4 bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-[#FFD400]/30 rounded-2xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full py-3 px-4 bg-line/5 hover:bg-line/10 text-ink-300 hover:text-ink border border-[#FFD400]/30 rounded-2xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
-                    <Plus className="w-4 h-4 text-[#FFD400]" />
+                    <Plus className="w-4 h-4 text-tv-ink" />
                     <span>{t.tvPage.secondTvPrompt}</span>
                   </button>
                 ) : (
-                  <div className="p-5 bg-[#181818] border border-[#FFD400]/30 rounded-2xl space-y-4">
+                  <div className="p-5 bg-surface-2 border border-[#FFD400]/30 rounded-2xl space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white font-editorial">
+                      <span className="text-xs font-bold text-ink font-editorial">
                         {t.tvPage.secondTvDetails}
                       </span>
                       <button
                         type="button"
                         onClick={() => setHasSecondTv(false)}
-                        className="text-xs text-rose-400 hover:text-rose-300 font-semibold flex items-center gap-1 cursor-pointer"
+                        className="text-xs text-bad-strong hover:text-bad font-semibold flex items-center gap-1 cursor-pointer"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                         <span>Remove TV 2</span>
@@ -502,11 +502,11 @@ export const TvMountingHub: React.FC = () => {
 
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <span className="text-[11px] text-neutral-400 block mb-1">TV 2 Screen Size:</span>
+                        <span className="text-[11px] text-ink-400 block mb-1">TV 2 Screen Size:</span>
                         <select
                           value={tv2.tvSize}
                           onChange={e => setTv2(prev => ({ ...prev, tvSize: e.target.value }))}
-                          className="w-full text-xs p-2.5 rounded-xl border border-white/10 bg-[#121212] text-white"
+                          className="w-full text-xs p-2.5 rounded-xl border border-line/10 bg-surface text-ink"
                         >
                           {Object.entries(pricing.tvSizes).map(([k, v]) => (
                             <option key={k} value={k}>
@@ -517,11 +517,11 @@ export const TvMountingHub: React.FC = () => {
                       </div>
 
                       <div>
-                        <span className="text-[11px] text-neutral-400 block mb-1">TV 2 Wall Material:</span>
+                        <span className="text-[11px] text-ink-400 block mb-1">TV 2 Wall Material:</span>
                         <select
                           value={tv2.wallMaterial}
                           onChange={e => setTv2(prev => ({ ...prev, wallMaterial: e.target.value as WallMaterial }))}
-                          className="w-full text-xs p-2.5 rounded-xl border border-white/10 bg-[#121212] text-white"
+                          className="w-full text-xs p-2.5 rounded-xl border border-line/10 bg-surface text-ink"
                         >
                           {wallOptions.map(opt => (
                             <option key={opt.id} value={opt.id}>
@@ -538,7 +538,7 @@ export const TvMountingHub: React.FC = () => {
 
             {/* ZIP code field */}
             <div className="dark-card rounded-3xl p-5 sm:p-6 border border-[#FFD400]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <label className="text-xs font-bold text-neutral-300">
+              <label className="text-xs font-bold text-ink-300">
                 {t.tvPage.zipLabel}
               </label>
               <input
@@ -547,7 +547,7 @@ export const TvMountingHub: React.FC = () => {
                 onChange={e => setZipCode(e.target.value.slice(0, 5))}
                 placeholder="27601"
                 maxLength={5}
-                className="w-32 px-3.5 py-2 text-xs font-bold text-white bg-[#141414] border border-[#FFD400]/30 rounded-xl text-center focus:outline-hidden focus:ring-2 focus:ring-[#FFD400]"
+                className="w-32 px-3.5 py-2 text-xs font-bold text-ink bg-surface border border-[#FFD400]/30 rounded-xl text-center focus:outline-hidden focus:ring-2 focus:ring-[#FFD400]"
               />
             </div>
           </div>
@@ -555,11 +555,11 @@ export const TvMountingHub: React.FC = () => {
           {/* Right Column: Live Estimate Breakdown */}
           <div className="lg:col-span-5 sticky top-28 space-y-4">
             <div className="dark-card rounded-3xl p-7 sm:p-8 border border-[#FFD400]/35 shadow-2xl">
-              <div className="flex items-center justify-between pb-5 border-b border-white/10">
-                <h3 className="font-normal text-white text-lg sm:text-xl font-editorial">
+              <div className="flex items-center justify-between pb-5 border-b border-line/10">
+                <h3 className="font-normal text-ink text-lg sm:text-xl font-editorial">
                   {t.tvPage.calcSummaryTitle}
                 </h3>
-                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFD400]/15 text-[#FFD400] border border-[#FFD400]/30">
+                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFD400]/15 text-tv-ink border border-[#FFD400]/30">
                   Itemized
                 </span>
               </div>
@@ -573,14 +573,14 @@ export const TvMountingHub: React.FC = () => {
                   return (
                     <div key={idx} className="flex items-start justify-between gap-3 text-xs">
                       <div className="space-y-0.5">
-                        <div className="font-semibold text-neutral-200">{itemName}</div>
+                        <div className="font-semibold text-ink-200">{itemName}</div>
                         {itemNote && (
-                          <div className="text-[10px] text-neutral-500 leading-tight font-light">{itemNote}</div>
+                          <div className="text-[10px] text-ink-500 leading-tight font-light">{itemNote}</div>
                         )}
                       </div>
-                      <div className="font-bold text-white shrink-0">
+                      <div className="font-bold text-ink shrink-0">
                         {item.isCustomQuote || item.price === null ? (
-                          <span className="text-[#FFD400] font-semibold text-[11px]">Quote Needed</span>
+                          <span className="text-tv-ink font-semibold text-[11px]">Quote Needed</span>
                         ) : (
                           `$${item.price}`
                         )}
@@ -592,33 +592,33 @@ export const TvMountingHub: React.FC = () => {
 
               {/* Minimum order note */}
               {quoteResult.minimumOrderFee > 0 && (
-                <div className="p-3 bg-[#181818] rounded-xl text-[11px] text-[#FFD400] border border-[#FFD400]/20 mb-3">
+                <div className="p-3 bg-surface-2 rounded-xl text-[11px] text-tv-ink border border-[#FFD400]/20 mb-3">
                   {t.tvPage.minimumOrderNotice.replace('{min}', pricing.minimumOrder.toString())}
                 </div>
               )}
 
               {/* Custom item alert */}
               {quoteResult.hasCustomItems && (
-                <div className="p-3 bg-[#181818] rounded-xl text-[11px] text-neutral-300 border border-white/10 mb-3 flex items-start gap-2">
-                  <AlertTriangle className="w-4 h-4 text-[#FFD400] shrink-0 mt-0.5" />
+                <div className="p-3 bg-surface-2 rounded-xl text-[11px] text-ink-300 border border-line/10 mb-3 flex items-start gap-2">
+                  <AlertTriangle className="w-4 h-4 text-tv-ink shrink-0 mt-0.5" />
                   <span className="font-light">{t.tvPage.customQuoteFlag}</span>
                 </div>
               )}
 
               {/* Total Box */}
-              <div className="pt-5 border-t border-white/10 space-y-1 mb-6">
+              <div className="pt-5 border-t border-line/10 space-y-1 mb-6">
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xs text-neutral-400 uppercase tracking-wider">{t.calculator.subtotal}:</span>
+                  <span className="text-xs text-ink-400 uppercase tracking-wider">{t.calculator.subtotal}:</span>
                   <div className="text-right">
-                    <span className="text-3xl sm:text-4xl font-bold text-[#FFD400] font-editorial">
+                    <span className="text-3xl sm:text-4xl font-bold text-tv-ink font-editorial">
                       ${quoteResult.total}
                     </span>
                     {quoteResult.hasCustomItems && (
-                      <span className="text-xs text-[#FFD400] font-bold ml-1.5">+ custom</span>
+                      <span className="text-xs text-tv-ink font-bold ml-1.5">+ custom</span>
                     )}
                   </div>
                 </div>
-                <p className="text-[10px] text-neutral-500 text-right font-light">
+                <p className="text-[10px] text-ink-500 text-right font-light">
                   {language === 'ru' ? quoteResult.disclaimerRu : quoteResult.disclaimerEn}
                 </p>
               </div>
@@ -638,62 +638,62 @@ export const TvMountingHub: React.FC = () => {
       </section>
 
       {/* Reference Pricing Table Section */}
-      <section id="rates-table" className="border-t border-[#FFD400]/20 bg-[#0a0a0a] py-16 sm:py-24">
+      <section id="rates-table" className="border-t border-[#FFD400]/20 bg-page-deep py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mb-10">
-            <h3 className="text-2xl sm:text-4xl font-normal text-white mb-3 font-editorial">
+            <h3 className="text-2xl sm:text-4xl font-normal text-ink mb-3 font-editorial">
               {t.tvPage.ratesTableTitle}
             </h3>
             <div className="w-16 h-0.5 bg-[#FFD400] mb-4" />
-            <p className="text-xs sm:text-sm text-neutral-400 font-light">
+            <p className="text-xs sm:text-sm text-ink-400 font-light">
               {t.tvPage.ratesTableNote}
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-[#FFD400]/20 bg-[#141414]">
+          <div className="overflow-x-auto rounded-2xl border border-[#FFD400]/20 bg-surface">
             <table className="w-full text-left text-xs">
-              <thead className="bg-[#0f0f0f] text-[#FFD400] font-bold border-b border-[#FFD400]/20 uppercase tracking-wider text-[11px]">
+              <thead className="bg-page-deep text-tv-ink font-bold border-b border-[#FFD400]/20 uppercase tracking-wider text-[11px]">
                 <tr>
                   <th className="py-4 px-5">Service Component</th>
                   <th className="py-4 px-5">Scope Included</th>
                   <th className="py-4 px-5">Reference Rate</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 text-neutral-300">
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 px-5 font-semibold text-white">Standard TV Mounting (up to 55")</td>
-                  <td className="py-3.5 px-5 font-light text-neutral-400">Drywall studs, leveling, customer mount installation</td>
-                  <td className="py-3.5 px-5 font-bold text-[#FFD400]">$129</td>
+              <tbody className="divide-y divide-line/5 text-ink-300">
+                <tr className="hover:bg-line/5 transition-colors">
+                  <td className="py-3.5 px-5 font-semibold text-ink">Standard TV Mounting (up to 55")</td>
+                  <td className="py-3.5 px-5 font-light text-ink-400">Drywall studs, leveling, customer mount installation</td>
+                  <td className="py-3.5 px-5 font-bold text-tv-ink">$129</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 px-5 font-semibold text-white">Tilting Mount Installation</td>
-                  <td className="py-3.5 px-5 font-light text-neutral-400">Master tilting mount included + stud mounting</td>
-                  <td className="py-3.5 px-5 font-bold text-[#FFD400]">$149</td>
+                <tr className="hover:bg-line/5 transition-colors">
+                  <td className="py-3.5 px-5 font-semibold text-ink">Tilting Mount Installation</td>
+                  <td className="py-3.5 px-5 font-light text-ink-400">Master tilting mount included + stud mounting</td>
+                  <td className="py-3.5 px-5 font-bold text-tv-ink">$149</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 px-5 font-semibold text-white">Full-Motion Articulating Mounting</td>
-                  <td className="py-3.5 px-5 font-light text-neutral-400">Heavy-duty dual-arm swivel mount included</td>
-                  <td className="py-3.5 px-5 font-bold text-[#FFD400]">$189</td>
+                <tr className="hover:bg-line/5 transition-colors">
+                  <td className="py-3.5 px-5 font-semibold text-ink">Full-Motion Articulating Mounting</td>
+                  <td className="py-3.5 px-5 font-light text-ink-400">Heavy-duty dual-arm swivel mount included</td>
+                  <td className="py-3.5 px-5 font-bold text-tv-ink">$189</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 px-5 font-semibold text-white">In-Wall Wire Concealment</td>
-                  <td className="py-3.5 px-5 font-light text-neutral-400">Low-voltage signal cables pass-through kit</td>
-                  <td className="py-3.5 px-5 font-bold text-[#FFD400]">$99</td>
+                <tr className="hover:bg-line/5 transition-colors">
+                  <td className="py-3.5 px-5 font-semibold text-ink">In-Wall Wire Concealment</td>
+                  <td className="py-3.5 px-5 font-light text-ink-400">Low-voltage signal cables pass-through kit</td>
+                  <td className="py-3.5 px-5 font-bold text-tv-ink">$99</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 px-5 font-semibold text-white">Fireplace TV Mounting</td>
-                  <td className="py-3.5 px-5 font-light text-neutral-400">Elevated installation, thermal clearance check</td>
-                  <td className="py-3.5 px-5 font-bold text-[#FFD400]">$229</td>
+                <tr className="hover:bg-line/5 transition-colors">
+                  <td className="py-3.5 px-5 font-semibold text-ink">Fireplace TV Mounting</td>
+                  <td className="py-3.5 px-5 font-light text-ink-400">Elevated installation, thermal clearance check</td>
+                  <td className="py-3.5 px-5 font-bold text-tv-ink">$229</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 px-5 font-semibold text-white">Soundbar Installation</td>
-                  <td className="py-3.5 px-5 font-light text-neutral-400">Mounted beneath display with precision alignment</td>
-                  <td className="py-3.5 px-5 font-bold text-[#FFD400]">$79</td>
+                <tr className="hover:bg-line/5 transition-colors">
+                  <td className="py-3.5 px-5 font-semibold text-ink">Soundbar Installation</td>
+                  <td className="py-3.5 px-5 font-light text-ink-400">Mounted beneath display with precision alignment</td>
+                  <td className="py-3.5 px-5 font-bold text-tv-ink">$79</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 px-5 font-semibold text-white">Brick / Concrete / Tile Surface</td>
-                  <td className="py-3.5 px-5 font-light text-neutral-400">Carbide masonry drilling, heavy-duty sleeve anchors</td>
-                  <td className="py-3.5 px-5 font-bold text-[#FFD400]">+$45 – +$55</td>
+                <tr className="hover:bg-line/5 transition-colors">
+                  <td className="py-3.5 px-5 font-semibold text-ink">Brick / Concrete / Tile Surface</td>
+                  <td className="py-3.5 px-5 font-light text-ink-400">Carbide masonry drilling, heavy-duty sleeve anchors</td>
+                  <td className="py-3.5 px-5 font-bold text-tv-ink">+$45 – +$55</td>
                 </tr>
               </tbody>
             </table>
