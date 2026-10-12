@@ -13,8 +13,8 @@ export interface LogoProps {
  * 1. IBA HANDYMAN SERVICES - OFFICIAL BLUE LOGO (СИНИЙ ЛОГОТИП КОМПАНИИ)
  * ==============================================================================
  * Color Palette:
- * - Primary Electric / Sapphire Blue: #00A3E8 / #2563EB
- * - Deep Royal Craftsman Blue: #1D4ED8
+ * - IBA Blue (logo mark): #03A9F4
+ * - Charcoal (logo lettering): #2B2B2B
  * - Crisp High-Contrast White: #FFFFFF
  * - Luxury Dark Backdrop: #0D0D0D / #141414
  * - Muted Gold Accent: #C9A24B
@@ -354,9 +354,9 @@ export const BrandIdentityModal: React.FC<{
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* 1. BLUE HANDYMAN LOGO */}
-          <div className="p-6 rounded-2xl bg-[#0d0d0d] border border-[#2563EB]/40 flex flex-col justify-between">
+          <div className="p-6 rounded-2xl bg-[#0d0d0d] border border-[#03A9F4]/40 flex flex-col justify-between">
             <div>
-              <div className="inline-block px-3 py-1 rounded-full bg-[#2563EB]/20 text-[#38BDF8] text-[11px] font-bold uppercase tracking-wider mb-4 border border-[#2563EB]/30">
+              <div className="inline-block px-3 py-1 rounded-full bg-[#03A9F4]/15 text-[#03A9F4] text-[11px] font-bold uppercase tracking-wider mb-4 border border-[#03A9F4]/30">
                 {language === 'ru' ? 'Основной бренд сервиса' : 'Primary Service Brand'}
               </div>
 
@@ -380,17 +380,17 @@ export const BrandIdentityModal: React.FC<{
                 {language === 'ru' ? 'Цветовая гамма' : 'Color Palette'}:
               </div>
               <div className="grid grid-cols-3 gap-2 text-center text-[10px]">
-                <div className="p-2 rounded-lg bg-[#00A3E8]/20 border border-[#00A3E8]">
-                  <div className="font-bold text-[#38BDF8]">#00A3E8</div>
-                  <div className="text-slate-400">Cyan Blue</div>
+                <div className="p-2 rounded-lg bg-[#03A9F4]/20 border border-[#03A9F4]">
+                  <div className="font-bold text-[#03A9F4]">#03A9F4</div>
+                  <div className="text-slate-400">IBA Blue</div>
                 </div>
-                <div className="p-2 rounded-lg bg-[#2563EB]/20 border border-[#2563EB]">
-                  <div className="font-bold text-[#60A5FA]">#2563EB</div>
-                  <div className="text-slate-400">Royal Blue</div>
+                <div className="p-2 rounded-lg bg-[#2B2B2B] border border-white/25">
+                  <div className="font-bold text-slate-200">#2B2B2B</div>
+                  <div className="text-slate-400">Charcoal</div>
                 </div>
-                <div className="p-2 rounded-lg bg-[#1E40AF]/20 border border-[#1E40AF]">
-                  <div className="font-bold text-[#93C5FD]">#1E40AF</div>
-                  <div className="text-slate-400">Cobalt</div>
+                <div className="p-2 rounded-lg bg-white border border-white">
+                  <div className="font-bold text-[#2B2B2B]">#FFFFFF</div>
+                  <div className="text-slate-500">White</div>
                 </div>
               </div>
             </div>
