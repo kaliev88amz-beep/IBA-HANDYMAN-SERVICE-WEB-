@@ -131,89 +131,40 @@ export const IbaHandymanLogo: React.FC<LogoProps> = ({
 
 /**
  * ==============================================================================
- * 2. IBA TV MOUNTING - OFFICIAL GOLD / GRAPHITE LOGO (ЛОГОТИП TV MOUNTING)
+ * 2. IBA TV MOUNTING - OFFICIAL YELLOW / BLACK LOGO (ЛОГОТИП TV MOUNTING)
  * ==============================================================================
+ * Source artwork: /images/iba-tv-mounting-logo.webp (1254x1254, black background).
+ * `mix-blend-lighten` lets the black background melt into the dark site panels.
  * Color Palette:
- * - Primary Warm Gold / Amber: #C9A24B / #FBBF24 / #EAB308
- * - Deep Luxury Graphite: #141414 / #1E293B
- * - Pure Architectural White: #FFFFFF
- * - Tagline Accent: Muted Gold (#C9A24B)
+ * - Signal Yellow: #FFD400
+ * - Black: #000000
+ * - White: #FFFFFF
  */
+const TV_LOGO_SRC = '/images/iba-tv-mounting-logo.webp';
+const TV_YELLOW = '#FFD400';
+
 export const IbaTvMountingIcon: React.FC<{
   className?: string;
   houseColor?: string;
   toolsColor?: string;
-}> = ({
-  className = 'w-10 h-10',
-  houseColor = '#C9A24B',
-  toolsColor = '#FFFFFF',
-}) => {
+}> = ({ className = 'w-10 h-10' }) => {
+  // Crops the TV-on-arm mark (x 285-1045, y 70-665 of the artwork)
   return (
-    <svg
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-label="IBA TV Mounting Gold Icon"
+    <span
+      className={`inline-flex items-center justify-center ${className}`}
+      role="img"
+      aria-label="IBA TV Mounting Icon"
     >
-      <defs>
-        <linearGradient id="ibaGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F6E05E" />
-          <stop offset="50%" stopColor="#C9A24B" />
-          <stop offset="100%" stopColor="#9F7D23" />
-        </linearGradient>
-
-        <filter id="goldSoftGlow" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#C9A24B" floodOpacity="0.4" />
-        </filter>
-      </defs>
-
-      {/* Chimney on the right roof slope */}
-      <path
-        d="M 64 21 L 72 21 L 72 38 L 64 33 Z"
-        fill="url(#ibaGoldGrad)"
+      <span
+        className="block w-full aspect-[760/595] mix-blend-lighten"
+        style={{
+          backgroundImage: `url(${TV_LOGO_SRC})`,
+          backgroundSize: '165% auto',
+          backgroundPosition: '57.7% 10.6%',
+          backgroundRepeat: 'no-repeat',
+        }}
       />
-
-      {/* Architectural House / Roof Silhouette */}
-      <path
-        d="M 50 11 L 85 39 L 80 45 L 75 42 L 75 76 L 25 76 L 25 42 L 20 45 L 15 39 Z"
-        fill="none"
-        stroke="url(#ibaGoldGrad)"
-        strokeWidth="7"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-        filter="url(#goldSoftGlow)"
-      />
-
-      {/* Crossed Precision Handyman Tools (Wrench & Screwdriver) */}
-      <g stroke={toolsColor} strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-        {/* Wrench Shaft (diagonal bottom-left to top-right) */}
-        <path d="M 36 64 L 60 40" />
-        {/* Wrench Open Jaw Head */}
-        <path
-          d="M 57 37 C 59 34, 63 34, 65 36 C 67 38, 67 42, 65 44"
-          fill="none"
-          strokeWidth="3.2"
-        />
-        {/* Wrench Ring Handle */}
-        <circle cx="34" cy="66" r="2.5" fill={toolsColor} />
-
-        {/* Screwdriver Shaft (diagonal top-left to bottom-right) */}
-        <path d="M 40 40 L 64 64" />
-        {/* Screwdriver Flat Magnetic Tip */}
-        <path d="M 37 37 L 43 43" strokeWidth="4" />
-        {/* Screwdriver Hex Grip Handle */}
-        <rect
-          x="58"
-          y="58"
-          width="8"
-          height="6"
-          rx="2"
-          transform="rotate(45 58 58)"
-          fill={toolsColor}
-        />
-      </g>
-    </svg>
+    </span>
   );
 };
 
@@ -229,87 +180,51 @@ export const IbaTvMountingLogo: React.FC<LogoProps> = ({
 
   if (layout === 'stacked') {
     return (
-      <div className={`flex flex-col items-center text-center ${className}`}>
-        <div className="relative p-2.5 rounded-2xl bg-gradient-to-b from-[#1a1712] to-[#0d0d0d] border border-[#c9a24b]/40 shadow-[0_0_25px_rgba(201,162,75,0.25)]">
-          <IbaTvMountingIcon
-            className={
-              size === 'xl' ? 'w-24 h-24' : size === 'lg' ? 'w-20 h-20' : size === 'sm' ? 'w-12 h-12' : 'w-16 h-16'
-            }
-            houseColor="#C9A24B"
-            toolsColor={isDark ? '#FFFFFF' : '#1E293B'}
-          />
-        </div>
-        <div className="mt-3">
-          <div
-            className={`font-black tracking-tight leading-none ${
-              size === 'xl' ? 'text-4xl' : size === 'lg' ? 'text-3xl' : 'text-2xl'
-            } ${textColor}`}
-          >
-            IBA
-          </div>
-          <div
-            className={`font-black tracking-tight uppercase leading-none mt-1.5 gold-gradient-text ${
-              size === 'xl' ? 'text-2xl' : size === 'lg' ? 'text-xl' : 'text-lg'
-            }`}
-          >
-            TV MOUNTING
-          </div>
-          {showSubtitle && (
-            <div className="flex items-center justify-center gap-2 mt-2">
-              <span className="w-5 h-0.5 bg-[#C9A24B]" />
-              <span
-                className={`text-[10px] sm:text-xs font-semibold tracking-wider ${
-                  isDark ? 'text-slate-300' : 'text-slate-600'
-                }`}
-              >
-                by IBA Handyman Services
-              </span>
-              <span className="w-5 h-0.5 bg-[#C9A24B]" />
-            </div>
-          )}
-        </div>
-      </div>
+      <img
+        src={TV_LOGO_SRC}
+        alt="IBA TV Mounting by IBA Handyman Services"
+        className={`mix-blend-lighten h-auto ${
+          className || (size === 'xl' ? 'w-72' : size === 'lg' ? 'w-56' : size === 'sm' ? 'w-32' : 'w-44')
+        }`}
+      />
     );
   }
 
   // Horizontal layout
   return (
-    <div className={`flex items-center gap-3 sm:gap-3.5 ${className}`}>
-      <div className="relative p-1.5 rounded-xl bg-gradient-to-br from-[#1a1712] to-[#0d0d0d] border border-[#c9a24b]/40 shadow-[0_0_15px_rgba(201,162,75,0.25)] shrink-0">
-        <IbaTvMountingIcon
-          className={size === 'lg' ? 'w-14 h-14' : size === 'sm' ? 'w-8 h-8' : 'w-11 h-11'}
-          houseColor="#C9A24B"
-          toolsColor={isDark ? '#FFFFFF' : '#0F172A'}
-        />
-      </div>
+    <div className={`flex items-center gap-3 sm:gap-3.5 font-['Montserrat',sans-serif] ${className}`}>
+      <IbaTvMountingIcon
+        className={`shrink-0 ${size === 'lg' ? 'w-20' : size === 'sm' ? 'w-11' : 'w-14'}`}
+      />
       <div className="flex flex-col">
         <div className="flex items-baseline gap-1.5 leading-none">
           <span
             className={`font-black tracking-tight ${
-              size === 'lg' ? 'text-2xl' : size === 'sm' ? 'text-lg' : 'text-xl sm:text-2xl'
+              size === 'lg' ? 'text-3xl' : size === 'sm' ? 'text-lg' : 'text-xl sm:text-2xl'
             } ${textColor}`}
           >
             IBA
           </span>
           <span
-            className={`font-black tracking-tight gold-gradient-text uppercase ${
-              size === 'lg' ? 'text-xl' : size === 'sm' ? 'text-base' : 'text-lg sm:text-xl'
+            className={`font-black tracking-tight uppercase ${
+              size === 'lg' ? 'text-2xl' : size === 'sm' ? 'text-base' : 'text-lg sm:text-xl'
             }`}
+            style={{ color: TV_YELLOW }}
           >
             TV MOUNTING
           </span>
         </div>
         {showSubtitle && (
-          <div className="flex items-center gap-1.5 mt-1">
-            <span className="w-3 h-0.5 bg-[#C9A24B]" />
+          <div className="flex items-center gap-1.5 mt-1.5">
+            <span className="w-3 h-0.5" style={{ backgroundColor: TV_YELLOW }} />
             <span
-              className={`text-[9px] sm:text-[10px] font-semibold tracking-wider leading-none ${
-                isDark ? 'text-slate-300' : 'text-slate-600'
+              className={`text-[9px] sm:text-[11px] font-medium leading-none ${
+                isDark ? 'text-slate-200' : 'text-slate-600'
               }`}
             >
               by IBA Handyman Services
             </span>
-            <span className="w-3 h-0.5 bg-[#C9A24B]" />
+            <span className="w-3 h-0.5" style={{ backgroundColor: TV_YELLOW }} />
           </div>
         )}
       </div>
