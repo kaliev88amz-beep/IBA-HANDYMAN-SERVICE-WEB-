@@ -11,6 +11,7 @@ import { FaqSection } from './components/FaqSection';
 import { ContactFormSection } from './components/ContactFormSection';
 import { AdminCRM } from './components/AdminCRM';
 import { HelperWidget } from './components/HelperWidget';
+import { WhatsAppButton } from './components/WhatsAppButton';
 import { Footer } from './components/Footer';
 
 const AppContent: React.FC = () => {
@@ -75,6 +76,7 @@ const AppContent: React.FC = () => {
 
       <Footer />
       <HelperWidget />
+      <WhatsAppButton />
     </div>
   );
 };

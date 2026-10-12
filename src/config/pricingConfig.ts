@@ -189,6 +189,9 @@ export const SERVICE_AREAS = [
  * Once set (e.g. '123 Main St, Raleigh, NC 27601'), the map pins the office and a
  * "Get Directions" button opens Google Maps with a route to it.
  */
+/** WhatsApp number in international format, digits only (country code 1 + area code + number). */
+export const WHATSAPP_NUMBER = '19192646101';
+
 export const BUSINESS_LOCATION = {
   officeAddress: '',
   serviceAreaCenter: 'Raleigh, NC',
