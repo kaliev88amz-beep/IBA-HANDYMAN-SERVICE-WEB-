@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Star, Award, BadgeCheck, Briefcase, ExternalLink } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { SOCIAL_LINKS, THUMBTACK_STATS, FEATURED_REVIEWS } from '../config/pricingConfig';
 import { GoogleIcon } from './SocialLinks';
+
+// Review cards visible before "Show more"
+const INITIAL_REVIEWS = 6;
 
 const Stars: React.FC<{ rating: number; className?: string }> = ({ rating, className = 'w-3.5 h-3.5' }) => (
   <span className="inline-flex items-center gap-0.5" aria-label={`${rating} out of 5`}>
@@ -45,6 +48,7 @@ export const ThumbtackReviews: React.FC = () => {
   const { language } = useApp();
   const { rating, reviewCount, hires, topPro, backgroundChecked } = THUMBTACK_STATS;
   const ru = language === 'ru';
+  const [showAll, setShowAll] = useState(false);
 
   const stats = [
     topPro && { Icon: Award, label: ru ? 'Статус Top Pro' : 'Thumbtack Top Pro' },
@@ -85,7 +89,7 @@ export const ThumbtackReviews: React.FC = () => {
 
       {FEATURED_REVIEWS.length > 0 && (
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {FEATURED_REVIEWS.map(r => (
+          {(showAll ? FEATURED_REVIEWS : FEATURED_REVIEWS.slice(0, INITIAL_REVIEWS)).map(r => (
             <figure key={`${r.name}-${r.date}`} className="p-5 rounded-2xl bg-[#0d0d0d] border border-white/10 flex flex-col">
               <Stars rating={r.rating} />
               <blockquote className="mt-3 text-sm text-neutral-200 leading-relaxed font-light flex-1">
@@ -97,6 +101,20 @@ export const ThumbtackReviews: React.FC = () => {
               </figcaption>
             </figure>
           ))}
+        </div>
+      )}
+
+      {!showAll && FEATURED_REVIEWS.length > INITIAL_REVIEWS && (
+        <div className="mt-5 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAll(true)}
+            className="px-5 py-2.5 rounded-xl border border-white/15 hover:border-[#c9a24b] text-xs font-bold text-neutral-200 transition-colors cursor-pointer"
+          >
+            {ru
+              ? `Показать ещё ${FEATURED_REVIEWS.length - INITIAL_REVIEWS} отзыва`
+              : `Show ${FEATURED_REVIEWS.length - INITIAL_REVIEWS} more reviews`}
+          </button>
         </div>
       )}
 

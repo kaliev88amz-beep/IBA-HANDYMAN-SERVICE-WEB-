@@ -222,7 +222,78 @@ export const FEATURED_REVIEWS: {
   service: string;
   rating: number;
   text: string;
-}[] = [];
+}[] = [
+  {
+    name: 'Shannon S.',
+    date: 'Sep 7, 2026',
+    service: 'Interior Painting',
+    rating: 5,
+    text: "I couldn't be happier with how my ceiling turned out! The guys did an absolutely amazing job. They were professional, meticulous, and clearly took pride in their work. The finished ceiling looks incredibly smooth and clean, and the difference it made in the room is huge. They also kept everything neat throughout the process and left the space looking great when they were finished. I really appreciate the quality of their work and attention to detail. I would absolutely recommend them to anyone and will definitely use them again for future projects!",
+  },
+  {
+    name: 'Jennifer Z.',
+    date: 'Dec 29, 2025',
+    service: 'Fireplace TV Mounting',
+    rating: 5,
+    text: 'Excellent work on a tricky fireplace TV mount! Arrived on time, reviewed job details and placement before starting. Took care to minimize dust spread during drilling and removed shoes on entering the house. The care is greatly appreciated!',
+  },
+  {
+    name: 'Ravi N.',
+    date: 'Jul 24, 2026',
+    service: 'Gazebo Installation',
+    rating: 5,
+    text: 'I could not be more happy with them, showed up on time, communicated very well prior to appointment and did the job with no fuss or muss. They installed our 24×14 Gazebo in about 7 hours and did a fantastic job - very knowledgeable handyman. I would highly recommend him and will be using him for other jobs',
+  },
+  {
+    name: 'Colleen R.',
+    date: 'Apr 15, 2026',
+    service: 'Furniture Assembly',
+    rating: 5,
+    text: 'This was a great experience from start to finish! Aibek was extremely professional, and he was right on time. Also, the finished product was beautifully and solidly put together! I am so happy to have gone through Thumbtack. Will definitely recommend in the future and I will return for any projects needed!!!!',
+  },
+  {
+    name: 'Derek C.',
+    date: 'Nov 24, 2025',
+    service: 'Drywall Repair',
+    rating: 5,
+    text: 'Iba was a very nice and professional handyman. As you can see from the pictures, his work is outstanding. Made it look like there was never a hole in the ceiling. He was respectful of my property. The only issue was sanding left a lot of dust in my kitchen. He swept up as much as he could. The price was fair and he was quick in responding and scheduling an appointment. I will be using him again.',
+  },
+  {
+    name: 'Patricia C.',
+    date: 'Jun 21, 2026',
+    service: 'Picture Hanging',
+    rating: 5,
+    text: 'Aibek arrived with a comprehensive tool kit to hang about 15 pictures after we moved into our new home. He used provided French cleats for the larger pieces which requires more skill. I would use Aibek again.',
+  },
+  {
+    name: 'Scot L.',
+    date: 'Apr 1, 2026',
+    service: 'TV Mounting',
+    rating: 5,
+    text: 'The technician was prompt and attentive to what I wanted done. He finished quickly and cleaned up any mess that resulted from the installation.',
+  },
+  {
+    name: 'Debra B.',
+    date: 'May 10, 2026',
+    service: 'Fence Repair',
+    rating: 5,
+    text: 'He did a fantastic job on fence repair. Very responsive and fast to get the work done. I would definitely recommend him and would use him again!',
+  },
+  {
+    name: 'Brittany M.',
+    date: 'Nov 29, 2025',
+    service: 'Window Installation',
+    rating: 5,
+    text: "He did a great job on my window today! Super professional, on time, and he worked with me to meet my budget, which I really appreciated. Only thing is he sent me to Lowe's for something I was so confused about 😂 but overall he got the job done and everything looks great. Would definitely recommend!",
+  },
+  {
+    name: 'Gayle S.',
+    date: 'May 20, 2025',
+    service: 'Painting',
+    rating: 5,
+    text: 'IBA worked hard all day and did a beautiful job of painting our shutters and inside/outside front and back doors. He cleaned, sanded and painted. Our house looked like a new house when he finished. He was quiet, respectful, professional but friendly, and courteous. I would recommend him without reservation.',
+  },
+];
 
 /**
  * Web3Forms access key: booking requests from the contact form are emailed to the address
