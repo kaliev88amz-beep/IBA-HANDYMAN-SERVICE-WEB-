@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { SERVICE_AREAS } from '../config/pricingConfig';
-import { MapPin, Navigation, Info, Search, CheckCircle2, AlertCircle } from 'lucide-react';
+import { SERVICE_AREAS, BUSINESS_LOCATION } from '../config/pricingConfig';
+import { MapPin, Navigation, Info, Search, CheckCircle2, AlertCircle, ExternalLink } from 'lucide-react';
 
 export const ServiceAreaSection: React.FC = () => {
   const { language, t } = useApp();
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  const hasOffice = BUSINESS_LOCATION.officeAddress.trim() !== '';
+  // Selected city wins; otherwise show the office (once set) or the whole Raleigh area
+  const mapQuery = selectedCity
+    ? `${selectedCity}, NC`
+    : hasOffice
+    ? BUSINESS_LOCATION.officeAddress
+    : BUSINESS_LOCATION.serviceAreaCenter;
+  const mapZoom = selectedCity ? 12 : hasOffice ? 13 : 9;
   const [zipInput, setZipInput] = useState('');
   const [checkResult, setCheckResult] = useState<{
     status: 'idle' | 'in_triangle' | 'review_required';
@@ -65,16 +74,20 @@ export const ServiceAreaSection: React.FC = () => {
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {SERVICE_AREAS.map(area => (
-                  <div
+                  <button
                     key={area.city}
-                    className="p-3.5 bg-[#181818] rounded-2xl border border-white/5 hover:border-[#c9a24b]/40 transition-colors"
+                    type="button"
+                    onClick={() => setSelectedCity(area.city)}
+                    className={`p-3.5 bg-[#181818] rounded-2xl border text-left transition-colors cursor-pointer ${
+                      selectedCity === area.city ? 'border-[#c9a24b]' : 'border-white/5 hover:border-[#c9a24b]/40'
+                    }`}
                   >
                     <div className="font-bold text-white text-xs">{area.city}</div>
                     <div className="text-[10px] text-neutral-400 font-light mt-0.5">{area.county} County</div>
                     <div className="text-[9px] text-[#c9a24b] font-semibold mt-1 uppercase tracking-wider">
                       {area.primary ? 'Core Triangle' : 'Extended Zone'}
                     </div>
-                  </div>
+                  </button>
                 ))}
               </div>
 
@@ -150,48 +163,62 @@ export const ServiceAreaSection: React.FC = () => {
                 </span>
               </div>
 
-              {/* Stylized Visual Hub Grid */}
-              <div className="relative aspect-4/3 rounded-2xl bg-[#0a0a0a] border border-white/10 p-6 flex flex-col justify-between overflow-hidden shadow-inner">
-                {/* Visual highway route markers */}
-                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#c9a24b_1px,transparent_1px)] [background-size:20px_20px]" />
+              {/* Live Google Map (keyless embed) */}
+              <div className="relative aspect-4/3 rounded-2xl bg-[#0a0a0a] border border-white/10 overflow-hidden shadow-inner">
+                <iframe
+                  key={mapQuery}
+                  title={language === 'ru' ? 'Карта зоны обслуживания' : 'Service area map'}
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=${mapZoom}&hl=${language}&output=embed`}
+                  className="absolute inset-0 w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
 
-                {/* Central Hub & Surrounding Towns */}
-                <div className="relative z-10 flex flex-col justify-between h-full py-2">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="px-3 py-1.5 bg-[#181818] rounded-xl text-[#c9a24b] font-semibold border border-[#c9a24b]/30">
-                      Chapel Hill
-                    </span>
-                    <span className="px-3 py-1.5 bg-[#181818] rounded-xl text-[#c9a24b] font-semibold border border-[#c9a24b]/30">
-                      Durham
-                    </span>
-                    <span className="px-3 py-1.5 bg-[#181818] rounded-xl text-neutral-300 font-semibold border border-white/10">
-                      Wake Forest
-                    </span>
-                  </div>
+              {/* City shortcuts: re-center the map */}
+              <div className="mt-4 flex flex-wrap gap-2">
+                {[null, ...SERVICE_AREAS.map(a => a.city)].map(city => {
+                  const active = selectedCity === city;
+                  return (
+                    <button
+                      key={city ?? 'all'}
+                      type="button"
+                      onClick={() => setSelectedCity(city)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition-colors cursor-pointer ${
+                        active
+                          ? 'bg-[#c9a24b] text-black border-[#c9a24b]'
+                          : 'bg-[#181818] text-neutral-300 border-white/10 hover:border-[#c9a24b]/40'
+                      }`}
+                    >
+                      {city ?? (language === 'ru' ? 'Вся зона' : 'Whole Area')}
+                    </button>
+                  );
+                })}
+              </div>
 
-                  {/* Center Raleigh Anchor */}
-                  <div className="self-center text-center my-4">
-                    <div className="w-20 h-20 rounded-2xl bg-[#c9a24b] text-black font-black flex flex-col items-center justify-center mx-auto shadow-[0_0_25px_rgba(201,162,75,0.4)] border border-white/30">
-                      <MapPin className="w-6 h-6 mb-0.5" />
-                      <span className="text-[11px] tracking-wider uppercase font-black">RALEIGH</span>
-                    </div>
-                    <span className="text-[10px] text-[#c9a24b] font-semibold mt-2 inline-block uppercase tracking-wider">
-                      Operations Hub
-                    </span>
-                  </div>
-
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="px-3 py-1.5 bg-[#181818] rounded-xl text-[#c9a24b] font-semibold border border-[#c9a24b]/30">
-                      Cary & Apex
-                    </span>
-                    <span className="px-3 py-1.5 bg-[#181818] rounded-xl text-neutral-300 font-semibold border border-white/10">
-                      Knightdale
-                    </span>
-                    <span className="px-3 py-1.5 bg-[#181818] rounded-xl text-neutral-300 font-semibold border border-white/10">
-                      Clayton
-                    </span>
-                  </div>
-                </div>
+              {/* Map actions */}
+              <div className="mt-4 flex flex-wrap gap-2.5">
+                {hasOffice && (
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(BUSINESS_LOCATION.officeAddress)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-3 bg-[#c9a24b] hover:bg-[#d8b359] text-black text-xs font-black uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5"
+                  >
+                    <Navigation className="w-3.5 h-3.5" />
+                    <span>{language === 'ru' ? 'Проложить маршрут' : 'Get Directions'}</span>
+                  </a>
+                )}
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3 bg-[#181818] hover:border-[#c9a24b]/50 border border-white/10 text-neutral-200 text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>{language === 'ru' ? 'Открыть в Google Maps' : 'Open in Google Maps'}</span>
+                </a>
               </div>
 
               {/* Truthful Map Disclaimer */}

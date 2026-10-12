@@ -183,6 +183,17 @@ export const SERVICE_AREAS = [
   { city: 'Hillsborough', county: 'Orange', primary: false, sampleZips: ['27278'] },
 ];
 
+/**
+ * Office location for the Service Area map.
+ * Leave officeAddress empty until the office opens; the map then shows the Raleigh service zone.
+ * Once set (e.g. '123 Main St, Raleigh, NC 27601'), the map pins the office and a
+ * "Get Directions" button opens Google Maps with a route to it.
+ */
+export const BUSINESS_LOCATION = {
+  officeAddress: '',
+  serviceAreaCenter: 'Raleigh, NC',
+};
+
 export const DEFAULT_FAQS: FaqItem[] = [
   {
     id: 'faq-tv-price',

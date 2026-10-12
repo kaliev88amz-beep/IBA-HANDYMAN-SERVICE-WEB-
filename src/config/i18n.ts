@@ -127,7 +127,7 @@ export const translations = {
       resultPending: 'Service availability will be confirmed for your address during request review.',
       resultTriangle: 'Great news! {city} ({zip}) is located within our regular Triangle dispatch service zone.',
       resultOutside: 'ZIP {zip} may be beyond our standard 30-40 minute service radius. We will review availability upon request.',
-      mapNote: 'Travel radius illustration. Actual drive times vary by traffic and time of day. We do not guarantee service to all addresses without confirmation.',
+      mapNote: 'Tap a city to zoom the map. Actual drive times vary by traffic and time of day. We do not guarantee service to all addresses without confirmation.',
     },
     faqSection: {
       badge: 'Frequently Asked Questions',
@@ -402,7 +402,7 @@ export const translations = {
       resultPending: 'Доступность обслуживания по вашему адресу будет подтверждена при рассмотрении заявки.',
       resultTriangle: 'Отлично! {city} ({zip}) входит в наш регулярный район обслуживания по региону Triangle.',
       resultOutside: 'ZIP {zip} может находиться за пределами стандартных 30-40 минут. Мы проверим доступность при получении заявки.',
-      mapNote: 'Ориентировочная схема зоны обслуживания. Фактическое время в пути зависит от дорожной ситуации. Мы не гарантируем выезд без предварительного подтверждения.',
+      mapNote: 'Нажмите на город, чтобы приблизить карту. Фактическое время в пути зависит от дорожной ситуации. Мы не гарантируем выезд без предварительного подтверждения.',
     },
     faqSection: {
       badge: 'Частые вопросы',
