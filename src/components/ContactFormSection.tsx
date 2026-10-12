@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { HANDYMAN_SERVICES } from '../config/pricingConfig';
+import { SocialLinks } from './SocialLinks';
 import {
   Send,
   Calendar,
@@ -479,6 +480,16 @@ export const ContactFormSection: React.FC = () => {
               </span>
             </button>
           </form>
+        </div>
+
+        {/* Social profiles */}
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-xs text-neutral-400">
+          <span>
+            {language === 'ru'
+              ? 'Смотрите наши работы и отзывы в соцсетях:'
+              : 'See our latest work and reviews on social media:'}
+          </span>
+          <SocialLinks />
         </div>
 
         {/* Demo Submitted Modal / Banner */}

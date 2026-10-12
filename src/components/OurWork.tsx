@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { WORK_SHOWCASE_ITEMS } from '../config/pricingConfig';
+import { WORK_SHOWCASE_ITEMS, SOCIAL_LINKS } from '../config/pricingConfig';
+import { InstagramIcon } from './SocialLinks';
 import { Sparkles, SlidersHorizontal, Image as ImageIcon } from 'lucide-react';
 
 export const OurWork: React.FC = () => {
@@ -158,6 +159,26 @@ export const OurWork: React.FC = () => {
             );
           })}
         </div>
+
+        {/* Instagram portfolio link */}
+        {SOCIAL_LINKS.instagram && (
+          <div className="mt-12 flex justify-center">
+            <a
+              href={SOCIAL_LINKS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#141414] border border-[#c9a24b]/40 hover:border-[#c9a24b] text-white text-xs font-bold uppercase tracking-wider transition-colors"
+            >
+              <InstagramIcon className="w-4 h-4 text-[#c9a24b]" />
+              <span>
+                {language === 'ru' ? 'Больше наших работ в Instagram' : 'See more of our work on Instagram'}
+              </span>
+              <span className="text-neutral-400 normal-case tracking-normal font-medium hidden sm:inline">
+                {SOCIAL_LINKS.instagramHandle}
+              </span>
+            </a>
+          </div>
+        )}
 
         {/* Notice regarding authentic customer reviews */}
         <div className="mt-16 bg-[#141414] border border-[#c9a24b]/20 rounded-2xl p-7 text-center max-w-2xl mx-auto">

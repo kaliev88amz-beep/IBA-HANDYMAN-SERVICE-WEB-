@@ -1,6 +1,7 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import { IbaHandymanLogo, IbaTvMountingLogo } from './Logos';
+import { SocialLinks } from './SocialLinks';
 import {
   Phone,
   Clock,
@@ -33,6 +34,8 @@ export const Footer: React.FC = () => {
                 {t.phoneDisplay}
               </a>
             </div>
+
+            <SocialLinks />
 
             {/* Sub-brand teaser */}
             <div className="pt-3 border-t border-slate-900">
