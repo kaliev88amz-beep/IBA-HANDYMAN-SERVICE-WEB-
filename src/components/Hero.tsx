@@ -91,20 +91,22 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Main Heading (Montserrat) */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.08] text-neutral-100 font-editorial">
+            <h1 className="text-[2rem] sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-neutral-100 font-editorial">
               {language === 'ru' ? (
                 <>
-                  Безупречный ремонт и{' '}
+                  Надёжный{' '}
                   <span className="gold-gradient-text font-bold">
-                    прецизионный монтаж ТВ
-                  </span>
+                    монтаж ТВ и услуги мастера
+                  </span>{' '}
+                  в Роли, Северная Каролина
                 </>
               ) : (
                 <>
-                  Flawless Handyman &{' '}
+                  Reliable{' '}
                   <span className="gold-gradient-text font-bold">
-                    Precision TV Mounting
-                  </span>
+                    TV Mounting & Handyman Services
+                  </span>{' '}
+                  in Raleigh, NC
                 </>
               )}
             </h1>
