@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #0d0d0d;
+    color: #f3f4f6;
+  }
+  body {
+    overflow-x: hidden;
+    background-color: #0d0d0d;
+    color: #f3f4f6;
+  }
+  h1, h2, h3, .font-editorial {
+    font-family: 'Playfair Display', Georgia, Cambria, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom luxury gold accents and gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #f6e05e 0%, #c9a24b 50%, #9f7d23 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border {
+  border-color: rgba(201, 162, 75, 0.25);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px -5px rgba(201, 162, 75, 0.15);
+}
+
+.dark-card {
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 162, 75, 0.15);
+}
+
+.dark-card:hover {
+  border-color: rgba(201, 162, 75, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(201, 162, 75, 0.12);
+}
+

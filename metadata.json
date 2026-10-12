@@ -1,0 +1,6 @@
+{
+  "name": "IBA Handyman Services & TV Mounting - Raleigh NC",
+  "description": "Professional handyman and TV mounting services in Raleigh and the Triangle area, NC. Instant estimate calculator, transparent pricing, and booking requests.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
