@@ -23,65 +23,24 @@ export const IbaHandymanIcon: React.FC<{
   className?: string;
   variant?: 'blue-gradient' | 'solid-blue' | 'white-on-blue';
 }> = ({ className = 'w-10 h-10', variant = 'blue-gradient' }) => {
+  // Geometry traced from the official logo (same as public/favicon.svg)
+  const color = variant === 'white-on-blue' ? '#FFFFFF' : '#03A9F4';
   return (
     <svg
-      viewBox="0 0 100 100"
+      viewBox="210 19 820 820"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-label="IBA Handyman Services Blue Icon"
     >
-      <defs>
-        {/* Vibrant Royal & Cyan Craftsman Gradient */}
-        <linearGradient id="ibaBlueGrad" x1="15%" y1="10%" x2="85%" y2="90%">
-          <stop offset="0%" stopColor="#00A3E8" />
-          <stop offset="50%" stopColor="#2563EB" />
-          <stop offset="100%" stopColor="#1E40AF" />
-        </linearGradient>
-
-        <linearGradient id="ibaBlueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#1D4ED8" stopOpacity="0.3" />
-        </linearGradient>
-
-        <filter id="blueSoftShadow" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#0284C7" floodOpacity="0.35" />
-        </filter>
-      </defs>
-
-      {/* Outer Blue Architectural Ring Arc */}
-      <path
-        d="M 23 44 A 36 36 0 1 1 77 44"
-        stroke={variant === 'white-on-blue' ? '#FFFFFF' : 'url(#ibaBlueGrad)'}
-        strokeWidth="10"
-        strokeLinecap="round"
-        filter="url(#blueSoftShadow)"
-      />
-
-      {/* Central Sharp Architectural Chevron / Gable Roof Peak */}
-      <path
-        d="M 27 54 L 50 25 L 73 54"
-        stroke={variant === 'white-on-blue' ? '#FFFFFF' : 'url(#ibaBlueGrad)'}
-        strokeWidth="10"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Lower Precision Foundation Arc */}
-      <path
-        d="M 37 68 A 36 36 0 0 0 63 68"
-        stroke={variant === 'white-on-blue' ? '#FFFFFF' : 'url(#ibaBlueGrad)'}
-        strokeWidth="10"
-        strokeLinecap="round"
-      />
-
-      {/* Center Precision Craftsman Dot / Laser Alignment Point */}
-      <circle
-        cx="50"
-        cy="47"
-        r="3"
-        fill={variant === 'white-on-blue' ? '#FFFFFF' : '#38BDF8'}
-      />
+      <g stroke={color}>
+        {/* Outer ring, open at the bottom */}
+        <path d="M297.8 586.8 A350 350 0 1 1 942.2 586.8" strokeWidth="84" />
+        {/* Lower foundation arc */}
+        <path d="M474 724.6 A311 311 0 0 0 766 724.6" strokeWidth="78" />
+        {/* Roof peak */}
+        <path d="M355.5 682.5 L620 288 L884.5 682.5" strokeWidth="90" strokeLinejoin="round" />
+      </g>
     </svg>
   );
 };
@@ -101,47 +60,41 @@ export const IbaHandymanLogo: React.FC<LogoProps> = ({
     return <IbaHandymanIcon className={size === 'lg' ? 'w-14 h-14' : size === 'sm' ? 'w-8 h-8' : 'w-10 h-10'} />;
   }
 
+  // Wordmark mirrors the official logo: heavy "IBA" over regular "HANDYMAN SERVICES"
+  const wordmarkFont = "font-['Montserrat',sans-serif]";
+
   if (layout === 'stacked') {
     return (
-      <div className={`flex flex-col items-center text-center ${className}`}>
-        <div className="relative p-2 rounded-2xl bg-gradient-to-b from-[#141414] to-[#0a0a0a] border border-[#2563EB]/40 shadow-[0_0_20px_rgba(37,99,235,0.2)]">
-          <IbaHandymanIcon
-            className={
-              size === 'xl' ? 'w-24 h-24' : size === 'lg' ? 'w-18 h-18' : size === 'sm' ? 'w-10 h-10' : 'w-14 h-14'
-            }
-          />
-        </div>
-        <div className="mt-2.5">
+      <div className={`flex flex-col items-center text-center ${wordmarkFont} ${className}`}>
+        <IbaHandymanIcon
+          className={
+            size === 'xl' ? 'w-28 h-28' : size === 'lg' ? 'w-20 h-20' : size === 'sm' ? 'w-12 h-12' : 'w-16 h-16'
+          }
+        />
+        <div className="mt-2">
           <div
             className={`font-black tracking-tight leading-none ${
               size === 'xl'
-                ? 'text-4xl'
+                ? 'text-5xl'
                 : size === 'lg'
-                ? 'text-3xl'
+                ? 'text-4xl'
                 : size === 'sm'
-                ? 'text-lg'
-                : 'text-2xl'
+                ? 'text-xl'
+                : 'text-3xl'
             } ${textColor}`}
           >
             IBA
           </div>
           {showSubtitle && (
-            <>
-              <div
-                className={`font-black tracking-[0.18em] uppercase leading-tight mt-1 text-[#00A3E8] ${
-                  size === 'xl' ? 'text-sm' : size === 'lg' ? 'text-xs' : 'text-[11px]'
-                }`}
-              >
-                HANDYMAN
-              </div>
-              <div
-                className={`font-bold tracking-[0.25em] uppercase leading-tight text-slate-400 ${
-                  size === 'xl' ? 'text-xs' : 'text-[9px]'
-                }`}
-              >
-                SERVICES
-              </div>
-            </>
+            <div
+              className={`font-medium uppercase leading-tight mt-1 ${textColor} ${
+                size === 'xl' ? 'text-xl' : size === 'lg' ? 'text-base' : size === 'sm' ? 'text-[10px]' : 'text-sm'
+              }`}
+            >
+              HANDYMAN
+              <br />
+              SERVICES
+            </div>
           )}
         </div>
       </div>
@@ -150,34 +103,26 @@ export const IbaHandymanLogo: React.FC<LogoProps> = ({
 
   // Horizontal layout
   return (
-    <div className={`flex items-center gap-3 sm:gap-3.5 ${className}`}>
-      <div className="relative p-1.5 rounded-xl bg-gradient-to-br from-[#141414] to-[#0a0a0a] border border-[#2563EB]/40 shadow-[0_0_15px_rgba(37,99,235,0.2)] shrink-0">
-        <IbaHandymanIcon
-          className={size === 'lg' ? 'w-12 h-12' : size === 'sm' ? 'w-8 h-8' : 'w-10 h-10'}
-        />
-      </div>
+    <div className={`flex items-center gap-2.5 sm:gap-3 ${wordmarkFont} ${className}`}>
+      <IbaHandymanIcon
+        className={`shrink-0 ${size === 'lg' ? 'w-14 h-14' : size === 'sm' ? 'w-9 h-9' : 'w-11 h-11 sm:w-12 sm:h-12'}`}
+      />
       <div className="flex flex-col">
-        <div className="flex items-baseline gap-1.5 leading-none">
-          <span
-            className={`font-black tracking-tight ${
-              size === 'lg' ? 'text-2xl' : size === 'sm' ? 'text-lg' : 'text-xl sm:text-2xl'
-            } ${textColor}`}
-          >
-            IBA
-          </span>
-          <span className="text-[10px] sm:text-[11px] font-black tracking-widest text-[#00A3E8] uppercase">
-            HANDYMAN
-          </span>
-        </div>
+        <span
+          className={`font-black tracking-tight leading-none ${
+            size === 'lg' ? 'text-3xl' : size === 'sm' ? 'text-xl' : 'text-2xl sm:text-[28px]'
+          } ${textColor}`}
+        >
+          IBA
+        </span>
         {showSubtitle && (
-          <div className="flex items-center gap-1.5 mt-1">
-            <span className="w-2.5 h-0.5 bg-[#00A3E8]" />
-            <span
-              className={`font-bold tracking-[0.2em] uppercase leading-none text-[9px] sm:text-[10px] ${subColor}`}
-            >
-              SERVICES • RALEIGH NC
-            </span>
-          </div>
+          <span
+            className={`font-medium uppercase tracking-[0.04em] leading-tight mt-0.5 ${
+              size === 'sm' ? 'text-[8px]' : 'text-[9px] sm:text-[10px]'
+            } ${subColor}`}
+          >
+            HANDYMAN SERVICES
+          </span>
         )}
       </div>
     </div>
