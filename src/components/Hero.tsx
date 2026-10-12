@@ -1,28 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useApp } from '../context/AppContext';
-import {
-  IbaHandymanLogo,
-  IbaTvMountingLogo,
-  IbaTvMountingIcon,
-  IbaHandymanIcon,
-  BrandIdentityModal,
-} from './Logos';
+import { IbaTvMountingLogo } from './Logos';
 import { ThumbtackBadge } from './ThumbtackReviews';
 import {
   Calculator,
   CalendarCheck,
-  Phone,
   Clock,
   Sparkles,
   ShieldCheck,
   ChevronRight,
-  Info,
-  CheckCircle2,
 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
-  const { language, t, setActiveView } = useApp();
-  const [showBrandGuide, setShowBrandGuide] = useState(false);
+  const { language, setActiveView } = useApp();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-page text-ink pt-6 pb-16">
@@ -44,53 +34,9 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 w-full">
-        {/* Top Badges & Service Territory Row */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface/90 border border-accent/30 text-xs shadow-xl backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_var(--color-accent)] animate-ping" />
-            <span className="text-ink-300 font-medium">
-              {language === 'ru' ? 'Премиальный сервис Triangle, NC' : 'Craftsman Quality • The Triangle, NC'}
-            </span>
-            <span className="text-ink-600">|</span>
-            <span className="text-accent-ink font-bold text-[11px] tracking-wider uppercase">
-              Raleigh • Cary • Apex • Durham • Chapel Hill
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setShowBrandGuide(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-line/5 hover:bg-line/10 border border-line/15 text-xs text-ink-300 hover:text-ink transition-all cursor-pointer"
-              title={language === 'ru' ? 'Посмотреть логотипы и гамму' : 'View Brand Logos & Colors'}
-            >
-              <Info className="w-3.5 h-3.5 text-[#00A3E8]" />
-              <span className="text-[11px] font-semibold">
-                {language === 'ru' ? 'Айдентика брендов' : 'Brand Guide'}
-              </span>
-            </button>
-
-            <a
-              href={t.phoneHref}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-line/5 hover:bg-line/10 border border-accent/20 text-accent-ink text-xs font-bold transition-all shadow-sm group"
-            >
-              <Phone className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform" />
-              <span>(919) 264-6101</span>
-            </a>
-          </div>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left Column: Editorial Headlines, Blue Brand Badge, and Primary Action "Записаться" */}
+          {/* Left Column: Headline and primary actions */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
-            {/* Primary Blue Service Brand Indicator */}
-            <div className="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-xl bg-surface/90 border border-[#2563EB]/40 shadow-lg backdrop-blur-md">
-              <IbaHandymanIcon className="w-5 h-5" />
-              <span className="text-[11px] font-extrabold tracking-[0.18em] uppercase text-ink">
-                IBA HANDYMAN SERVICES
-              </span>
-              <span className="text-[#00A3E8] text-[10px] font-bold">NC</span>
-            </div>
-
             {/* Main Heading (Montserrat) */}
             <h1 className="text-[2rem] sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-ink font-editorial">
               {language === 'ru' ? (
@@ -268,11 +214,6 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Brand Identity & Color Guide Modal */}
-      <BrandIdentityModal
-        isOpen={showBrandGuide}
-        onClose={() => setShowBrandGuide(false)}
-        language={language}
-      />
     </section>
   );
 };
