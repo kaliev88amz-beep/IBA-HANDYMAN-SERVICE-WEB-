@@ -264,7 +264,7 @@ export function calculateTvQuote(
     hasSecondTv,
     tv2Details: hasSecondTv ? tv2 : undefined,
     zipCode,
-    disclaimerEn: 'Demonstration estimate for budgeting. Binding total is confirmed after verifying photos and structural framing.',
-    disclaimerRu: 'Демонстрационный расчёт для ориентира. Окончательная смета подтверждается после проверки фото стены и стоек.',
+    disclaimerEn: 'Estimate for budgeting. Final total is confirmed after verifying photos and structural framing.',
+    disclaimerRu: 'Предварительный расчёт для ориентира. Окончательная смета подтверждается после проверки фото стены и стоек.',
   };
 }

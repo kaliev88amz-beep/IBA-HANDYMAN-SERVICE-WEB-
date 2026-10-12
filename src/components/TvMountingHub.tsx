@@ -77,10 +77,10 @@ export const TvMountingHub: React.FC = () => {
 
   const wallOptions: { id: WallMaterial; labelEn: string; labelRu: string; extraEn: string; extraRu: string }[] = [
     { id: 'drywall', labelEn: 'Drywall (Wood/Metal Studs)', labelRu: 'Гипсокартон (стойки)', extraEn: 'Standard $0', extraRu: 'Стандарт $0' },
-    { id: 'brick', labelEn: 'Exposed Brick', labelRu: 'Кирпичная стена', extraEn: `+$${pricing.wallMaterials.brick.surcharge} demo`, extraRu: `+$${pricing.wallMaterials.brick.surcharge} демо` },
-    { id: 'concrete', labelEn: 'Solid Concrete / Block', labelRu: 'Бетон / шлакоблок', extraEn: `+$${pricing.wallMaterials.concrete.surcharge} demo`, extraRu: `+$${pricing.wallMaterials.concrete.surcharge} демо` },
-    { id: 'tile', labelEn: 'Porcelain / Ceramic Tile', labelRu: 'Керамическая плитка', extraEn: `+$${pricing.wallMaterials.tile.surcharge} demo`, extraRu: `+$${pricing.wallMaterials.tile.surcharge} демо` },
-    { id: 'stone', labelEn: 'Natural / Stacked Stone', labelRu: 'Натуральный камень', extraEn: `+$${pricing.wallMaterials.stone.surcharge} demo`, extraRu: `+$${pricing.wallMaterials.stone.surcharge} демо` },
+    { id: 'brick', labelEn: 'Exposed Brick', labelRu: 'Кирпичная стена', extraEn: `+$${pricing.wallMaterials.brick.surcharge}`, extraRu: `+$${pricing.wallMaterials.brick.surcharge}` },
+    { id: 'concrete', labelEn: 'Solid Concrete / Block', labelRu: 'Бетон / шлакоблок', extraEn: `+$${pricing.wallMaterials.concrete.surcharge}`, extraRu: `+$${pricing.wallMaterials.concrete.surcharge}` },
+    { id: 'tile', labelEn: 'Porcelain / Ceramic Tile', labelRu: 'Керамическая плитка', extraEn: `+$${pricing.wallMaterials.tile.surcharge}`, extraRu: `+$${pricing.wallMaterials.tile.surcharge}` },
+    { id: 'stone', labelEn: 'Natural / Stacked Stone', labelRu: 'Натуральный камень', extraEn: `+$${pricing.wallMaterials.stone.surcharge}`, extraRu: `+$${pricing.wallMaterials.stone.surcharge}` },
     { id: 'unknown', labelEn: 'Other / Not Sure', labelRu: 'Другое / не знаю точно', extraEn: 'Custom quote', extraRu: 'Индивидуальная оценка' },
   ];
 
@@ -206,7 +206,7 @@ export const TvMountingHub: React.FC = () => {
             {t.tvPage.calcSubtitle}
           </p>
 
-          {/* Demo Rates Notice */}
+          {/* Pricing Notice */}
           <div className="mt-5 p-4 rounded-2xl bg-[#141414] border border-[#FFD400]/30 text-[#FFE04D] text-xs flex items-start gap-3 shadow-lg">
             <Info className="w-4 h-4 text-[#FFD400] shrink-0 mt-0.5" />
             <span className="font-light">{t.tvPage.demoRatesNotice}</span>

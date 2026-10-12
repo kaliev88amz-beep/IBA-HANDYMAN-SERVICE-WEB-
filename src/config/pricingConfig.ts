@@ -76,8 +76,8 @@ export const HANDYMAN_SERVICES: HandymanServiceItem[] = [
       'Садовая мебель для патио',
       'Фиксация к стене для защиты детей от опрокидывания'
     ],
-    demoPriceGuideEn: 'From $80 (Demo rate)',
-    demoPriceGuideRu: 'От $80 (демо-тариф)',
+    demoPriceGuideEn: 'From $80',
+    demoPriceGuideRu: 'От $80',
     iconName: 'Armchair',
   },
   {
@@ -98,8 +98,8 @@ export const HANDYMAN_SERVICES: HandymanServiceItem[] = [
       'Восстановление текстуры (гладкая, orange peel)',
       'Аккуратное шлифование без лишней пыли'
     ],
-    demoPriceGuideEn: 'From $90 (Demo rate)',
-    demoPriceGuideRu: 'От $90 (демо-тариф)',
+    demoPriceGuideEn: 'From $90',
+    demoPriceGuideRu: 'От $90',
     iconName: 'Hammer',
   },
   {
@@ -120,8 +120,8 @@ export const HANDYMAN_SERVICES: HandymanServiceItem[] = [
       'Идеально ровные линии и малярная лента',
       'Защита мебели и полов плёнкой'
     ],
-    demoPriceGuideEn: 'From $120 (Demo rate)',
-    demoPriceGuideRu: 'От $120 (демо-тариф)',
+    demoPriceGuideEn: 'From $120',
+    demoPriceGuideRu: 'От $120',
     iconName: 'Paintbrush',
   },
   {
@@ -142,8 +142,8 @@ export const HANDYMAN_SERVICES: HandymanServiceItem[] = [
       'Горизонтальные и рулонные жалюзи',
       'Тяжёлые зеркала и развеска картин'
     ],
-    demoPriceGuideEn: 'From $75 (Demo rate)',
-    demoPriceGuideRu: 'От $75 (демо-тариф)',
+    demoPriceGuideEn: 'From $75',
+    demoPriceGuideRu: 'От $75',
     iconName: 'Ruler',
   },
   {
@@ -246,8 +246,8 @@ export const DEFAULT_FAQS: FaqItem[] = [
     category: 'tv',
     questionEn: 'Can you mount a TV above a fireplace?',
     questionRu: 'Можно ли установить телевизор над камином?',
-    answerEn: 'Yes! Mounting above a fireplace requires careful drilling into studs, brick, stone or masonry, and ensuring safe heat clearance. It involves specialized anchors and takes more time, so a fireplace installation fee applies ($45 demo surcharge). If you have natural thick uneven stone, an in-person photo check is required first.',
-    answerRu: 'Да! Установка над камином требует сверления в стойки, кирпич или камень, а также проверки температурного зазора. Для этого требуются усиленные анкеры и дополнительное время (доплата $45 по демо-тарифу). Если отделка из неровного природного камня, сначала потребуется фото для оценки.',
+    answerEn: 'Yes! Mounting above a fireplace requires careful drilling into studs, brick, stone or masonry, and ensuring safe heat clearance. It involves specialized anchors and takes more time, so a fireplace installation fee applies ($45 surcharge). If you have natural thick uneven stone, an in-person photo check is required first.',
+    answerRu: 'Да! Установка над камином требует сверления в стойки, кирпич или камень, а также проверки температурного зазора. Для этого требуются усиленные анкеры и дополнительное время (доплата $45). Если отделка из неровного природного камня, сначала потребуется фото для оценки.',
   },
   {
     id: 'faq-tv-bracket',

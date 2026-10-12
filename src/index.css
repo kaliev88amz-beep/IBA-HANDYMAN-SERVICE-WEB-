@@ -12,6 +12,15 @@
     background-color: #0d0d0d;
     color: #f3f4f6;
   }
+  /* Keep anchored section titles clear of the sticky header */
+  section[id] {
+    scroll-margin-top: 7rem;
+  }
+  @media (min-width: 640px) {
+    section[id] {
+      scroll-margin-top: 11rem;
+    }
+  }
   h1, h2, h3, .font-editorial, .font-serif {
     font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
     letter-spacing: -0.02em;

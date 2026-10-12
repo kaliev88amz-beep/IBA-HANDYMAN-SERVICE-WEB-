@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -16,6 +16,22 @@ import { Footer } from './components/Footer';
 
 const AppContent: React.FC = () => {
   const { activeView, toastMessage } = useApp();
+
+  // Deep links like /#rates-table: the browser tries to jump before React renders,
+  // so scroll to the target once the page content exists. Instant (not smooth) so the
+  // long jump isn't cancelled, and repeated after full load to absorb image layout shifts.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (!id) return;
+    const jump = () =>
+      document.getElementById(id)?.scrollIntoView({ block: 'start', behavior: 'instant' as ScrollBehavior });
+    const timer = window.setTimeout(jump, 100);
+    if (document.readyState !== 'complete') window.addEventListener('load', jump, { once: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener('load', jump);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans antialiased">
