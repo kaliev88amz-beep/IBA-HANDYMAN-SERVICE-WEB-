@@ -2,6 +2,7 @@ import React from 'react';
 import { Star, Award, BadgeCheck, Briefcase, ExternalLink } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { SOCIAL_LINKS, THUMBTACK_STATS, FEATURED_REVIEWS } from '../config/pricingConfig';
+import { GoogleIcon } from './SocialLinks';
 
 const Stars: React.FC<{ rating: number; className?: string }> = ({ rating, className = 'w-3.5 h-3.5' }) => (
   <span className="inline-flex items-center gap-0.5" aria-label={`${rating} out of 5`}>
@@ -99,16 +100,27 @@ export const ThumbtackReviews: React.FC = () => {
         </div>
       )}
 
-      <div className="mt-8 flex justify-center">
+      <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
         <a
           href={SOCIAL_LINKS.thumbtack}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#c9a24b] hover:bg-[#d8b359] text-black text-xs font-black uppercase tracking-wider transition-colors"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#c9a24b] hover:bg-[#d8b359] text-black text-xs font-black uppercase tracking-wider transition-colors"
         >
           <span>{ru ? `Читать все ${reviewCount} отзывов на Thumbtack` : `Read all ${reviewCount} reviews on Thumbtack`}</span>
           <ExternalLink className="w-3.5 h-3.5" />
         </a>
+        {(SOCIAL_LINKS.googleReview || SOCIAL_LINKS.google) && (
+          <a
+            href={SOCIAL_LINKS.googleReview || SOCIAL_LINKS.google}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#0d0d0d] border border-white/15 hover:border-[#c9a24b] text-white text-xs font-bold uppercase tracking-wider transition-colors"
+          >
+            <GoogleIcon className="w-3.5 h-3.5" />
+            <span>{ru ? 'Оставить отзыв в Google' : 'Review us on Google'}</span>
+          </a>
+        )}
       </div>
     </div>
   );

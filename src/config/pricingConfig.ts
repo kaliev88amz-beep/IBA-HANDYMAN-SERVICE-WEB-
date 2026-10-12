@@ -195,6 +195,9 @@ export const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/iba_handyman_services/',
   instagramHandle: '@iba_handyman_services',
   thumbtack: 'https://www.thumbtack.com/nc/raleigh/furniture-assembly/iba-handyman-services/service/510032879357419534',
+  google: 'https://www.google.com/maps?cid=16603545639945974732',
+  // Direct "write a review" link from Google Business ("Ask for reviews"); falls back to the profile link
+  googleReview: '',
 };
 
 /**

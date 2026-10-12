@@ -20,12 +20,19 @@ export const ThumbtackIcon: React.FC<{ className?: string }> = ({ className = 'w
   </svg>
 );
 
-/** Round Facebook / Instagram / Thumbtack icon buttons. */
+export const GoogleIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+    <path d="M21.35 11.1H12v3.21h5.35c-.5 2.43-2.6 3.79-5.35 3.79a6.1 6.1 0 1 1 0-12.2c1.5 0 2.86.53 3.93 1.4l2.4-2.4A9.4 9.4 0 0 0 12 2.6a9.4 9.4 0 1 0 0 18.8c4.7 0 8.98-3.4 8.98-9.4 0-.56-.08-1.16-.2-1.7z" />
+  </svg>
+);
+
+/** Round Facebook / Instagram / Thumbtack / Google icon buttons. */
 export const SocialLinks: React.FC<{ className?: string }> = ({ className = '' }) => {
   const links = [
     { href: SOCIAL_LINKS.facebook, label: 'Facebook', Icon: FacebookIcon },
     { href: SOCIAL_LINKS.instagram, label: 'Instagram', Icon: InstagramIcon },
     { href: SOCIAL_LINKS.thumbtack, label: 'Thumbtack', Icon: ThumbtackIcon },
+    { href: SOCIAL_LINKS.google, label: 'Google', Icon: GoogleIcon },
   ].filter(l => l.href);
 
   return (
