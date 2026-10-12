@@ -17,7 +17,7 @@ export interface LogoProps {
  * - Charcoal (logo lettering): #2B2B2B
  * - Crisp High-Contrast White: #FFFFFF
  * - Luxury Dark Backdrop: #0D0D0D / #141414
- * - Muted Gold Accent: #C9A24B
+ * - Site accent (Muted Gold): #C9A24B
  */
 export const IbaHandymanIcon: React.FC<{
   className?: string;
@@ -311,10 +311,10 @@ export const BrandIdentityModal: React.FC<{
             </div>
           </div>
 
-          {/* 2. GOLD TV MOUNTING LOGO */}
-          <div className="p-6 rounded-2xl bg-[#0d0d0d] border border-[#C9A24B]/40 flex flex-col justify-between">
+          {/* 2. YELLOW TV MOUNTING LOGO */}
+          <div className="p-6 rounded-2xl bg-[#0d0d0d] border border-[#FFD400]/40 flex flex-col justify-between">
             <div>
-              <div className="inline-block px-3 py-1 rounded-full bg-[#C9A24B]/20 text-[#FBBF24] text-[11px] font-bold uppercase tracking-wider mb-4 border border-[#C9A24B]/30">
+              <div className="inline-block px-3 py-1 rounded-full bg-[#FFD400]/15 text-[#FFD400] text-[11px] font-bold uppercase tracking-wider mb-4 border border-[#FFD400]/30">
                 {language === 'ru' ? 'Премиум суббренд' : 'Premium Sub-brand'}
               </div>
 
@@ -327,8 +327,8 @@ export const BrandIdentityModal: React.FC<{
               </h4>
               <p className="text-xs text-slate-300 leading-relaxed mb-4">
                 {language === 'ru'
-                  ? 'Золотисто-графитовый знак: силуэт дома с трубой и скрещенные инструменты (гаечный ключ и отвертка). Обозначает прецизионный монтаж электроники и ТВ.'
-                  : 'Gold & Graphite emblem featuring house silhouette with chimney and crossed precision tools. Dedicated to high-end TV mounting and wire management.'}
+                  ? 'Жёлто-чёрный знак: телевизор на поворотном кронштейне, буква «A» в виде крыши — как в основном логотипе IBA. Обозначает профессиональный монтаж ТВ и скрытую прокладку проводов.'
+                  : 'Yellow & black emblem featuring a TV on an articulating wall mount, with the roof-shaped "A" echoing the main IBA mark. Dedicated to professional TV mounting and wire concealment.'}
               </p>
             </div>
 
@@ -338,17 +338,17 @@ export const BrandIdentityModal: React.FC<{
                 {language === 'ru' ? 'Цветовая гамма' : 'Color Palette'}:
               </div>
               <div className="grid grid-cols-3 gap-2 text-center text-[10px]">
-                <div className="p-2 rounded-lg bg-[#C9A24B]/20 border border-[#C9A24B]">
-                  <div className="font-bold text-[#FBBF24]">#C9A24B</div>
-                  <div className="text-slate-400">Muted Gold</div>
+                <div className="p-2 rounded-lg bg-[#FFD400]/20 border border-[#FFD400]">
+                  <div className="font-bold text-[#FFD400]">#FFD400</div>
+                  <div className="text-slate-400">Signal Yellow</div>
                 </div>
-                <div className="p-2 rounded-lg bg-[#F59E0B]/20 border border-[#F59E0B]">
-                  <div className="font-bold text-[#FCD34D]">#F59E0B</div>
-                  <div className="text-slate-400">Warm Amber</div>
+                <div className="p-2 rounded-lg bg-black border border-white/25">
+                  <div className="font-bold text-white">#000000</div>
+                  <div className="text-slate-400">Black</div>
                 </div>
-                <div className="p-2 rounded-lg bg-[#141414] border border-white/20">
-                  <div className="font-bold text-white">#141414</div>
-                  <div className="text-slate-400">Graphite</div>
+                <div className="p-2 rounded-lg bg-white border border-white">
+                  <div className="font-bold text-black">#FFFFFF</div>
+                  <div className="text-slate-500">White</div>
                 </div>
               </div>
             </div>
