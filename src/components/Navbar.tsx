@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { IbaHandymanLogo, IbaTvMountingIcon } from './Logos';
+import { SHOW_OWNER_CRM } from '../config/pricingConfig';
 import {
   Phone,
   Menu,
@@ -55,20 +56,24 @@ export const Navbar: React.FC = () => {
               <span>{t.phoneDisplay}</span>
             </a>
 
-            <div className="h-3 w-px bg-white/10 hidden sm:block" />
+            {SHOW_OWNER_CRM && (
+              <>
+                <div className="h-3 w-px bg-white/10 hidden sm:block" />
 
-            <button
-              onClick={() => handleNavClick('admin')}
-              className={`flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-semibold transition-all ${
-                activeView === 'admin'
-                  ? 'bg-[#c9a24b] text-black font-bold shadow-[0_0_10px_rgba(201,162,75,0.3)]'
-                  : 'bg-white/5 text-neutral-300 hover:bg-white/10 hover:text-white border border-white/10'
-              }`}
-              title="Owner CRM Demo"
-            >
-              <LayoutDashboard className="w-3 h-3 text-[#c9a24b]" />
-              <span>{t.nav.adminCrm}</span>
-            </button>
+                <button
+                  onClick={() => handleNavClick('admin')}
+                  className={`flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-semibold transition-all ${
+                    activeView === 'admin'
+                      ? 'bg-[#c9a24b] text-black font-bold shadow-[0_0_10px_rgba(201,162,75,0.3)]'
+                      : 'bg-white/5 text-neutral-300 hover:bg-white/10 hover:text-white border border-white/10'
+                  }`}
+                  title="Owner CRM Demo"
+                >
+                  <LayoutDashboard className="w-3 h-3 text-[#c9a24b]" />
+                  <span>{t.nav.adminCrm}</span>
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -208,16 +213,18 @@ export const Navbar: React.FC = () => {
               </button>
             ))}
 
-            <button
-              onClick={() => handleNavClick('admin')}
-              className="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-between mt-2 bg-black/60 border border-[#c9a24b]/30 text-[#c9a24b]"
-            >
-              <div className="flex items-center gap-2">
-                <LayoutDashboard className="w-4 h-4 text-[#c9a24b]" />
-                <span>{t.nav.adminCrm}</span>
-              </div>
-              <span className="text-[10px] bg-[#c9a24b] text-black font-bold px-1.5 py-0.5 rounded">Owner Demo</span>
-            </button>
+            {SHOW_OWNER_CRM && (
+              <button
+                onClick={() => handleNavClick('admin')}
+                className="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-between mt-2 bg-black/60 border border-[#c9a24b]/30 text-[#c9a24b]"
+              >
+                <div className="flex items-center gap-2">
+                  <LayoutDashboard className="w-4 h-4 text-[#c9a24b]" />
+                  <span>{t.nav.adminCrm}</span>
+                </div>
+                <span className="text-[10px] bg-[#c9a24b] text-black font-bold px-1.5 py-0.5 rounded">Owner Demo</span>
+              </button>
+            )}
           </div>
 
           <div className="pt-3 border-t border-white/10 grid grid-cols-2 gap-2.5">

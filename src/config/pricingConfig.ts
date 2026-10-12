@@ -230,6 +230,9 @@ export const FEATURED_REVIEWS: {
  */
 export const WEB3FORMS_ACCESS_KEY = 'd57d2717-2375-4154-9bd5-7d1aed9c4ac1';
 
+/** Show the in-browser "CRM Demo" owner panel links (header, mobile menu, footer). Hidden on the live site. */
+export const SHOW_OWNER_CRM = false;
+
 /** WhatsApp number in international format, digits only (country code 1 + area code + number). */
 export const WHATSAPP_NUMBER = '19192646101';
 

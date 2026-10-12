@@ -2,6 +2,7 @@ import React from 'react';
 import { useApp } from '../context/AppContext';
 import { IbaHandymanLogo, IbaTvMountingLogo } from './Logos';
 import { SocialLinks } from './SocialLinks';
+import { SHOW_OWNER_CRM } from '../config/pricingConfig';
 import {
   Phone,
   Clock,
@@ -17,7 +18,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className={`grid grid-cols-1 md:grid-cols-2 ${SHOW_OWNER_CRM ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} gap-8 mb-12`}>
           {/* Brand info */}
           <div className="space-y-4">
             <div className="pt-1">
@@ -87,27 +88,29 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Owner CRM Demo link & Status */}
-          <div className="space-y-3">
-            <h4 className="font-extrabold text-white text-sm uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-              <Shield className="w-4 h-4" />
-              <span>Business Controls</span>
-            </h4>
-            <p className="text-slate-400 text-xs leading-relaxed">
-              Stage 1 frontend preview mode. Explore the simulated owner workflow and live pricing configuration.
-            </p>
-            <div>
-              <button
-                onClick={() => {
-                  setActiveView('admin');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="inline-flex items-center gap-2 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-amber-400 rounded-xl font-bold text-xs border border-slate-700 transition-colors"
-              >
-                <LayoutDashboard className="w-4 h-4" />
-                <span>{t.footer.adminLink}</span>
-              </button>
+          {SHOW_OWNER_CRM && (
+            <div className="space-y-3">
+              <h4 className="font-extrabold text-white text-sm uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                <Shield className="w-4 h-4" />
+                <span>Business Controls</span>
+              </h4>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                Stage 1 frontend preview mode. Explore the simulated owner workflow and live pricing configuration.
+              </p>
+              <div>
+                <button
+                  onClick={() => {
+                    setActiveView('admin');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-amber-400 rounded-xl font-bold text-xs border border-slate-700 transition-colors"
+                >
+                  <LayoutDashboard className="w-4 h-4" />
+                  <span>{t.footer.adminLink}</span>
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Disclaimer & Copyright */}
