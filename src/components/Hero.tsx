@@ -28,7 +28,7 @@ export const Hero: React.FC = () => {
       {/* Full-Screen Darkened Cinematic Hero Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/iba_hero_craftsman_1791666396591.jpg"
+          src="/images/iba_hero_craftsman_1791666396591.jpg"
           alt="IBA Handyman Services & TV Mounting - Raleigh NC"
           className="w-full h-full object-cover object-center filter brightness-60 contrast-115 scale-105 transition-transform duration-1000 ease-out"
         />
