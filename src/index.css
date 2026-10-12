@@ -12,9 +12,9 @@
     background-color: #0d0d0d;
     color: #f3f4f6;
   }
-  h1, h2, h3, .font-editorial {
-    font-family: 'Playfair Display', Georgia, Cambria, serif;
-    letter-spacing: -0.01em;
+  h1, h2, h3, .font-editorial, .font-serif {
+    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 

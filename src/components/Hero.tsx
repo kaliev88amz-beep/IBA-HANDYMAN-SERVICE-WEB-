@@ -90,19 +90,19 @@ export const Hero: React.FC = () => {
               <span className="text-[#00A3E8] text-[10px] font-bold">NC</span>
             </div>
 
-            {/* Main Editorial Serif Heading (Playfair Display) */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.08] text-neutral-100 font-editorial">
+            {/* Main Heading (Montserrat) */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.08] text-neutral-100 font-editorial">
               {language === 'ru' ? (
                 <>
                   Безупречный ремонт и{' '}
-                  <span className="italic gold-gradient-text font-serif">
+                  <span className="gold-gradient-text font-bold">
                     прецизионный монтаж ТВ
                   </span>
                 </>
               ) : (
                 <>
                   Flawless Handyman &{' '}
-                  <span className="italic gold-gradient-text font-serif">
+                  <span className="gold-gradient-text font-bold">
                     Precision TV Mounting
                   </span>
                 </>
