@@ -13,11 +13,19 @@ export const InstagramIcon: React.FC<{ className?: string }> = ({ className = 'w
   </svg>
 );
 
-/** Round Facebook / Instagram icon buttons. */
+// Simple pushpin mark for Thumbtack
+export const ThumbtackIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+    <path d="M4 3h16v4h-6v6.5l-2 7.5-2-7.5V7H4z" />
+  </svg>
+);
+
+/** Round Facebook / Instagram / Thumbtack icon buttons. */
 export const SocialLinks: React.FC<{ className?: string }> = ({ className = '' }) => {
   const links = [
     { href: SOCIAL_LINKS.facebook, label: 'Facebook', Icon: FacebookIcon },
     { href: SOCIAL_LINKS.instagram, label: 'Instagram', Icon: InstagramIcon },
+    { href: SOCIAL_LINKS.thumbtack, label: 'Thumbtack', Icon: ThumbtackIcon },
   ].filter(l => l.href);
 
   return (

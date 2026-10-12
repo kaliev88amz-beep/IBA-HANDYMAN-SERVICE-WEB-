@@ -7,6 +7,7 @@ import {
   IbaHandymanIcon,
   BrandIdentityModal,
 } from './Logos';
+import { ThumbtackBadge } from './ThumbtackReviews';
 import {
   Calculator,
   CalendarCheck,
@@ -147,6 +148,9 @@ export const Hero: React.FC = () => {
                 <span>{language === 'ru' ? 'Рассчитать стоимость ТВ' : 'TV Cost Calculator'}</span>
               </button>
             </div>
+
+            {/* Thumbtack rating */}
+            <ThumbtackBadge />
 
             {/* Trust Badges */}
             <div className="pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4">

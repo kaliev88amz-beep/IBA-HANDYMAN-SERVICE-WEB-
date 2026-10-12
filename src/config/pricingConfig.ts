@@ -194,7 +194,32 @@ export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/profile.php?id=61558158815982',
   instagram: 'https://www.instagram.com/iba_handyman_services/',
   instagramHandle: '@iba_handyman_services',
+  thumbtack: 'https://www.thumbtack.com/nc/raleigh/furniture-assembly/iba-handyman-services/service/510032879357419534',
 };
+
+/**
+ * Thumbtack profile stats shown on the site. Update by hand when the profile changes
+ * (last checked 2026-10-12).
+ */
+export const THUMBTACK_STATS = {
+  rating: 4.9,
+  reviewCount: 58,
+  hires: 138,
+  topPro: true,
+  backgroundChecked: true,
+};
+
+/**
+ * Customer reviews displayed on the site. Add only reviews the owner chose to feature,
+ * keeping the customer's first name + last initial and linking back to Thumbtack.
+ */
+export const FEATURED_REVIEWS: {
+  name: string;
+  date: string;
+  service: string;
+  rating: number;
+  text: string;
+}[] = [];
 
 /** WhatsApp number in international format, digits only (country code 1 + area code + number). */
 export const WHATSAPP_NUMBER = '19192646101';

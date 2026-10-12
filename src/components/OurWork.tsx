@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { WORK_SHOWCASE_ITEMS, SOCIAL_LINKS } from '../config/pricingConfig';
 import { InstagramIcon } from './SocialLinks';
+import { ThumbtackReviews } from './ThumbtackReviews';
 import { Sparkles, SlidersHorizontal, Image as ImageIcon } from 'lucide-react';
 
 export const OurWork: React.FC = () => {
@@ -180,17 +181,8 @@ export const OurWork: React.FC = () => {
           </div>
         )}
 
-        {/* Notice regarding authentic customer reviews */}
-        <div className="mt-16 bg-[#141414] border border-[#c9a24b]/20 rounded-2xl p-7 text-center max-w-2xl mx-auto">
-          <h4 className="text-sm font-editorial text-white mb-2">
-            {language === 'ru' ? 'Честные отзывы клиентов' : 'Authentic Customer Reviews'}
-          </h4>
-          <p className="text-xs text-neutral-400 leading-relaxed font-light">
-            {language === 'ru'
-              ? 'Мы не публикуем искусственные отзывы. Ссылки на отзывы в Google Business и Nextdoor будут подключены после верификации профиля бизнеса в Raleigh.'
-              : 'We do not publish fabricated testimonials. Direct verified links to Google Business and Nextdoor review profiles will appear here as jobs are completed in Raleigh.'}
-          </p>
-        </div>
+        {/* Verified Thumbtack reviews */}
+        <ThumbtackReviews />
       </div>
     </section>
   );
