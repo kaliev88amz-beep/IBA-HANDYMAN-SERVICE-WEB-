@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
-import { HANDYMAN_SERVICES } from '../config/pricingConfig';
+import { HANDYMAN_SERVICES, WEB3FORMS_ACCESS_KEY, WHATSAPP_NUMBER } from '../config/pricingConfig';
 import { SocialLinks } from './SocialLinks';
 import {
   Send,
@@ -9,12 +9,10 @@ import {
   Clock,
   Sparkles,
   Camera,
-  X,
   AlertCircle,
   CheckCircle2,
   ChevronDown,
   ChevronUp,
-  LayoutDashboard,
 } from 'lucide-react';
 
 export const ContactFormSection: React.FC = () => {
@@ -24,7 +22,6 @@ export const ContactFormSection: React.FC = () => {
     prefilledRequest,
     currentQuote,
     createLead,
-    setActiveView,
   } = useApp();
 
   const [firstName, setFirstName] = useState('');
@@ -40,12 +37,12 @@ export const ContactFormSection: React.FC = () => {
   const [preferredContactMethod, setPreferredContactMethod] = useState<'sms' | 'phone' | 'email'>('sms');
   const [optInSms, setOptInSms] = useState(false);
   const [optInMarketingEmail, setOptInMarketingEmail] = useState(false);
-  const [photos, setPhotos] = useState<string[]>([]);
   const [showExtendedFields, setShowExtendedFields] = useState(true);
 
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedLeadId, setSubmittedLeadId] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState(false);
 
   // Sync pre-filled data if user transferred from calculator or service card
   useEffect(() => {
@@ -55,25 +52,6 @@ export const ContactFormSection: React.FC = () => {
       if (prefilledRequest.description) setDescription(prefilledRequest.description);
     }
   }, [prefilledRequest]);
-
-  const handlePhotoUploadMock = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      const files = Array.from(e.target.files);
-      files.forEach(file => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          if (reader.result) {
-            setPhotos(prev => [...prev, reader.result as string].slice(0, 4));
-          }
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-  };
-
-  const removePhoto = (index: number) => {
-    setPhotos(prev => prev.filter((_, i) => i !== index));
-  };
 
   const validateForm = () => {
     const errors: Record<string, string> = {};
@@ -91,11 +69,53 @@ export const ContactFormSection: React.FC = () => {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Emails the request to the owner via Web3Forms; resolves false on any failure
+  const sendRequestEmail = async (serviceTitleEn: string) => {
+    if (!WEB3FORMS_ACCESS_KEY) return false;
+    const timeLabels = { morning: 'Morning (9 AM - 12 PM)', afternoon: 'Afternoon (12 - 4 PM)', evening: 'Late afternoon (4 - 7 PM)' };
+    const estimate = currentQuote
+      ? [
+          ...currentQuote.items.map(i => `- ${i.nameEn}: ${i.price === null ? 'custom quote' : `$${i.price}`}`),
+          `Total: $${currentQuote.total}${currentQuote.hasCustomItems ? ' (+ custom-quote items)' : ''}`,
+        ].join('\n')
+      : 'No calculator estimate';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New request: ${serviceTitleEn} — ${firstName.trim()} (${zip.trim()})`,
+          from_name: 'IBA Website',
+          ...(email.trim() ? { replyto: email.trim() } : {}),
+          Name: `${firstName.trim()} ${lastName.trim()}`.trim(),
+          Phone: phone.trim(),
+          Email: email.trim() || '—',
+          'ZIP code': zip.trim(),
+          Address: streetAddress.trim() || '—',
+          Service: serviceTitleEn,
+          'Project details': description.trim(),
+          'Requested date': requestedDate ? `${requestedDate}, ${timeLabels[requestedTimeSlot]}` : '—',
+          'Preferred contact': preferredContactMethod,
+          'SMS updates OK': optInSms ? 'yes' : 'no',
+          'Marketing emails OK': optInMarketingEmail ? 'yes' : 'no',
+          'Calculator estimate': estimate,
+          'Site language': language,
+        }),
+      });
+      const data = await res.json().catch(() => null);
+      return res.ok && data?.success === true;
+    } catch {
+      return false;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+    setSubmitError(false);
 
     const selectedServiceObj = HANDYMAN_SERVICES.find(s => s.id === serviceId);
     const serviceTitle = selectedServiceObj
@@ -104,38 +124,43 @@ export const ContactFormSection: React.FC = () => {
         : selectedServiceObj.titleEn
       : 'General Handyman Request';
 
-    setTimeout(() => {
-      // Create lead in local app state / session CRM demo
-      const newLead = createLead({
-        source: currentQuote ? 'website_calculator' : 'website_form',
-        firstName: firstName.trim(),
-        lastName: lastName.trim() || undefined,
-        phone: phone.trim(),
-        email: email.trim() || undefined,
-        zip: zip.trim(),
-        streetAddress: streetAddress.trim() || undefined,
-        serviceId,
-        serviceTitle,
-        description: description.trim(),
-        calculatedQuote: currentQuote || undefined,
-        estimatedPrice: currentQuote?.total ?? null,
-        agreedPrice: null,
-        requestedDate: requestedDate || undefined,
-        requestedTimeSlot: requestedDate ? requestedTimeSlot : undefined,
-        isDateConfirmed: false,
-        preferredContactMethod,
-        optInSms,
-        optInMarketingEmail,
-        photos,
-        status: 'new',
-        ownerNotes: currentQuote
-          ? 'Calculator estimate transferred with order submission.'
-          : 'Direct web lead request.',
-      });
-
+    const sent = await sendRequestEmail(selectedServiceObj?.titleEn ?? 'General Handyman Request');
+    if (!sent) {
       setIsSubmitting(false);
-      setSubmittedLeadId(newLead.id);
-    }, 600);
+      setSubmitError(true);
+      return;
+    }
+
+    // Keep a copy in the in-browser CRM preview
+    const newLead = createLead({
+      source: currentQuote ? 'website_calculator' : 'website_form',
+      firstName: firstName.trim(),
+      lastName: lastName.trim() || undefined,
+      phone: phone.trim(),
+      email: email.trim() || undefined,
+      zip: zip.trim(),
+      streetAddress: streetAddress.trim() || undefined,
+      serviceId,
+      serviceTitle,
+      description: description.trim(),
+      calculatedQuote: currentQuote || undefined,
+      estimatedPrice: currentQuote?.total ?? null,
+      agreedPrice: null,
+      requestedDate: requestedDate || undefined,
+      requestedTimeSlot: requestedDate ? requestedTimeSlot : undefined,
+      isDateConfirmed: false,
+      preferredContactMethod,
+      optInSms,
+      optInMarketingEmail,
+      photos: [],
+      status: 'new',
+      ownerNotes: currentQuote
+        ? 'Calculator estimate transferred with order submission.'
+        : 'Direct web lead request.',
+    });
+
+    setIsSubmitting(false);
+    setSubmittedLeadId(newLead.id);
   };
 
   return (
@@ -162,15 +187,6 @@ export const ContactFormSection: React.FC = () => {
               <span>Attached Calculator Estimate: ${currentQuote.total}</span>
             </div>
           )}
-        </div>
-
-        {/* Demo Mode Notice Banner */}
-        <div className="mb-8 p-4.5 rounded-2xl bg-[#141414] border border-[#c9a24b]/30 text-neutral-300 text-xs leading-relaxed flex items-start gap-3 shadow-lg">
-          <AlertCircle className="w-5 h-5 text-[#c9a24b] shrink-0 mt-0.5" />
-          <div>
-            <span className="font-bold text-[#c9a24b] block mb-0.5">Stage 1 Frontend Working Demo</span>
-            <span className="font-light">{t.contactSection.demoNotice}</span>
-          </div>
         </div>
 
         {/* Form Container */}
@@ -396,46 +412,24 @@ export const ContactFormSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Photo attachments simulator */}
+                  {/* Photos go via WhatsApp (the email service doesn't carry attachments) */}
                   <div>
                     <label className="block text-xs font-bold text-neutral-300 mb-1">
                       {t.contactSection.photosLabel}
                     </label>
-                    <div className="border-2 border-dashed border-[#c9a24b]/30 rounded-xl p-4 text-center bg-[#141414] hover:bg-[#181818] transition-colors">
-                      <input
-                        type="file"
-                        id="photo-upload"
-                        accept="image/*"
-                        multiple
-                        onChange={handlePhotoUploadMock}
-                        className="hidden"
-                      />
-                      <label
-                        htmlFor="photo-upload"
-                        className="cursor-pointer flex flex-col items-center gap-1.5 text-xs text-neutral-300 font-medium"
-                      >
-                        <Camera className="w-5 h-5 text-[#c9a24b]" />
-                        <span>{t.contactSection.photosUploadHint}</span>
-                      </label>
-                    </div>
-
-                    {/* Photo previews */}
-                    {photos.length > 0 && (
-                      <div className="flex gap-2 mt-2">
-                        {photos.map((src, i) => (
-                          <div key={i} className="relative w-16 h-16 rounded-lg overflow-hidden border border-[#c9a24b]/40">
-                            <img src={src} alt="Upload preview" className="w-full h-full object-cover" />
-                            <button
-                              type="button"
-                              onClick={() => removePhoto(i)}
-                              className="absolute top-1 right-1 p-0.5 rounded-full bg-black/80 text-white hover:bg-rose-600"
-                            >
-                              <X className="w-3 h-3" />
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                    <a
+                      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                        language === 'ru'
+                          ? 'Здравствуйте! Отправляю фото к заявке с сайта.'
+                          : 'Hi IBA! Sending photos for my website request.'
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="border-2 border-dashed border-[#c9a24b]/30 rounded-xl p-4 bg-[#141414] hover:bg-[#181818] transition-colors flex flex-col items-center gap-1.5 text-xs text-neutral-300 font-medium text-center"
+                    >
+                      <Camera className="w-5 h-5 text-[#c9a24b]" />
+                      <span>{t.contactSection.photosUploadHint}</span>
+                    </a>
                   </div>
                 </div>
               )}
@@ -479,6 +473,18 @@ export const ContactFormSection: React.FC = () => {
                   : 'Submit Booking Request'}
               </span>
             </button>
+
+            {submitError && (
+              <div className="p-4 rounded-2xl bg-rose-950/30 border border-rose-500/40 text-xs text-rose-200 flex items-start gap-2.5">
+                <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+                <span>
+                  {language === 'ru' ? 'Не удалось отправить заявку. Позвоните нам по ' : "Sorry, we couldn't send your request. Please call us at "}
+                  <a href={t.phoneHref} className="font-bold underline">{t.phoneDisplay}</a>
+                  {language === 'ru' ? ' или напишите в ' : ' or message us on '}
+                  <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="font-bold underline">WhatsApp</a>.
+                </span>
+              </div>
+            )}
           </form>
         </div>
 
@@ -492,7 +498,7 @@ export const ContactFormSection: React.FC = () => {
           <SocialLinks />
         </div>
 
-        {/* Demo Submitted Modal / Banner */}
+        {/* Submitted confirmation */}
         {submittedLeadId && (
           <div className="mt-8 p-6 sm:p-7 rounded-3xl bg-[#141414] text-white border border-[#c9a24b]/60 shadow-[0_0_30px_rgba(201,162,75,0.2)] animate-in zoom-in-95 duration-150">
             <div className="flex items-start gap-4">
@@ -507,16 +513,6 @@ export const ContactFormSection: React.FC = () => {
                   {t.contactSection.successModalMsg}
                 </p>
                 <div className="flex flex-wrap items-center gap-3 pt-3">
-                  <button
-                    onClick={() => {
-                      setActiveView('admin');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="px-5 py-2.5 bg-[#c9a24b] hover:bg-[#d8b359] text-black font-bold text-xs rounded-xl flex items-center gap-1.5 transition-colors cursor-pointer"
-                  >
-                    <LayoutDashboard className="w-3.5 h-3.5" />
-                    <span>{t.contactSection.viewInCrmBtn}</span>
-                  </button>
                   <button
                     onClick={() => setSubmittedLeadId(null)}
                     className="px-4 py-2.5 text-xs text-neutral-400 hover:text-white font-medium cursor-pointer"

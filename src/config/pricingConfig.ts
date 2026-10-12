@@ -224,6 +224,12 @@ export const FEATURED_REVIEWS: {
   text: string;
 }[] = [];
 
+/**
+ * Web3Forms access key: booking requests from the contact form are emailed to the address
+ * this key was created for (get one free at https://web3forms.com). The key is meant to be public.
+ */
+export const WEB3FORMS_ACCESS_KEY = 'd57d2717-2375-4154-9bd5-7d1aed9c4ac1';
+
 /** WhatsApp number in international format, digits only (country code 1 + area code + number). */
 export const WHATSAPP_NUMBER = '19192646101';
 
