@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 
 export interface LogoProps {
   className?: string;
@@ -24,16 +24,25 @@ export const IbaHandymanIcon: React.FC<{
   className?: string;
   variant?: 'blue-gradient' | 'solid-blue' | 'white-on-blue';
 }> = ({ className = 'w-10 h-10', variant = 'blue-gradient' }) => {
-  // Geometry traced from the official logo (same as public/favicon.svg)
-  const color = variant === 'white-on-blue' ? '#FFFFFF' : '#03A9F4';
+  // Geometry traced from the official logo (same as public/favicon.svg).
+  // Theme colors: gold sheen in dark (--c-logo-1..3), flat IBA blue in light.
+  const gradientId = `iba-mark-${useId().replace(/:/g, '')}`;
+  const color = variant === 'white-on-blue' ? '#FFFFFF' : `url(#${gradientId})`;
   return (
     <svg
       viewBox="210 19 820 820"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="IBA Handyman Services Blue Icon"
+      aria-label="IBA Handyman Services Icon"
     >
+      <defs>
+        <linearGradient id={gradientId} gradientUnits="userSpaceOnUse" x1="260" y1="60" x2="980" y2="800">
+          <stop offset="0%" style={{ stopColor: 'var(--c-logo-1)' }} />
+          <stop offset="50%" style={{ stopColor: 'var(--c-logo-2)' }} />
+          <stop offset="100%" style={{ stopColor: 'var(--c-logo-3)' }} />
+        </linearGradient>
+      </defs>
       <g stroke={color}>
         {/* Outer ring, open at the bottom */}
         <path d="M297.8 586.8 A350 350 0 1 1 942.2 586.8" strokeWidth="84" />
