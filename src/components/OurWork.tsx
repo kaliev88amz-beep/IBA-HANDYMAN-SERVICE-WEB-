@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { WORK_SHOWCASE_ITEMS, SOCIAL_LINKS } from '../config/pricingConfig';
-import { InstagramIcon } from './SocialLinks';
+import { FacebookIcon, InstagramIcon } from './SocialLinks';
 import { ThumbtackReviews } from './ThumbtackReviews';
 import { Sparkles, SlidersHorizontal } from 'lucide-react';
 
@@ -191,23 +191,34 @@ export const OurWork: React.FC = () => {
           </div>
         )}
 
-        {/* Instagram portfolio link */}
-        {SOCIAL_LINKS.instagram && (
-          <div className="mt-12 flex justify-center">
-            <a
-              href={SOCIAL_LINKS.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-surface border border-accent/40 hover:border-accent text-ink text-xs font-bold uppercase tracking-wider transition-colors"
-            >
-              <InstagramIcon className="w-4 h-4 text-accent-ink" />
-              <span>
-                {language === 'ru' ? 'Больше наших работ в Instagram' : 'See more of our work on Instagram'}
-              </span>
-              <span className="text-ink-400 normal-case tracking-normal font-medium hidden sm:inline">
-                {SOCIAL_LINKS.instagramHandle}
-              </span>
-            </a>
+        {/* More work on social media: Facebook has the most posts, Instagram secondary */}
+        {(SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram) && (
+          <div className="mt-12 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+            {SOCIAL_LINKS.facebook && (
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-accent hover:bg-accent-hover text-black text-xs font-black uppercase tracking-wider transition-colors"
+              >
+                <FacebookIcon className="w-4 h-4" />
+                <span>{language === 'ru' ? 'Больше наших работ на Facebook' : 'See more of our work on Facebook'}</span>
+              </a>
+            )}
+            {SOCIAL_LINKS.instagram && (
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-surface border border-accent/40 hover:border-accent text-ink text-xs font-bold uppercase tracking-wider transition-colors"
+              >
+                <InstagramIcon className="w-4 h-4 text-accent-ink" />
+                <span>Instagram</span>
+                <span className="text-ink-400 normal-case tracking-normal font-medium hidden sm:inline">
+                  {SOCIAL_LINKS.instagramHandle}
+                </span>
+              </a>
+            )}
           </div>
         )}
 
