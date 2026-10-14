@@ -47,7 +47,7 @@ const AppContent: React.FC = () => {
       <main className="flex-1 relative">
         {/* Soft light beam behind the first section on inner pages (home and TV hub have their own) */}
         {!['home', 'tv-mounting', 'admin'].includes(activeView) && (
-          <div aria-hidden="true" className="page-glow pointer-events-none absolute inset-x-0 top-0 h-[560px] z-10" />
+          <div aria-hidden="true" className="page-glow pointer-events-none absolute inset-x-0 top-0 h-[520px] z-10" />
         )}
         {activeView === 'admin' ? (
           <AdminCRM />
