@@ -140,10 +140,13 @@ export interface WorkShowcaseItem {
   titleEn: string;
   titleRu: string;
   category: 'tv_mounting' | 'assembly' | 'drywall' | 'shelving' | 'painting';
-  beforeImage: string;
+  /** Omit for a single "finished" photo (no before/after slider) */
+  beforeImage?: string;
   afterImage: string;
   captionEn: string;
   captionRu: string;
   detailsEn: string;
   detailsRu: string;
+  /** Use a taller frame for vertical photos */
+  portrait?: boolean;
 }

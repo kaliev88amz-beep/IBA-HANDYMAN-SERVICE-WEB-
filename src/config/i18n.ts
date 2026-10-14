@@ -105,7 +105,7 @@ export const translations = {
     workSection: {
       badge: 'Recent Projects',
       title: 'Our Craftsmanship in Action',
-      subtitle: 'Slide to compare before & after states. Real project photos will replace these placeholders upon official launch.',
+      subtitle: 'Real projects from homes across the Triangle. Drag the slider to compare before & after.',
       allTab: 'All Projects',
       tvTab: 'TV Mounting',
       assemblyTab: 'Assembly',
@@ -380,7 +380,7 @@ export const translations = {
     workSection: {
       badge: 'Примеры работ',
       title: 'Качество исполнения в деталях',
-      subtitle: 'Используйте бегунок для сравнения «до» и «после». Настоящие фотографии выполненных заказов будут добавлены при официальном запуске.',
+      subtitle: 'Наши реальные работы в домах региона Triangle. Двигайте бегунок, чтобы сравнить «до» и «после».',
       allTab: 'Все работы',
       tvTab: 'Монтаж ТВ',
       assemblyTab: 'Сборка мебели',

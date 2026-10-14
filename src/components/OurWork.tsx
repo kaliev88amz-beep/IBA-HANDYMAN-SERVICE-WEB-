@@ -3,17 +3,28 @@ import { useApp } from '../context/AppContext';
 import { WORK_SHOWCASE_ITEMS, SOCIAL_LINKS } from '../config/pricingConfig';
 import { InstagramIcon } from './SocialLinks';
 import { ThumbtackReviews } from './ThumbtackReviews';
-import { Sparkles, SlidersHorizontal, Image as ImageIcon } from 'lucide-react';
+import { Sparkles, SlidersHorizontal } from 'lucide-react';
 
 export const OurWork: React.FC = () => {
   const { language, t } = useApp();
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [sliderPositions, setSliderPositions] = useState<Record<string, number>>({
-    'work-1': 50,
-    'work-2': 50,
-    'work-3': 50,
-    'work-4': 50,
-  });
+  const [sliderPositions, setSliderPositions] = useState<Record<string, number>>({});
+
+  const ru = language === 'ru';
+  const categoryLabels: Record<string, string> = {
+    tv_mounting: t.workSection.tvTab,
+    shelving: ru ? 'Столярка и полки' : 'Carpentry & Shelving',
+    painting: ru ? 'Акцентные стены' : 'Accent Walls',
+    assembly: t.workSection.assemblyTab,
+    drywall: t.workSection.drywallTab,
+  };
+  // Only offer filter tabs for categories that have projects
+  const tabs = [
+    { id: 'all', label: t.workSection.allTab },
+    ...Object.keys(categoryLabels)
+      .filter(c => WORK_SHOWCASE_ITEMS.some(i => i.category === c))
+      .map(c => ({ id: c, label: categoryLabels[c] })),
+  ];
 
   const filteredItems = WORK_SHOWCASE_ITEMS.filter(item => {
     if (activeCategory === 'all') return true;
@@ -43,22 +54,11 @@ export const OurWork: React.FC = () => {
           <p className="text-sm sm:text-base text-ink-400 font-light">
             {t.workSection.subtitle}
           </p>
-
-          {/* Genuine Placeholder Notice */}
-          <div className="mt-5 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-line/5 border border-line/10 text-ink-400 text-xs font-light">
-            <ImageIcon className="w-3.5 h-3.5 text-accent-ink" />
-            <span>{t.workSection.placeholderBadge}</span>
-          </div>
         </div>
 
         {/* Category Filter Tabs with Gold Accents */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
-          {[
-            { id: 'all', label: t.workSection.allTab },
-            { id: 'tv_mounting', label: t.workSection.tvTab },
-            { id: 'assembly', label: t.workSection.assemblyTab },
-            { id: 'drywall', label: t.workSection.drywallTab },
-          ].map(tab => (
+          {tabs.map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveCategory(tab.id)}
@@ -86,18 +86,23 @@ export const OurWork: React.FC = () => {
                 key={item.id}
                 className="dark-card rounded-3xl overflow-hidden border border-accent/20 shadow-xl flex flex-col justify-between"
               >
-                {/* Interactive Before/After Visual Frame */}
-                <div className="relative aspect-16/10 select-none overflow-hidden bg-black">
+                {/* Photo frame: before/after slider when a "before" photo exists */}
+                <div
+                  className={`relative ${item.portrait ? 'aspect-4/5' : 'aspect-4/3'} select-none overflow-hidden bg-black`}
+                >
                   {/* After Image (Background) */}
                   <img
                     src={item.afterImage}
-                    alt={`${title} - After`}
+                    alt={item.beforeImage ? `${title} - After` : title}
                     className="absolute inset-0 w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-accent-ink border border-accent/40 text-[10px] font-black uppercase px-3 py-1 rounded-full z-10 shadow-lg tracking-wider">
-                    {t.workSection.afterLabel}
+                  <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white border border-accent/60 text-[10px] font-black uppercase px-3 py-1 rounded-full z-10 shadow-lg tracking-wider">
+                    {item.beforeImage ? t.workSection.afterLabel : ru ? 'Готово' : 'Completed'}
                   </div>
+
+                  {item.beforeImage && (
+                  <>
 
                   {/* Before Image (Clipped Overlay) */}
                   <div
@@ -136,12 +141,14 @@ export const OurWork: React.FC = () => {
                     className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30"
                     aria-label="Before after comparison slider"
                   />
+                  </>
+                  )}
                 </div>
 
                 {/* Information Card Content */}
                 <div className="p-7 space-y-3">
                   <div className="text-[11px] font-bold text-accent-ink uppercase tracking-widest">
-                    {item.category.replace('_', ' ')}
+                    {categoryLabels[item.category]}
                   </div>
 
                   <h3 className="font-normal text-ink text-lg sm:text-xl font-editorial leading-snug">
