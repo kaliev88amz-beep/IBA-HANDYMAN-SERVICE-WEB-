@@ -5,6 +5,9 @@ import { InstagramIcon } from './SocialLinks';
 import { ThumbtackReviews } from './ThumbtackReviews';
 import { Sparkles, SlidersHorizontal } from 'lucide-react';
 
+// Project cards shown on "All Projects" before the "Show more" button
+const INITIAL_PROJECTS = 8;
+
 export const OurWork: React.FC = () => {
   const { language, t } = useApp();
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -14,8 +17,9 @@ export const OurWork: React.FC = () => {
   const categoryLabels: Record<string, string> = {
     tv_mounting: t.workSection.tvTab,
     shelving: ru ? 'Столярка и полки' : 'Carpentry & Shelving',
-    painting: ru ? 'Акцентные стены' : 'Accent Walls',
-    outdoor: ru ? 'Беседки и перголы' : 'Pergolas & Gazebos',
+    painting: ru ? 'Стены и покраска' : 'Walls & Painting',
+    install: ru ? 'Картины и светильники' : 'Pictures & Fixtures',
+    outdoor: ru ? 'Работы на улице' : 'Outdoor Projects',
     assembly: t.workSection.assemblyTab,
     drywall: t.workSection.drywallTab,
   };
@@ -31,6 +35,10 @@ export const OurWork: React.FC = () => {
     if (activeCategory === 'all') return true;
     return item.category === activeCategory;
   });
+  // "All Projects" starts with the first rows only; category tabs show everything
+  const [showAll, setShowAll] = useState(false);
+  const visibleItems =
+    activeCategory === 'all' && !showAll ? filteredItems.slice(0, INITIAL_PROJECTS) : filteredItems;
 
   const handleSliderChange = (id: string, value: number) => {
     setSliderPositions(prev => ({
@@ -76,7 +84,7 @@ export const OurWork: React.FC = () => {
 
         {/* Grid of Before/After Showcases */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          {filteredItems.map(item => {
+          {visibleItems.map(item => {
             const sliderPos = sliderPositions[item.id] ?? 50;
             const title = language === 'ru' ? item.titleRu : item.titleEn;
             const caption = language === 'ru' ? item.captionRu : item.captionEn;
@@ -168,6 +176,20 @@ export const OurWork: React.FC = () => {
             );
           })}
         </div>
+
+        {visibleItems.length < filteredItems.length && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              className="px-6 py-3 rounded-xl border border-accent/40 hover:border-accent bg-surface text-ink text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              {ru
+                ? `Показать ещё работы (${filteredItems.length - visibleItems.length})`
+                : `Show more projects (${filteredItems.length - visibleItems.length})`}
+            </button>
+          </div>
+        )}
 
         {/* Instagram portfolio link */}
         {SOCIAL_LINKS.instagram && (

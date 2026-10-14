@@ -139,7 +139,7 @@ export interface WorkShowcaseItem {
   id: string;
   titleEn: string;
   titleRu: string;
-  category: 'tv_mounting' | 'assembly' | 'drywall' | 'shelving' | 'painting' | 'outdoor';
+  category: 'tv_mounting' | 'assembly' | 'drywall' | 'shelving' | 'painting' | 'outdoor' | 'install';
   /** Omit for a single "finished" photo (no before/after slider) */
   beforeImage?: string;
   afterImage: string;
