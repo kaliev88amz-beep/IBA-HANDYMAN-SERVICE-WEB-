@@ -15,6 +15,7 @@ export const OurWork: React.FC = () => {
     tv_mounting: t.workSection.tvTab,
     shelving: ru ? 'Столярка и полки' : 'Carpentry & Shelving',
     painting: ru ? 'Акцентные стены' : 'Accent Walls',
+    outdoor: ru ? 'Беседки и перголы' : 'Pergolas & Gazebos',
     assembly: t.workSection.assemblyTab,
     drywall: t.workSection.drywallTab,
   };
