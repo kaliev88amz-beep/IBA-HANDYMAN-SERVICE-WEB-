@@ -31,6 +31,7 @@ const MessengerIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4'
 export const MessageUsButton: React.FC = () => {
   const { language } = useApp();
   const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const ru = language === 'ru';
 
@@ -49,10 +50,20 @@ export const MessageUsButton: React.FC = () => {
     };
   }, [open]);
 
+  // sms: links only work on phones; on a computer Windows/macOS ask to pick an app, so copy the number instead
+  const canText = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  const copyNumber = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard?.writeText('(919) 264-6101').catch(() => {});
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 2500);
+  };
+
   const message = encodeURIComponent(PREFILLED_MESSAGE[language]);
   const options = [
     {
       key: 'messenger',
+      onClick: undefined as ((e: React.MouseEvent) => void) | undefined,
       href: `${MESSENGER_URL}?text=${message}`,
       external: true,
       title: 'Messenger',
@@ -65,8 +76,13 @@ export const MessageUsButton: React.FC = () => {
       // "?&body=" works on both iPhone and Android
       href: `sms:${TEXT_NUMBER}?&body=${message}`,
       external: false,
+      onClick: canText ? undefined : copyNumber,
       title: ru ? 'SMS' : 'Text us',
-      hint: '(919) 264-6101',
+      hint: copied
+        ? (ru ? '✓ Номер скопирован' : '✓ Number copied')
+        : canText
+          ? '(919) 264-6101'
+          : `(919) 264-6101 · ${ru ? 'нажмите, чтобы скопировать' : 'click to copy'}`,
       icon: <MessageSquareText className="w-4 h-4" />,
       iconClass: 'bg-[#34C759]',
     },
@@ -82,7 +98,7 @@ export const MessageUsButton: React.FC = () => {
               key={o.key}
               href={o.href}
               {...(o.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              onClick={() => setOpen(false)}
+              onClick={e => (o.onClick ? o.onClick(e) : setOpen(false))}
               className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 transition-colors"
             >
               <span className={`w-8 h-8 rounded-full text-white flex items-center justify-center shrink-0 ${o.iconClass}`}>
