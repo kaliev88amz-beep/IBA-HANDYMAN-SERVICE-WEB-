@@ -87,9 +87,9 @@ export const TvMountingHub: React.FC = () => {
   return (
     <div className="bg-page min-h-screen text-ink">
       {/* Branded Hub Header */}
-      <div className="bg-surface text-ink border-b border-[#FFD400]/20 py-12 sm:py-16 relative overflow-hidden">
+      <div className="bg-surface text-ink border-b border-tv/20 py-12 sm:py-16 relative overflow-hidden">
         {/* Ambient Warm Backlight */}
-        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[550px] h-[320px] bg-[#FFD400]/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[550px] h-[320px] bg-tv/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
@@ -98,7 +98,7 @@ export const TvMountingHub: React.FC = () => {
                 <IbaTvMountingLogo size="lg" theme="dark" layout="stacked" className="w-48 sm:w-60" />
               </div>
 
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#FFD400] text-black text-xs font-black uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-tv text-black text-xs font-black uppercase tracking-wider">
                 <span>Clean. Secure. Professional.</span>
                 <span>•</span>
                 <span>Your TV. Our Expertise.</span>
@@ -110,20 +110,20 @@ export const TvMountingHub: React.FC = () => {
 
               {/* 4 Feature Badges from Banner */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
-                <div className="p-2.5 rounded-xl bg-page-deep border border-[#FFD400]/20 flex items-center gap-2 text-xs">
+                <div className="p-2.5 rounded-xl bg-page-deep border border-tv/20 flex items-center gap-2 text-xs">
                   <Zap className="w-4 h-4 text-tv-ink shrink-0" />
                   <span className="font-semibold text-ink-200">Same-Day Service</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-page-deep border border-[#FFD400]/20 flex items-center gap-2 text-xs">
+                <div className="p-2.5 rounded-xl bg-page-deep border border-tv/20 flex items-center gap-2 text-xs">
                   <CheckCircle2 className="w-4 h-4 text-tv-ink shrink-0" />
                   <span className="font-semibold text-ink-200">Clean Cable Routing</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-page-deep border border-[#FFD400]/20 flex items-center gap-2 text-xs">
+                <div className="p-2.5 rounded-xl bg-page-deep border border-tv/20 flex items-center gap-2 text-xs">
                   <IbaTvMountingIcon className="w-4 h-4 shrink-0" houseColor="#FFD400" />
                   <span className="font-semibold text-ink-200">Local & Owner-Operated</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-page-deep border border-[#FFD400]/20 flex items-center gap-2 text-xs">
-                  <Star className="w-4 h-4 text-tv-ink fill-[#FFD400] shrink-0" />
+                <div className="p-2.5 rounded-xl bg-page-deep border border-tv/20 flex items-center gap-2 text-xs">
+                  <Star className="w-4 h-4 text-tv-ink fill-tv shrink-0" />
                   <span className="font-semibold text-ink-200">5-Star Rated</span>
                 </div>
               </div>
@@ -131,14 +131,14 @@ export const TvMountingHub: React.FC = () => {
               <div className="flex flex-wrap items-center gap-3 pt-3">
                 <a
                   href="#calculator"
-                  className="px-5 py-3 bg-[#FFD400] hover:bg-[#FFE04D] text-black text-xs sm:text-sm font-extrabold rounded-xl transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(255,212,0,0.3)] active:scale-98"
+                  className="px-5 py-3 bg-tv hover:bg-tv-hover text-black text-xs sm:text-sm font-extrabold rounded-xl transition-all flex items-center gap-2 shadow-[0_0_15px_rgb(var(--tv-rgb)/0.3)] active:scale-98"
                 >
                   <Calculator className="w-4 h-4" />
                   <span>{t.tvPage.calcAnchor}</span>
                 </a>
                 <a
                   href="tel:9192646101"
-                  className="px-4 py-3 bg-surface hover:bg-surface-2 text-tv-ink text-xs sm:text-sm font-bold rounded-xl transition-colors flex items-center gap-2 border border-[#FFD400]/30"
+                  className="px-4 py-3 bg-surface hover:bg-surface-2 text-tv-ink text-xs sm:text-sm font-bold rounded-xl transition-colors flex items-center gap-2 border border-tv/30"
                 >
                   <Phone className="w-4 h-4" />
                   <span>Call (919) 264-6101</span>
@@ -154,14 +154,14 @@ export const TvMountingHub: React.FC = () => {
             </div>
 
             {/* Right: Golden Banner Card */}
-            <div className="lg:col-span-4 bg-gradient-to-br from-surface to-surface border border-[#FFD400]/40 rounded-3xl p-6 text-ink shadow-2xl relative">
+            <div className="lg:col-span-4 bg-gradient-to-br from-surface to-surface border border-tv/40 rounded-3xl p-6 text-ink shadow-2xl relative">
               <div className="text-[11px] font-black uppercase tracking-widest text-tv-ink mb-1">
                 TRANSFORM YOUR SPACE
               </div>
               <div className="text-xl font-normal text-ink mb-3 leading-tight font-editorial">
                 ONE INSTALL AT A TIME
               </div>
-              <div className="space-y-2 text-xs font-bold text-ink-200 bg-black/40 backdrop-blur-xs p-3.5 rounded-2xl border border-line/5">
+              <div className="space-y-2 text-xs font-bold text-ink-200 bg-black/40 light:bg-surface-2 backdrop-blur-xs p-3.5 rounded-2xl border border-line/5">
                 <div className="flex justify-between">
                   <span className="text-ink-400 font-normal">Standard Mounting:</span>
                   <span className="font-extrabold text-ink">From $129</span>
@@ -201,13 +201,13 @@ export const TvMountingHub: React.FC = () => {
           <h2 className="text-3xl sm:text-5xl font-normal text-ink tracking-tight font-editorial">
             {t.tvPage.calcTitle}
           </h2>
-          <div className="w-16 h-0.5 bg-[#FFD400] my-4" />
+          <div className="w-16 h-0.5 bg-tv my-4" />
           <p className="text-xs sm:text-sm text-ink-400 mt-1 max-w-3xl font-light">
             {t.tvPage.calcSubtitle}
           </p>
 
           {/* Pricing Notice */}
-          <div className="mt-5 p-4 rounded-2xl bg-surface border border-[#FFD400]/30 text-tv-ink text-xs flex items-start gap-3 shadow-lg">
+          <div className="mt-5 p-4 rounded-2xl bg-surface border border-tv/30 text-tv-ink text-xs flex items-start gap-3 shadow-lg">
             <Info className="w-4 h-4 text-tv-ink shrink-0 mt-0.5" />
             <span className="font-light">{t.tvPage.demoRatesNotice}</span>
           </div>
@@ -217,7 +217,7 @@ export const TvMountingHub: React.FC = () => {
           {/* Left Column: Calculator Configuration Steps */}
           <div className="lg:col-span-7 space-y-6">
             {/* Step 1: Screen Size */}
-            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20">
+            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-tv/20">
               <label className="block text-sm font-bold text-ink mb-4 flex items-center justify-between">
                 <span className="font-editorial text-lg text-ink">{t.tvPage.step1}</span>
                 <span className="text-[11px] font-normal text-ink-400">Diagonal screen measurement</span>
@@ -233,8 +233,8 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, tvSize: sizeKey }))}
                       className={`p-3.5 rounded-2xl text-left border text-xs font-semibold transition-all cursor-pointer ${
                         isSelected
-                          ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] shadow-[0_0_15px_rgba(255,212,0,0.2)]'
-                          : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40 hover:bg-line/5'
+                          ? 'border-tv bg-tv/15 text-ink ring-1 ring-tv shadow-[0_0_15px_rgb(var(--tv-rgb)/0.2)]'
+                          : 'border-line/10 bg-surface text-ink-300 hover:border-tv/40 hover:bg-line/5'
                       }`}
                     >
                       <div className="font-bold text-ink text-sm mb-0.5">{sizeData.label}</div>
@@ -246,7 +246,7 @@ export const TvMountingHub: React.FC = () => {
             </div>
 
             {/* Step 2: Wall Material */}
-            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20">
+            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-tv/20">
               <label className="block text-sm font-bold text-ink mb-4 font-editorial text-lg">
                 {t.tvPage.step2}
               </label>
@@ -264,12 +264,12 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, wallMaterial: opt.id }))}
                       className={`p-3.5 rounded-2xl text-left border text-xs transition-all flex items-center justify-between cursor-pointer ${
                         isSelected
-                          ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-semibold'
-                          : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40 hover:bg-line/5'
+                          ? 'border-tv bg-tv/15 text-ink ring-1 ring-tv font-semibold'
+                          : 'border-line/10 bg-surface text-ink-300 hover:border-tv/40 hover:bg-line/5'
                       }`}
                     >
                       <span>{label}</span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-line/5 text-tv-ink border border-[#FFD400]/20">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-line/5 text-tv-ink border border-tv/20">
                         {extra}
                       </span>
                     </button>
@@ -279,7 +279,7 @@ export const TvMountingHub: React.FC = () => {
             </div>
 
             {/* Step 3: Fireplace */}
-            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20">
+            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-tv/20">
               <label className="block text-sm font-bold text-ink mb-4 font-editorial text-lg">
                 {t.tvPage.step3}
               </label>
@@ -290,8 +290,8 @@ export const TvMountingHub: React.FC = () => {
                   onClick={() => setTv1(prev => ({ ...prev, aboveFireplace: false }))}
                   className={`p-4 rounded-2xl text-left border text-xs transition-all cursor-pointer ${
                     !tv1.aboveFireplace
-                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-bold'
-                      : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40 hover:bg-line/5'
+                      ? 'border-tv bg-tv/15 text-ink ring-1 ring-tv font-bold'
+                      : 'border-line/10 bg-surface text-ink-300 hover:border-tv/40 hover:bg-line/5'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
@@ -305,8 +305,8 @@ export const TvMountingHub: React.FC = () => {
                   onClick={() => setTv1(prev => ({ ...prev, aboveFireplace: true }))}
                   className={`p-4 rounded-2xl text-left border text-xs transition-all cursor-pointer ${
                     tv1.aboveFireplace
-                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-bold'
-                      : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40 hover:bg-line/5'
+                      ? 'border-tv bg-tv/15 text-ink ring-1 ring-tv font-bold'
+                      : 'border-line/10 bg-surface text-ink-300 hover:border-tv/40 hover:bg-line/5'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
@@ -318,7 +318,7 @@ export const TvMountingHub: React.FC = () => {
             </div>
 
             {/* Step 4: Bracket / Mount */}
-            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20">
+            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-tv/20">
               <label className="block text-sm font-bold text-ink mb-4 font-editorial text-lg">
                 {t.tvPage.step4}
               </label>
@@ -330,8 +330,8 @@ export const TvMountingHub: React.FC = () => {
                     onClick={() => setTv1(prev => ({ ...prev, mountOwnership: 'customer_mount' }))}
                     className={`p-3.5 rounded-2xl text-left border text-xs transition-all cursor-pointer ${
                       tv1.mountOwnership === 'customer_mount'
-                        ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-bold'
-                        : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40'
+                        ? 'border-tv bg-tv/15 text-ink ring-1 ring-tv font-bold'
+                        : 'border-line/10 bg-surface text-ink-300 hover:border-tv/40'
                     }`}
                   >
                     <span>{t.tvPage.bracketCustomer}</span>
@@ -342,8 +342,8 @@ export const TvMountingHub: React.FC = () => {
                     onClick={() => setTv1(prev => ({ ...prev, mountOwnership: 'handyman_mount' }))}
                     className={`p-3.5 rounded-2xl text-left border text-xs transition-all cursor-pointer ${
                       tv1.mountOwnership === 'handyman_mount'
-                        ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-bold'
-                        : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40'
+                        ? 'border-tv bg-tv/15 text-ink ring-1 ring-tv font-bold'
+                        : 'border-line/10 bg-surface text-ink-300 hover:border-tv/40'
                     }`}
                   >
                     <span>{t.tvPage.bracketPro}</span>
@@ -357,7 +357,7 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, mountType: 'fixed' }))}
                       className={`p-3 rounded-xl text-left border text-xs transition-all cursor-pointer ${
                         tv1.mountType === 'fixed'
-                          ? 'border-[#FFD400] bg-[#FFD400]/20 text-ink font-bold'
+                          ? 'border-tv bg-tv/20 text-ink font-bold'
                           : 'border-line/10 bg-surface-2 text-ink-300 hover:bg-line/5'
                       }`}
                     >
@@ -370,7 +370,7 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, mountType: 'tilting' }))}
                       className={`p-3 rounded-xl text-left border text-xs transition-all cursor-pointer ${
                         tv1.mountType === 'tilting'
-                          ? 'border-[#FFD400] bg-[#FFD400]/20 text-ink font-bold'
+                          ? 'border-tv bg-tv/20 text-ink font-bold'
                           : 'border-line/10 bg-surface-2 text-ink-300 hover:bg-line/5'
                       }`}
                     >
@@ -383,7 +383,7 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, mountType: 'full_motion' }))}
                       className={`p-3 rounded-xl text-left border text-xs transition-all cursor-pointer ${
                         tv1.mountType === 'full_motion'
-                          ? 'border-[#FFD400] bg-[#FFD400]/20 text-ink font-bold'
+                          ? 'border-tv bg-tv/20 text-ink font-bold'
                           : 'border-line/10 bg-surface-2 text-ink-300 hover:bg-line/5'
                       }`}
                     >
@@ -396,7 +396,7 @@ export const TvMountingHub: React.FC = () => {
             </div>
 
             {/* Step 5: Wire Management & NEC disclaimer */}
-            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20">
+            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-tv/20">
               <label className="block text-sm font-bold text-ink mb-4 font-editorial text-lg">
                 {t.tvPage.step5}
               </label>
@@ -415,12 +415,12 @@ export const TvMountingHub: React.FC = () => {
                       onClick={() => setTv1(prev => ({ ...prev, wireManagement: item.id }))}
                       className={`w-full p-3.5 rounded-2xl text-left border text-xs transition-all flex items-center justify-between cursor-pointer ${
                         isSelected
-                          ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink ring-1 ring-[#FFD400] font-semibold'
-                          : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40 hover:bg-line/5'
+                          ? 'border-tv bg-tv/15 text-ink ring-1 ring-tv font-semibold'
+                          : 'border-line/10 bg-surface text-ink-300 hover:border-tv/40 hover:bg-line/5'
                       }`}
                     >
                       <span>{item.label}</span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-line/5 text-tv-ink border border-[#FFD400]/20">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-line/5 text-tv-ink border border-tv/20">
                         {item.cost}
                       </span>
                     </button>
@@ -429,14 +429,14 @@ export const TvMountingHub: React.FC = () => {
               </div>
 
               {/* Electrical Code Disclaimer */}
-              <div className="p-3.5 bg-surface border border-[#FFD400]/20 rounded-2xl text-[11px] text-ink-400 leading-relaxed flex items-start gap-2.5 font-light">
+              <div className="p-3.5 bg-surface border border-tv/20 rounded-2xl text-[11px] text-ink-400 leading-relaxed flex items-start gap-2.5 font-light">
                 <ShieldAlert className="w-4 h-4 text-tv-ink shrink-0 mt-0.5" />
                 <span>{t.tvPage.wireDisclaimer}</span>
               </div>
             </div>
 
             {/* Step 6: Add-ons & Second TV Toggle */}
-            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-[#FFD400]/20 space-y-4">
+            <div className="dark-card rounded-3xl p-6 sm:p-7 border border-tv/20 space-y-4">
               <label className="block text-sm font-bold text-ink font-editorial text-lg">
                 {t.tvPage.step6}
               </label>
@@ -447,12 +447,12 @@ export const TvMountingHub: React.FC = () => {
                   onClick={() => setTv1(prev => ({ ...prev, soundbar: !prev.soundbar }))}
                   className={`p-3.5 rounded-2xl text-left border text-xs transition-all flex items-center justify-between cursor-pointer ${
                     tv1.soundbar
-                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink font-bold ring-1 ring-[#FFD400]'
-                      : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40'
+                      ? 'border-tv bg-tv/15 text-ink font-bold ring-1 ring-tv'
+                      : 'border-line/10 bg-surface text-ink-300 hover:border-tv/40'
                   }`}
                 >
                   <span>{t.tvPage.addonSoundbar}</span>
-                  <div className={`w-4 h-4 rounded border flex items-center justify-center ${tv1.soundbar ? 'bg-[#FFD400] border-[#FFD400]' : 'border-ink-600'}`}>
+                  <div className={`w-4 h-4 rounded border flex items-center justify-center ${tv1.soundbar ? 'bg-tv border-tv' : 'border-ink-600'}`}>
                     {tv1.soundbar && <Check className="w-3 h-3 text-black" />}
                   </div>
                 </button>
@@ -462,12 +462,12 @@ export const TvMountingHub: React.FC = () => {
                   onClick={() => setTv1(prev => ({ ...prev, floatingShelf: !prev.floatingShelf }))}
                   className={`p-3.5 rounded-2xl text-left border text-xs transition-all flex items-center justify-between cursor-pointer ${
                     tv1.floatingShelf
-                      ? 'border-[#FFD400] bg-[#FFD400]/15 text-ink font-bold ring-1 ring-[#FFD400]'
-                      : 'border-line/10 bg-surface text-ink-300 hover:border-[#FFD400]/40'
+                      ? 'border-tv bg-tv/15 text-ink font-bold ring-1 ring-tv'
+                      : 'border-line/10 bg-surface text-ink-300 hover:border-tv/40'
                   }`}
                 >
                   <span>{t.tvPage.addonShelf}</span>
-                  <div className={`w-4 h-4 rounded border flex items-center justify-center ${tv1.floatingShelf ? 'bg-[#FFD400] border-[#FFD400]' : 'border-ink-600'}`}>
+                  <div className={`w-4 h-4 rounded border flex items-center justify-center ${tv1.floatingShelf ? 'bg-tv border-tv' : 'border-ink-600'}`}>
                     {tv1.floatingShelf && <Check className="w-3 h-3 text-black" />}
                   </div>
                 </button>
@@ -479,13 +479,13 @@ export const TvMountingHub: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setHasSecondTv(true)}
-                    className="w-full py-3 px-4 bg-line/5 hover:bg-line/10 text-ink-300 hover:text-ink border border-[#FFD400]/30 rounded-2xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full py-3 px-4 bg-line/5 hover:bg-line/10 text-ink-300 hover:text-ink border border-tv/30 rounded-2xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
                     <Plus className="w-4 h-4 text-tv-ink" />
                     <span>{t.tvPage.secondTvPrompt}</span>
                   </button>
                 ) : (
-                  <div className="p-5 bg-surface-2 border border-[#FFD400]/30 rounded-2xl space-y-4">
+                  <div className="p-5 bg-surface-2 border border-tv/30 rounded-2xl space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold text-ink font-editorial">
                         {t.tvPage.secondTvDetails}
@@ -537,7 +537,7 @@ export const TvMountingHub: React.FC = () => {
             </div>
 
             {/* ZIP code field */}
-            <div className="dark-card rounded-3xl p-5 sm:p-6 border border-[#FFD400]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="dark-card rounded-3xl p-5 sm:p-6 border border-tv/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <label className="text-xs font-bold text-ink-300">
                 {t.tvPage.zipLabel}
               </label>
@@ -547,19 +547,19 @@ export const TvMountingHub: React.FC = () => {
                 onChange={e => setZipCode(e.target.value.slice(0, 5))}
                 placeholder="27601"
                 maxLength={5}
-                className="w-32 px-3.5 py-2 text-xs font-bold text-ink bg-surface border border-[#FFD400]/30 rounded-xl text-center focus:outline-hidden focus:ring-2 focus:ring-[#FFD400]"
+                className="w-32 px-3.5 py-2 text-xs font-bold text-ink bg-surface border border-tv/30 rounded-xl text-center focus:outline-hidden focus:ring-2 focus:ring-tv"
               />
             </div>
           </div>
 
           {/* Right Column: Live Estimate Breakdown */}
           <div className="lg:col-span-5 sticky top-28 space-y-4">
-            <div className="dark-card rounded-3xl p-7 sm:p-8 border border-[#FFD400]/35 shadow-2xl">
+            <div className="dark-card rounded-3xl p-7 sm:p-8 border border-tv/35 shadow-2xl">
               <div className="flex items-center justify-between pb-5 border-b border-line/10">
                 <h3 className="font-normal text-ink text-lg sm:text-xl font-editorial">
                   {t.tvPage.calcSummaryTitle}
                 </h3>
-                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFD400]/15 text-tv-ink border border-[#FFD400]/30">
+                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-tv/15 text-tv-ink border border-tv/30">
                   Itemized
                 </span>
               </div>
@@ -592,7 +592,7 @@ export const TvMountingHub: React.FC = () => {
 
               {/* Minimum order note */}
               {quoteResult.minimumOrderFee > 0 && (
-                <div className="p-3 bg-surface-2 rounded-xl text-[11px] text-tv-ink border border-[#FFD400]/20 mb-3">
+                <div className="p-3 bg-surface-2 rounded-xl text-[11px] text-tv-ink border border-tv/20 mb-3">
                   {t.tvPage.minimumOrderNotice.replace('{min}', pricing.minimumOrder.toString())}
                 </div>
               )}
@@ -610,7 +610,7 @@ export const TvMountingHub: React.FC = () => {
                 <div className="flex items-baseline justify-between">
                   <span className="text-xs text-ink-400 uppercase tracking-wider">{t.calculator.subtotal}:</span>
                   <div className="text-right">
-                    <span className="text-3xl sm:text-4xl font-bold text-tv-ink font-editorial">
+                    <span className="text-3xl sm:text-tvxl font-bold text-tv-ink font-editorial">
                       ${quoteResult.total}
                     </span>
                     {quoteResult.hasCustomItems && (
@@ -627,7 +627,7 @@ export const TvMountingHub: React.FC = () => {
               <button
                 type="button"
                 onClick={handleTransferEstimate}
-                className="w-full py-4 px-4 bg-[#FFD400] hover:bg-[#FFE04D] text-black font-black uppercase tracking-wider text-xs sm:text-sm rounded-xl shadow-[0_0_20px_rgba(255,212,0,0.35)] transition-all flex items-center justify-center gap-2 group active:scale-98 cursor-pointer"
+                className="w-full py-4 px-4 bg-tv hover:bg-tv-hover text-black font-black uppercase tracking-wider text-xs sm:text-sm rounded-xl shadow-[0_0_20px_rgb(var(--tv-rgb)/0.35)] transition-all flex items-center justify-center gap-2 group active:scale-98 cursor-pointer"
               >
                 <span>{language === 'ru' ? 'Записаться с этой сметой' : 'Transfer to Booking Form'}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -638,21 +638,21 @@ export const TvMountingHub: React.FC = () => {
       </section>
 
       {/* Reference Pricing Table Section */}
-      <section id="rates-table" className="border-t border-[#FFD400]/20 bg-page-deep py-16 sm:py-24">
+      <section id="rates-table" className="border-t border-tv/20 bg-page-deep py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mb-10">
-            <h3 className="text-2xl sm:text-4xl font-normal text-ink mb-3 font-editorial">
+            <h3 className="text-2xl sm:text-tvxl font-normal text-ink mb-3 font-editorial">
               {t.tvPage.ratesTableTitle}
             </h3>
-            <div className="w-16 h-0.5 bg-[#FFD400] mb-4" />
+            <div className="w-16 h-0.5 bg-tv mb-4" />
             <p className="text-xs sm:text-sm text-ink-400 font-light">
               {t.tvPage.ratesTableNote}
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-[#FFD400]/20 bg-surface">
+          <div className="overflow-x-auto rounded-2xl border border-tv/20 bg-surface">
             <table className="w-full text-left text-xs">
-              <thead className="bg-page-deep text-tv-ink font-bold border-b border-[#FFD400]/20 uppercase tracking-wider text-[11px]">
+              <thead className="bg-page-deep text-tv-ink font-bold border-b border-tv/20 uppercase tracking-wider text-[11px]">
                 <tr>
                   <th className="py-4 px-5">Service Component</th>
                   <th className="py-4 px-5">Scope Included</th>

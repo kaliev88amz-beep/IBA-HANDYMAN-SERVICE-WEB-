@@ -56,8 +56,8 @@ export const HelperWidget: React.FC = () => {
           </div>
 
           {/* Mode Notice: Stage 1 Reference Mode (Not active AI chat yet) */}
-          <div className="bg-amber-50 px-3.5 py-2 border-b border-amber-200 text-[10px] text-amber-900 flex items-center gap-1.5">
-            <Info className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+          <div className="bg-warm-50 px-3.5 py-2 border-b border-warm-200 text-[10px] text-warm-900 flex items-center gap-1.5">
+            <Info className="w-3.5 h-3.5 text-warm-700 shrink-0" />
             <span>{t.helper.statusNotice}</span>
           </div>
 
@@ -67,7 +67,7 @@ export const HelperWidget: React.FC = () => {
               <div className="space-y-3">
                 <button
                   onClick={() => setSelectedFaqId(null)}
-                  className="text-amber-600 hover:text-amber-700 font-bold text-[11px] flex items-center gap-1"
+                  className="text-warm-600 hover:text-warm-700 font-bold text-[11px] flex items-center gap-1"
                 >
                   ← {language === 'ru' ? 'Назад к списку вопросов' : 'Back to question list'}
                 </button>
@@ -83,7 +83,7 @@ export const HelperWidget: React.FC = () => {
                 <div className="pt-2">
                   <button
                     onClick={handleOpenContact}
-                    className="w-full py-2 px-3 bg-slate-900 hover:bg-slate-800 text-amber-400 rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
+                    className="w-full py-2 px-3 bg-slate-900 hover:bg-slate-800 text-warm-400 rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
                   >
                     <Send className="w-3 h-3" />
                     <span>{t.helper.askOwner}</span>
@@ -101,7 +101,7 @@ export const HelperWidget: React.FC = () => {
                     <button
                       key={faq.id}
                       onClick={() => setSelectedFaqId(faq.id)}
-                      className="w-full p-2.5 rounded-xl border border-slate-200 hover:border-amber-300 hover:bg-amber-50/50 text-left flex items-center justify-between text-xs text-slate-800 transition-all font-medium"
+                      className="w-full p-2.5 rounded-xl border border-slate-200 hover:border-warm-300 hover:bg-warm-50/50 text-left flex items-center justify-between text-xs text-slate-800 transition-all font-medium"
                     >
                       <span className="line-clamp-2">
                         {language === 'ru' ? faq.questionRu : faq.questionEn}
@@ -114,7 +114,7 @@ export const HelperWidget: React.FC = () => {
                 <div className="pt-3 border-t border-slate-100">
                   <button
                     onClick={handleOpenContact}
-                    className="w-full py-2 px-3 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
+                    className="w-full py-2 px-3 bg-warm-400 hover:bg-warm-300 text-slate-950 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
                   >
                     <HelpCircle className="w-3.5 h-3.5" />
                     <span>{t.helper.askOwner}</span>
@@ -133,7 +133,7 @@ export const HelperWidget: React.FC = () => {
           className="flex items-center gap-2 px-4 py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-full shadow-lg hover:shadow-xl transition-all border border-slate-700 active:scale-95 group"
           title="Quick Answers & Guide"
         >
-          <div className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center">
+          <div className="w-6 h-6 rounded-full bg-warm-400 text-slate-950 flex items-center justify-center">
             <MessageSquare className="w-3.5 h-3.5" />
           </div>
           <span className="text-xs font-bold text-slate-100 hidden sm:inline">

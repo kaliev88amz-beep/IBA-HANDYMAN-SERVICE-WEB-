@@ -45,7 +45,7 @@ export const SocialLinks: React.FC<{ className?: string }> = ({ className = '' }
           rel="noopener noreferrer"
           aria-label={label}
           title={label}
-          className="w-9 h-9 rounded-full bg-slate-800 hover:bg-[#c9a24b] text-slate-200 hover:text-black border border-slate-700 hover:border-[#c9a24b] flex items-center justify-center transition-colors"
+          className="w-9 h-9 rounded-full bg-slate-800 hover:bg-accent text-slate-200 hover:text-black border border-slate-700 hover:border-accent flex items-center justify-center transition-colors"
         >
           <Icon className="w-4 h-4" />
         </a>

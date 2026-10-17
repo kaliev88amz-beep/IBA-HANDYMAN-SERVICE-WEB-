@@ -87,7 +87,7 @@ export const IbaHandymanLogo: React.FC<LogoProps> = ({
               size === 'xl'
                 ? 'text-5xl'
                 : size === 'lg'
-                ? 'text-4xl'
+                ? 'text-tvxl'
                 : size === 'sm'
                 ? 'text-xl'
                 : 'text-3xl'
@@ -151,7 +151,8 @@ export const IbaHandymanLogo: React.FC<LogoProps> = ({
  * - White: #FFFFFF
  */
 const TV_LOGO_SRC = '/images/iba-tv-mounting-logo.webp';
-const TV_YELLOW = '#FFD400';
+// Theme color: logo yellow in dark, IBA blue in light
+const TV_YELLOW = 'var(--c-tv)';
 
 export const IbaTvMountingIcon: React.FC<{
   className?: string;
@@ -218,7 +219,7 @@ export const IbaTvMountingLogo: React.FC<LogoProps> = ({
           <span
             className={`font-black tracking-tight uppercase ${
               size === 'lg' ? 'text-2xl' : size === 'sm' ? 'text-base' : 'text-lg sm:text-xl'
-            } ${theme === 'on-dark' ? 'text-[#FFD400]' : 'text-tv-ink'}`}
+            } ${theme === 'on-dark' ? 'text-tv' : 'text-tv-ink'}`}
           >
             TV MOUNTING
           </span>
@@ -321,9 +322,9 @@ export const BrandIdentityModal: React.FC<{
           </div>
 
           {/* 2. YELLOW TV MOUNTING LOGO */}
-          <div className="p-6 rounded-2xl bg-page border border-[#FFD400]/40 flex flex-col justify-between">
+          <div className="p-6 rounded-2xl bg-page border border-tv/40 flex flex-col justify-between">
             <div>
-              <div className="inline-block px-3 py-1 rounded-full bg-[#FFD400]/15 text-tv-ink text-[11px] font-bold uppercase tracking-wider mb-4 border border-[#FFD400]/30">
+              <div className="inline-block px-3 py-1 rounded-full bg-tv/15 text-tv-ink text-[11px] font-bold uppercase tracking-wider mb-4 border border-tv/30">
                 {language === 'ru' ? 'Премиум суббренд' : 'Premium Sub-brand'}
               </div>
 
@@ -347,7 +348,7 @@ export const BrandIdentityModal: React.FC<{
                 {language === 'ru' ? 'Цветовая гамма' : 'Color Palette'}:
               </div>
               <div className="grid grid-cols-3 gap-2 text-center text-[10px]">
-                <div className="p-2 rounded-lg bg-[#FFD400]/20 border border-[#FFD400]">
+                <div className="p-2 rounded-lg bg-tv/20 border border-tv">
                   <div className="font-bold text-tv-ink">#FFD400</div>
                   <div className="text-ink-400">Signal Yellow</div>
                 </div>

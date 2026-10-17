@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
               {t.footer.aboutText}
             </p>
 
-            <div className="flex items-center gap-2 text-amber-400 font-bold">
+            <div className="flex items-center gap-2 text-warm-400 font-bold">
               <Phone className="w-4 h-4" />
               <a href={t.phoneHref} className="hover:underline">
                 {t.phoneDisplay}
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
 
           {/* Service Links */}
           <div className="space-y-3">
-            <h4 className="font-extrabold text-white text-sm uppercase tracking-wider text-amber-400">
+            <h4 className="font-extrabold text-white text-sm uppercase tracking-wider text-warm-400">
               {t.footer.servicesTitle}
             </h4>
             <ul className="space-y-2 text-slate-400">
@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
                     setActiveView('tv-mounting');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="hover:text-amber-300 transition-colors text-left font-medium"
+                  className="hover:text-warm-300 transition-colors text-left font-medium"
                 >
                   • IBA TV MOUNTING Hub
                 </button>
@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
 
           {/* Operating hours & dispatch */}
           <div className="space-y-3">
-            <h4 className="font-extrabold text-white text-sm uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+            <h4 className="font-extrabold text-white text-sm uppercase tracking-wider text-warm-400 flex items-center gap-1.5">
               <Clock className="w-4 h-4" />
               <span>{t.footer.operatingHours}</span>
             </h4>
@@ -82,7 +82,7 @@ export const Footer: React.FC = () => {
               {t.footer.hoursText}
             </div>
             <div className="pt-2 text-slate-400 flex items-start gap-1.5">
-              <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 text-warm-400 shrink-0 mt-0.5" />
               <span>Raleigh, Cary, Apex, Durham, Wake Forest, Clayton, Knightdale, Hillsborough</span>
             </div>
           </div>
@@ -90,7 +90,7 @@ export const Footer: React.FC = () => {
           {/* Owner CRM Demo link & Status */}
           {SHOW_OWNER_CRM && (
             <div className="space-y-3">
-              <h4 className="font-extrabold text-white text-sm uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+              <h4 className="font-extrabold text-white text-sm uppercase tracking-wider text-warm-400 flex items-center gap-1.5">
                 <Shield className="w-4 h-4" />
                 <span>Business Controls</span>
               </h4>
@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
                     setActiveView('admin');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-amber-400 rounded-xl font-bold text-xs border border-slate-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-warm-400 rounded-xl font-bold text-xs border border-slate-700 transition-colors"
                 >
                   <LayoutDashboard className="w-4 h-4" />
                   <span>{t.footer.adminLink}</span>
