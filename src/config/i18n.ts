@@ -180,7 +180,7 @@ export const translations = {
     },
     helper: {
       title: 'IBA Quick Helper',
-      subtitle: 'Fast answers from our official rates & policy guide',
+      subtitle: 'Online — instant answers & quotes',
       statusNotice: 'ℹ️ Automated Reference Mode (AI model connection planned for Stage 2)',
       askOwner: 'Have a specific question? Ask the owner via the request form below.',
       chipsHeader: 'Common questions:',
@@ -455,7 +455,7 @@ export const translations = {
     },
     helper: {
       title: 'Быстрый помощник IBA',
-      subtitle: 'Точные ответы на основе текущих тарифов и правил',
+      subtitle: 'Онлайн — быстрые ответы и цены',
       statusNotice: 'ℹ️ Режим готовых ответов по базе знаний (подключение AI-модели запланировано на этапе 2)',
       askOwner: 'Не нашли ответ? Задайте вопрос мастеру через форму заявки.',
       chipsHeader: 'Популярные вопросы:',

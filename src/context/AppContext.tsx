@@ -7,7 +7,7 @@ import {
   QuoteCalculationResult,
   LeadStatus,
 } from '../types';
-import { INITIAL_PRICING_CONFIG, DEFAULT_FAQS } from '../config/pricingConfig';
+import { INITIAL_PRICING_CONFIG, DEFAULT_FAQS, SHOW_OWNER_CRM } from '../config/pricingConfig';
 import { INITIAL_MOCK_LEADS } from '../data/mockCrmData';
 import { translations, TranslationBundle } from '../config/i18n';
 
@@ -67,7 +67,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const [pricing, setPricing] = useState<PricingConfig>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY_PRICING);
+      // Edited values only matter in the owner CRM demo; visitors always get the current config
+      const saved = SHOW_OWNER_CRM && localStorage.getItem(STORAGE_KEY_PRICING);
       if (saved) return JSON.parse(saved);
     } catch {
       // fallback
@@ -77,7 +78,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const [faqs, setFaqs] = useState<FaqItem[]>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY_FAQS);
+      const saved = SHOW_OWNER_CRM && localStorage.getItem(STORAGE_KEY_FAQS);
       if (saved) return JSON.parse(saved);
     } catch {
       // fallback

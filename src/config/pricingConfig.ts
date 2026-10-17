@@ -307,6 +307,12 @@ export const SHOW_OWNER_CRM = false;
 /** WhatsApp number in international format, digits only (country code 1 + area code + number). */
 export const WHATSAPP_NUMBER = '19192646101';
 
+/** Number for "Text us" (SMS) links and replies to helper leads, in +1 format. */
+export const TEXT_NUMBER = '+19192646101';
+
+/** Facebook Messenger chat link for the business page (m.me/<page id or username>). */
+export const MESSENGER_URL = 'https://m.me/61558158815982';
+
 export const BUSINESS_LOCATION = {
   officeAddress: '',
   serviceAreaCenter: 'Raleigh, NC',
@@ -326,8 +332,8 @@ export const DEFAULT_FAQS: FaqItem[] = [
     category: 'tv',
     questionEn: 'Can you mount a TV above a fireplace?',
     questionRu: 'Можно ли установить телевизор над камином?',
-    answerEn: 'Yes! Mounting above a fireplace requires careful drilling into studs, brick, stone or masonry, and ensuring safe heat clearance. It involves specialized anchors and takes more time, so a fireplace installation fee applies ($45 surcharge). If you have natural thick uneven stone, an in-person photo check is required first.',
-    answerRu: 'Да! Установка над камином требует сверления в стойки, кирпич или камень, а также проверки температурного зазора. Для этого требуются усиленные анкеры и дополнительное время (доплата $45). Если отделка из неровного природного камня, сначала потребуется фото для оценки.',
+    answerEn: 'Yes! Mounting above a fireplace requires careful drilling into studs, brick, stone or masonry, and ensuring safe heat clearance. It involves specialized anchors and takes more time, so a fireplace installation fee applies (+$100, from $229 total). If you have natural thick uneven stone, an in-person photo check is required first.',
+    answerRu: 'Да! Установка над камином требует сверления в стойки, кирпич или камень, а также проверки температурного зазора. Для этого требуются усиленные анкеры и дополнительное время (доплата $100, итого от $229). Если отделка из неровного природного камня, сначала потребуется фото для оценки.',
   },
   {
     id: 'faq-tv-bracket',
