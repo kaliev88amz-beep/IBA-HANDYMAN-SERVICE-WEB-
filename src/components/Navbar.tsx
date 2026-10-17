@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { IbaHandymanLogo, IbaTvMountingIcon } from './Logos';
+import { IbaHandymanLogo } from './Logos';
 import { SHOW_OWNER_CRM } from '../config/pricingConfig';
 import { ThemeToggle } from './ThemeToggle';
 import {
@@ -11,7 +11,7 @@ import {
   LayoutDashboard,
   Calculator,
   CalendarCheck,
-  Sparkles,
+  Tv,
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -91,7 +91,7 @@ export const Navbar: React.FC = () => {
           </button>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2">
+          <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1.5">
             {navItems.map(item => {
               const isActive = activeView === item.id;
               if (item.isTv) {
@@ -99,13 +99,13 @@ export const Navbar: React.FC = () => {
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 border ${
+                    className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 border ${
                       isActive
                         ? 'bg-surface text-accent-ink border-accent shadow-[0_0_15px_rgb(var(--accent-rgb)/0.25)]'
                         : 'text-ink-300 hover:text-accent-ink hover:bg-line/5 border-transparent hover:border-accent/30'
                     }`}
                   >
-                    <IbaTvMountingIcon className="w-4 h-4 shrink-0" houseColor="#c9a24b" toolsColor="#FFFFFF" />
+                    <Tv className="w-4 h-4 shrink-0" />
                     <span>{item.label}</span>
                   </button>
                 );
@@ -114,7 +114,7 @@ export const Navbar: React.FC = () => {
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`px-3 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all ${
+                  className={`px-3 py-2 rounded-xl text-xs font-semibold tracking-wide whitespace-nowrap transition-all ${
                     isActive
                       ? 'text-accent-ink bg-line/5 font-bold border-b-2 border-accent'
                       : 'text-ink-300 hover:text-ink hover:bg-line/5'
@@ -156,7 +156,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => handleNavClick('tv-mounting')}
-              className="hidden md:flex items-center gap-1.5 px-3.5 py-2.5 text-xs font-bold text-accent-ink hover:text-ink bg-transparent hover:bg-line/5 rounded-xl border border-accent/40 hover:border-accent transition-all"
+              className="hidden md:flex items-center gap-1.5 px-2 py-2 text-xs font-bold whitespace-nowrap text-accent-ink hover:underline underline-offset-4 transition-colors"
             >
               <Calculator className="w-3.5 h-3.5" />
               <span>{t.nav.getEstimate}</span>
@@ -165,19 +165,19 @@ export const Navbar: React.FC = () => {
             {/* Primary "Записаться" / "Book Service" button with luxury gold shine */}
             <button
               onClick={() => handleNavClick('contact')}
-              className="flex items-center gap-2 px-5 py-2.5 text-xs font-black uppercase tracking-wider text-black bg-accent hover:bg-accent-hover rounded-xl shadow-[0_0_20px_rgb(var(--accent-rgb)/0.35)] hover:shadow-[0_0_28px_rgb(var(--accent-rgb)/0.5)] transition-all active:scale-95"
+              className="flex items-center gap-2 px-5 py-3 text-xs font-black uppercase tracking-wider whitespace-nowrap text-black bg-accent hover:bg-accent-hover light:text-white light:bg-[#0288d1] light:hover:bg-[#0277bd] rounded-xl shadow-[0_0_20px_rgb(var(--accent-rgb)/0.35)] hover:shadow-[0_0_28px_rgb(var(--accent-rgb)/0.5)] transition-all active:scale-95"
             >
-              <CalendarCheck className="w-4 h-4 text-black" />
+              <CalendarCheck className="w-4 h-4" />
               <span>{language === 'ru' ? 'Записаться' : 'Book Service'}</span>
             </button>
           </div>
 
           {/* Mobile hamburger */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 xl:hidden">
             <ThemeToggle className="sm:hidden" />
             <button
               onClick={() => setLanguage(language === 'en' ? 'ru' : 'en')}
-              className="px-2.5 py-1 text-xs font-bold text-accent-ink bg-line/5 border border-accent/30 rounded-lg flex items-center gap-1"
+              className="sm:hidden px-2.5 py-1 text-xs font-bold text-accent-ink bg-line/5 border border-accent/30 rounded-lg flex items-center gap-1"
             >
               <Globe className="w-3 h-3" />
               <span>{language.toUpperCase()}</span>
@@ -196,7 +196,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-page-deep border-b border-accent/30 px-5 pt-3 pb-7 space-y-2.5 shadow-2xl animate-in slide-in-from-top duration-200">
+        <div className="xl:hidden bg-page-deep border-b border-accent/30 px-5 pt-3 pb-7 space-y-2.5 shadow-2xl animate-in slide-in-from-top duration-200">
           <div className="grid grid-cols-1 gap-1">
             {navItems.map(item => (
               <button
@@ -241,7 +241,7 @@ export const Navbar: React.FC = () => {
             </button>
             <button
               onClick={() => handleNavClick('contact')}
-              className="w-full py-3 px-3 bg-accent hover:bg-accent-hover rounded-xl text-xs font-black uppercase tracking-wider text-black flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgb(var(--accent-rgb)/0.4)]"
+              className="w-full py-3 px-3 bg-accent hover:bg-accent-hover light:bg-[#0288d1] light:hover:bg-[#0277bd] rounded-xl text-xs font-black uppercase tracking-wider text-black light:text-white flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgb(var(--accent-rgb)/0.4)]"
             >
               <CalendarCheck className="w-4 h-4" />
               <span>{language === 'ru' ? 'Записаться' : 'Book Service'}</span>
