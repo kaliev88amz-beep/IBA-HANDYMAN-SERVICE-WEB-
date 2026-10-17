@@ -17,6 +17,7 @@ export const translations = {
       contact: 'Contact',
       adminCrm: 'CRM Demo',
       getEstimate: 'Get an Estimate',
+      freeEstimate: 'Get a Free Estimate',
       requestService: 'Request a Service',
     },
     hero: {
@@ -292,6 +293,7 @@ export const translations = {
       contact: 'Контакты',
       adminCrm: 'Панель владельца',
       getEstimate: 'Рассчитать стоимость',
+      freeEstimate: 'Бесплатная оценка',
       requestService: 'Оставить заявку',
     },
     hero: {

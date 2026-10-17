@@ -10,7 +10,7 @@ import {
   Globe,
   LayoutDashboard,
   Calculator,
-  CalendarCheck,
+  ClipboardCheck,
   Tv,
 } from 'lucide-react';
 
@@ -154,21 +154,13 @@ export const Navbar: React.FC = () => {
 
             <ThemeToggle />
 
-            <button
-              onClick={() => handleNavClick('tv-mounting')}
-              className="hidden md:flex items-center gap-1.5 px-2 py-2 text-xs font-bold whitespace-nowrap text-accent-ink hover:underline underline-offset-4 transition-colors"
-            >
-              <Calculator className="w-3.5 h-3.5" />
-              <span>{t.nav.getEstimate}</span>
-            </button>
-
-            {/* Primary "Записаться" / "Book Service" button with luxury gold shine */}
+            {/* Primary call to action: opens the request form */}
             <button
               onClick={() => handleNavClick('contact')}
               className="flex items-center gap-2 px-5 py-3 text-xs font-black uppercase tracking-wider whitespace-nowrap text-black bg-accent hover:bg-accent-hover light:text-white light:bg-[#0288d1] light:hover:bg-[#0277bd] rounded-xl shadow-[0_0_20px_rgb(var(--accent-rgb)/0.35)] hover:shadow-[0_0_28px_rgb(var(--accent-rgb)/0.5)] transition-all active:scale-95"
             >
-              <CalendarCheck className="w-4 h-4" />
-              <span>{language === 'ru' ? 'Записаться' : 'Book Service'}</span>
+              <ClipboardCheck className="w-4 h-4" />
+              <span>{t.nav.freeEstimate}</span>
             </button>
           </div>
 
@@ -243,8 +235,8 @@ export const Navbar: React.FC = () => {
               onClick={() => handleNavClick('contact')}
               className="w-full py-3 px-3 bg-accent hover:bg-accent-hover light:bg-[#0288d1] light:hover:bg-[#0277bd] rounded-xl text-xs font-black uppercase tracking-wider text-black light:text-white flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgb(var(--accent-rgb)/0.4)]"
             >
-              <CalendarCheck className="w-4 h-4" />
-              <span>{language === 'ru' ? 'Записаться' : 'Book Service'}</span>
+              <ClipboardCheck className="w-4 h-4" />
+              <span>{t.nav.freeEstimate}</span>
             </button>
           </div>
         </div>

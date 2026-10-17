@@ -4,7 +4,7 @@ import { IbaTvMountingLogo } from './Logos';
 import { ThumbtackBadge } from './ThumbtackReviews';
 import {
   Calculator,
-  CalendarCheck,
+  ClipboardCheck,
   Clock,
   Sparkles,
   ShieldCheck,
@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
-  const { language, setActiveView } = useApp();
+  const { language, setActiveView, t } = useApp();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-page text-ink pt-6 pb-16">
@@ -75,10 +75,10 @@ export const Hero: React.FC = () => {
                   setActiveView('contact');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="px-8 py-4 bg-accent hover:bg-accent-hover text-black font-black uppercase tracking-wider text-xs sm:text-sm rounded-xl shadow-[0_0_25px_rgb(var(--accent-rgb)/0.4)] hover:shadow-[0_0_35px_rgb(var(--accent-rgb)/0.6)] transition-all flex items-center justify-center gap-2.5 active:scale-98 group cursor-pointer"
+                className="px-8 py-4 bg-accent hover:bg-accent-hover light:bg-[#0288d1] light:hover:bg-[#0277bd] text-black light:text-white font-black uppercase tracking-wider text-xs sm:text-sm rounded-xl shadow-[0_0_25px_rgb(var(--accent-rgb)/0.4)] hover:shadow-[0_0_35px_rgb(var(--accent-rgb)/0.6)] transition-all flex items-center justify-center gap-2.5 active:scale-98 group cursor-pointer"
               >
-                <CalendarCheck className="w-4 h-4 text-black group-hover:scale-110 transition-transform" />
-                <span>{language === 'ru' ? 'Записаться' : 'Book Service'}</span>
+                <ClipboardCheck className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span>{t.nav.freeEstimate}</span>
                 <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </button>
 
