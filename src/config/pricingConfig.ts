@@ -54,8 +54,8 @@ export const HANDYMAN_SERVICES: HandymanServiceItem[] = [
       'Внешний кабель-канал или скрытая проводка сигнальных кабелей',
       'Поиск стоек, выравнивание по уровню, качественный крепёж'
     ],
-    demoPriceGuideEn: 'From $129 (Standard)',
-    demoPriceGuideRu: 'От $129 (базовый)',
+    demoPriceGuideEn: 'From $99 · instant price quiz',
+    demoPriceGuideRu: 'От $99 · расчёт цены онлайн',
     iconName: 'Tv',
   },
   {
@@ -324,16 +324,16 @@ export const DEFAULT_FAQS: FaqItem[] = [
     category: 'tv',
     questionEn: 'How much does TV mounting cost?',
     questionRu: 'Сколько стоит монтаж телевизора?',
-    answerEn: 'Standard drywall mounting starts from $129 for screens up to 55". Tilting mount installations start from $149, and full-motion articulating mounts start from $189. Factors affecting the final price include screen size, wall material (brick, tile, concrete, stone), fireplace mounting (from $229), and wire concealment ($99). Use our step-by-step calculator for an instant breakdown!',
-    answerRu: 'Базовый монтаж на гипсокартон начинается от $129 для диагоналей до 55". Установка наклонного кронштейна — от $149, а полноповоротного шарнирного — от $189. На итоговую стоимость влияют размер экрана, тип стены (кирпич, плитка, камень), монтаж над камином (от $229) и скрытая укладка кабелей ($99). Воспользуйтесь нашим пошаговым калькулятором для точного расчёта!',
+    answerEn: 'Labor on a regular wall: $99 for TVs up to 32" ($69 when mounted with another TV), $150 for 33"–64", $175 for 65"–75", and from $220 for 76"+. Add-ons per TV: above a fireplace +$99, brick or stone +$69, hiding wires inside the wall +$95, cord cover +$49. Need a mount? Fixed +$49, tilting +$59, full-motion +$89 — or use your own at no charge. 2 TVs save 10%, 3 save 15%, 4+ save 20%. Take the 5-question price quiz on our TV Mounting page for an instant estimate!',
+    answerRu: 'Работа на обычной стене: $99 за ТВ до 32" ($69 вместе с другим ТВ), $150 за 33"–64", $175 за 65"–75" и от $220 за 76"+. Доплаты за каждый ТВ: над камином +$99, кирпич или камень +$69, провода в стене +$95, короб на стене +$49. Нужен кронштейн? Фиксированный +$49, наклонный +$59, поворотный +$89 — или ваш собственный без доплаты. 2 ТВ — скидка 10%, 3 — 15%, 4+ — 20%. Пройдите короткий квиз на странице «Монтаж ТВ» и сразу увидите цену!',
   },
   {
     id: 'faq-tv-fireplace',
     category: 'tv',
     questionEn: 'Can you mount a TV above a fireplace?',
     questionRu: 'Можно ли установить телевизор над камином?',
-    answerEn: 'Yes! Mounting above a fireplace requires careful drilling into studs, brick, stone or masonry, and ensuring safe heat clearance. It involves specialized anchors and takes more time, so a fireplace installation fee applies (+$100, from $229 total). If you have natural thick uneven stone, an in-person photo check is required first.',
-    answerRu: 'Да! Установка над камином требует сверления в стойки, кирпич или камень, а также проверки температурного зазора. Для этого требуются усиленные анкеры и дополнительное время (доплата $100, итого от $229). Если отделка из неровного природного камня, сначала потребуется фото для оценки.',
+    answerEn: 'Yes! Mounting above a fireplace requires careful drilling into studs, brick, stone or masonry, and ensuring safe heat clearance. It involves specialized anchors and takes more time, so a fireplace installation fee applies (+$99 per TV). If you have natural thick uneven stone, an in-person photo check is required first.',
+    answerRu: 'Да! Установка над камином требует сверления в стойки, кирпич или камень, а также проверки температурного зазора. Для этого требуются усиленные анкеры и дополнительное время (доплата $99 за ТВ). Если отделка из неровного природного камня, сначала потребуется фото для оценки.',
   },
   {
     id: 'faq-tv-bracket',

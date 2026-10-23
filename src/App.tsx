@@ -3,7 +3,7 @@ import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ServiceCards } from './components/ServiceCards';
-import { TvMountingHub } from './components/TvMountingHub';
+import { TvLanding } from './components/TvLanding';
 import { OurWork } from './components/OurWork';
 import { ProcessSection } from './components/ProcessSection';
 import { ServiceAreaSection } from './components/ServiceAreaSection';
@@ -53,8 +53,7 @@ const AppContent: React.FC = () => {
           <AdminCRM />
         ) : activeView === 'tv-mounting' ? (
           <>
-            <TvMountingHub />
-            <ContactFormSection />
+            <TvLanding />
             <FaqSection />
           </>
         ) : activeView === 'services' ? (
@@ -84,7 +83,7 @@ const AppContent: React.FC = () => {
           <>
             <Hero />
             <ServiceCards />
-            <TvMountingHub />
+            <TvLanding />
             <OurWork />
             <ProcessSection />
             <ServiceAreaSection />

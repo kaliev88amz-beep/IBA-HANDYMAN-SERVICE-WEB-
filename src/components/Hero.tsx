@@ -1,6 +1,7 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import { IbaTvMountingLogo } from './Logos';
+import { TV_ADDONS, TV_SIZE_PRICES } from '../config/tvPricing';
 import { ThumbtackBadge } from './ThumbtackReviews';
 import {
   Calculator,
@@ -164,24 +165,24 @@ export const Hero: React.FC = () => {
               {/* Price Preview Card */}
               <div className="bg-page-deep rounded-2xl p-4 border border-accent/20 space-y-2.5 mb-6 text-xs">
                 <div className="flex items-center justify-between pb-2 border-b border-line/5">
-                  <span className="text-ink-400">Standard TV Mounting:</span>
-                  <span className="font-bold text-ink">From $129</span>
+                  <span className="text-ink-400">TV up to 64":</span>
+                  <span className="font-bold text-ink">${TV_SIZE_PRICES.m}</span>
                 </div>
                 <div className="flex items-center justify-between pb-2 border-b border-line/5">
-                  <span className="text-ink-400">Tilting Mount Installation:</span>
-                  <span className="font-bold text-ink">From $149</span>
+                  <span className="text-ink-400">TV 65"–75":</span>
+                  <span className="font-bold text-ink">${TV_SIZE_PRICES.l}</span>
                 </div>
                 <div className="flex items-center justify-between pb-2 border-b border-line/5">
-                  <span className="text-ink-400">Full-Motion Articulating:</span>
-                  <span className="font-bold text-ink">From $189</span>
+                  <span className="text-ink-400">2+ TVs:</span>
+                  <span className="font-bold text-ink">Save 10–20%</span>
                 </div>
                 <div className="flex items-center justify-between pb-2 border-b border-line/5">
-                  <span className="text-ink-400">In-Wall Wire Concealment:</span>
-                  <span className="font-bold text-accent-ink">From $99</span>
+                  <span className="text-ink-400">Wires inside the wall:</span>
+                  <span className="font-bold text-accent-ink">+${TV_ADDONS.inWallWires}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-ink-400">Fireplace Mounting:</span>
-                  <span className="font-bold text-ink">From $229</span>
+                  <span className="text-ink-400">Above fireplace:</span>
+                  <span className="font-bold text-ink">+${TV_ADDONS.fireplace}</span>
                 </div>
               </div>
 

@@ -6,6 +6,7 @@ import {
   DEFAULT_FAQS,
 } from '../src/config/pricingConfig.js'; // .js: Vercel runs the compiled ESM output
 import { translations } from '../src/config/i18n.js';
+import { TV_PRICES_TEXT } from '../src/config/tvPricing.js';
 
 /**
  * POST /api/chat — the website's AI helper (Vercel serverless function).
@@ -19,22 +20,14 @@ const RATE_LIMIT = 20; // messages per IP per window (per warm instance; a soft 
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const hits = new Map<string, number[]>();
 
-const money = (n: number | null) => (n == null ? 'custom quote after photos' : `$${n}`);
-
 const KNOWLEDGE = [
   'BUSINESS: IBA Handyman Services — TV mounting and handyman services in Raleigh, NC and the Triangle.',
   'Phone / text: (919) 264-6101. Website booking: the request form on the Contact page.',
   'Hours: ' + translations.en.footer.hoursText.replace(/\n/g, '; ') + '.',
   `Minimum order: $${P.minimumOrder}.`,
   '',
-  'TV MOUNTING PRICES (drywall, customer provides the mount):',
-  ...Object.values(P.tvSizes).map(s => `- ${s.label}: from $${s.price}`),
-  'Wall type surcharges:',
-  ...Object.values(P.wallMaterials).map(w => `- ${w.nameEn}: ${w.surcharge === 0 ? 'no surcharge' : w.surcharge == null ? 'needs photos / inspection for a quote' : `+$${w.surcharge}`}`),
-  `Above a fireplace: +$${P.fireplaceSurcharge}.`,
-  `Mount supplied by us: fixed +$${P.mounts.fixedMountProvided}, tilting +$${P.mounts.tiltingMountProvided}, full-motion +$${P.mounts.fullMotionMountProvided}. Customer's own mount: no extra charge.`,
-  `Cable management: surface raceway +$${P.wireManagement.raceway}, in-wall low-voltage concealment +$${P.wireManagement.inWallLowVoltage}.`,
-  `Add-ons: soundbar mounting +$${P.addOns.soundbar}, floating shelf +$${P.addOns.floatingShelf}.`,
+  'TV MOUNTING PRICES (labor, regular drywall unless noted):',
+  TV_PRICES_TEXT,
   '',
   'OTHER SERVICES:',
   ...HANDYMAN_SERVICES.map(s => `- ${s.titleEn}: ${s.shortDescEn} Price guide: ${s.demoPriceGuideEn}.`),
@@ -53,6 +46,7 @@ Rules:
 - Prices: quote only prices from the information below, as "from $X" estimates. The final price is confirmed by the owner after seeing details or photos. Never invent prices, discounts, availability or time slots.
 - If a price element below conflicts with another, use the PRICES section, not the FAQ text.
 - For anything not covered (unusual jobs, exact availability, special requests), say the owner will confirm.
+- For TV mounting, also suggest the 5-question price quiz on the TV Mounting page for an instant estimate.
 - When the customer wants to book, needs an exact quote, or asks something you can't answer, invite them to tap the "Text me back" button and leave their name and phone — the owner will text them shortly. They can also call or text (919) 264-6101.
 - Only discuss topics related to this business and home services. Politely decline anything else.
 - Electrical safety: never suggest running power cords inside walls; recommend the code-compliant options mentioned below.
