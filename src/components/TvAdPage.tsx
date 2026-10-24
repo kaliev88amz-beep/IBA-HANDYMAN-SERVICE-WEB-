@@ -13,6 +13,7 @@ const PRICES: [string, string][] = [
   ['Above fireplace', `+$${TV_ADDONS.fireplace}`],
   ['Brick or stone wall', `+$${TV_ADDONS.brickStone}`],
   ['Wires hidden in the wall', `+$${TV_ADDONS.inWallWires}`],
+  ['Fireplace + wires hidden (bundle)', `+$${TV_ADDONS.fireplaceWiresBundle}`],
   ['Mount (fixed · tilting · full-motion)', `+$${TV_ADDONS.fixedMount} · $${TV_ADDONS.tiltingMount} · $${TV_ADDONS.fullMotionMount}`],
 ];
 

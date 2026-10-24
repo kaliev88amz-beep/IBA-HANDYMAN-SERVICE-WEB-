@@ -324,8 +324,8 @@ export const DEFAULT_FAQS: FaqItem[] = [
     category: 'tv',
     questionEn: 'How much does TV mounting cost?',
     questionRu: 'Сколько стоит монтаж телевизора?',
-    answerEn: 'Labor on a regular wall: $99 for TVs up to 32" ($69 when mounted with another TV), $150 for 33"–64", $175 for 65"–75", and from $220 for 76"+. Add-ons per TV: above a fireplace +$99, brick or stone +$69, hiding wires inside the wall +$95, cord cover +$49. Need a mount? Fixed +$49, tilting +$59, full-motion +$89 — or use your own at no charge. 2 TVs save 10%, 3 save 15%, 4+ save 20%. Take the 5-question price quiz on our TV Mounting page for an instant estimate!',
-    answerRu: 'Работа на обычной стене: $99 за ТВ до 32" ($69 вместе с другим ТВ), $150 за 33"–64", $175 за 65"–75" и от $220 за 76"+. Доплаты за каждый ТВ: над камином +$99, кирпич или камень +$69, провода в стене +$95, короб на стене +$49. Нужен кронштейн? Фиксированный +$49, наклонный +$59, поворотный +$89 — или ваш собственный без доплаты. 2 ТВ — скидка 10%, 3 — 15%, 4+ — 20%. Пройдите короткий квиз на странице «Монтаж ТВ» и сразу увидите цену!',
+    answerEn: 'Labor on a regular wall: $99 for TVs up to 32" ($69 when mounted with another TV), $150 for 33"–64", $175 for 65"–75", and from $220 for 76"+. Add-ons per TV: above a fireplace +$99, brick or stone +$69, hiding wires inside the wall +$95 (fireplace + hidden wires together: +$149), cord cover +$49. Need a mount? Fixed +$49, tilting +$59, full-motion +$119 — or use your own at no charge. 2 TVs save 10%, 3 save 15%, 4+ save 20%. Take the 5-question price quiz on our TV Mounting page for an instant estimate!',
+    answerRu: 'Работа на обычной стене: $99 за ТВ до 32" ($69 вместе с другим ТВ), $150 за 33"–64", $175 за 65"–75" и от $220 за 76"+. Доплаты за каждый ТВ: над камином +$99, кирпич или камень +$69, провода в стене +$95 (камин + провода в стене вместе: +$149), короб на стене +$49. Нужен кронштейн? Фиксированный +$49, наклонный +$59, поворотный +$119 — или ваш собственный без доплаты. 2 ТВ — скидка 10%, 3 — 15%, 4+ — 20%. Пройдите короткий квиз на странице «Монтаж ТВ» и сразу увидите цену!',
   },
   {
     id: 'faq-tv-fireplace',

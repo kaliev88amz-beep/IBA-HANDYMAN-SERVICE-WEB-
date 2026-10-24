@@ -61,6 +61,7 @@ export const TvPriceQuiz: React.FC = () => {
 
   const priceLabel = `${ru ? 'от' : 'from'} $${est.total}`;
   const priceNote = [
+    est.bundleApplied ? (ru ? 'пакет «камин + провода»' : 'fireplace + wires bundle') : '',
     est.discountRate ? `${Math.round(est.discountRate * 100)}% ${ru ? 'скидка за несколько ТВ' : 'multi-TV discount applied'}` : '',
     est.hasQuoteItems ? (ru ? '+ пункты, которые уточним' : '+ items we confirm') : '',
   ].filter(Boolean).join(' · ') || (ru ? 'работа; итоговую цену подтвердим в SMS' : 'labor; final price confirmed by text');
@@ -104,7 +105,7 @@ export const TvPriceQuiz: React.FC = () => {
           'Reply by text (tap on phone)': `sms:+1${phone}`,
           'ZIP code': contact.zip.trim(),
           Answers: describeTvAnswers(answers).join('\n'),
-          Estimate: `from $${est.total} (${est.tvCount} TV x $${est.perTv}${est.discountRate ? `, -${Math.round(est.discountRate * 100)}%` : ''})${est.hasQuoteItems ? ' + items to confirm' : ''}`,
+          Estimate: `from $${est.total} (${est.tvCount} TV x $${est.perTv}${est.discountRate ? `, -${Math.round(est.discountRate * 100)}%` : ''}${est.bundleApplied ? ', fireplace+wires bundle' : ''})${est.hasQuoteItems ? ' + items to confirm' : ''}`,
           'Site language': language,
         }),
       });
@@ -270,6 +271,7 @@ export const TvLanding: React.FC = () => {
     [ru ? 'ТВ 76"+ (2 мастера)' : '76"+ TV (2 people)', `${ru ? 'от' : 'from'} $${TV_SIZE_PRICES.xl}`],
     [ru ? 'Над камином' : 'Above fireplace', `+$${TV_ADDONS.fireplace}`],
     [ru ? 'Провода в стене' : 'Wires inside the wall', `+$${TV_ADDONS.inWallWires}`],
+    [ru ? 'Камин + провода в стене (пакет)' : 'Fireplace + wires hidden (bundle)', `+$${TV_ADDONS.fireplaceWiresBundle}`],
     [ru ? 'Кирпич / камень' : 'Brick / stone wall', `+$${TV_ADDONS.brickStone}`],
   ];
 

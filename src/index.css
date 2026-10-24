@@ -178,12 +178,6 @@
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 8px 24px -12px rgba(15, 23, 42, 0.12);
 }
 
-/* The TV Mounting artwork has a black background: give it a black plate on light pages */
-[data-theme="light"] .tv-logo-plate {
-  background-color: #000000;
-  border-radius: 0.75rem;
-}
-
 /* Wide glow spreading from the top center across the page (inner page headers, see App.tsx) */
 .page-glow {
   background:
@@ -196,12 +190,20 @@
     radial-gradient(ellipse 150% 85% at 50% 0%, rgb(var(--accent-rgb) / 0.16), transparent 75%);
 }
 
-/* On light pages the TV artwork sits on its black plate (no blending with the white page)
-   and its yellow is shifted to IBA blue so the light theme has no yellow */
-[data-theme="light"] .tv-logo-plate,
+/* On light pages the TV artwork (gold lines on black) is inverted to blue lines on white,
+   and multiplied onto the page so the white background disappears */
 [data-theme="light"] .tv-logo-plate * {
   mix-blend-mode: normal;
 }
 [data-theme="light"] .tv-logo-plate {
-  filter: hue-rotate(150deg) saturate(1.1);
+  filter: invert(1) saturate(0.8) brightness(1.15);
+  mix-blend-mode: multiply;
+}
+/* The footer stays dark in both themes: keep the original artwork blended onto it */
+[data-theme="light"] footer .tv-logo-plate {
+  filter: hue-rotate(150deg) saturate(1.1); /* blue instead of gold in the light theme */
+  mix-blend-mode: lighten;
+}
+[data-theme="light"] footer .tv-logo-plate * {
+  mix-blend-mode: lighten;
 }

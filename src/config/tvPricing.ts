@@ -42,9 +42,11 @@ export const TV_ADDONS = {
   brickStone: 69,
   fixedMount: 49,
   tiltingMount: 59,
-  fullMotionMount: 89,
+  fullMotionMount: 119,
   cordCover: 49,
   inWallWires: 95,
+  /** Above fireplace + wires hidden in the wall together (instead of fireplace + inWallWires). */
+  fireplaceWiresBundle: 149,
 };
 
 export const TV_QUIZ_STEPS: TvQuizStep[] = [
@@ -101,7 +103,7 @@ export const TV_QUIZ_STEPS: TvQuizStep[] = [
     options: [
       { id: 'visible', labelEn: 'Leave them', labelRu: 'Оставить как есть', hintEn: '+$0', hintRu: '+$0' },
       { id: 'cover', labelEn: 'Cord cover on wall', labelRu: 'Короб на стене', add: TV_ADDONS.cordCover, hintEn: `+$${TV_ADDONS.cordCover}`, hintRu: `+$${TV_ADDONS.cordCover}` },
-      { id: 'inwall', labelEn: 'Hide inside wall', labelRu: 'Спрятать в стену', add: TV_ADDONS.inWallWires, hintEn: `+$${TV_ADDONS.inWallWires}`, hintRu: `+$${TV_ADDONS.inWallWires}` },
+      { id: 'inwall', labelEn: 'Hide inside wall', labelRu: 'Спрятать в стену', add: TV_ADDONS.inWallWires, hintEn: `+$${TV_ADDONS.inWallWires} · less with fireplace`, hintRu: `+$${TV_ADDONS.inWallWires} · дешевле с камином` },
       { id: 'unsure', labelEn: 'Not sure', labelRu: 'Не знаю', quote: true, hintEn: "we'll advise", hintRu: 'подскажем' },
     ],
   },
@@ -116,6 +118,8 @@ export interface TvEstimate {
   total: number;
   /** Some choices need the owner's confirmation; the total is a starting price. */
   hasQuoteItems: boolean;
+  /** Fireplace + in-wall wires bundle price was applied. */
+  bundleApplied: boolean;
 }
 
 export const estimateTvJob = (answers: TvQuizAnswers): TvEstimate => {
@@ -132,8 +136,10 @@ export const estimateTvJob = (answers: TvQuizAnswers): TvEstimate => {
     if (option?.add) perTv += option.add;
     if (option?.quote) hasQuoteItems = true;
   }
+  const bundleApplied = answers.wall === 'fireplace' && answers.wires === 'inwall';
+  if (bundleApplied) perTv -= TV_ADDONS.fireplace + TV_ADDONS.inWallWires - TV_ADDONS.fireplaceWiresBundle;
   const discountRate = MULTI_TV_DISCOUNT[Math.min(tvCount, 4)] ?? 0;
-  return { tvCount, perTv, discountRate, total: Math.round(perTv * tvCount * (1 - discountRate)), hasQuoteItems };
+  return { tvCount, perTv, discountRate, total: Math.round(perTv * tvCount * (1 - discountRate)), hasQuoteItems, bundleApplied };
 };
 
 /** Readable answer list for emails and messages. */
@@ -149,5 +155,6 @@ export const TV_PRICES_TEXT = [
   `Add-ons per TV: above fireplace +$${TV_ADDONS.fireplace}; brick or stone wall +$${TV_ADDONS.brickStone}.`,
   `Mount supplied by us: fixed +$${TV_ADDONS.fixedMount}, tilting +$${TV_ADDONS.tiltingMount}, full-motion +$${TV_ADDONS.fullMotionMount}; fireplace pull-down mount: quote. Customer's own mount: no extra charge.`,
   `Wires: cord cover on wall +$${TV_ADDONS.cordCover}; hide inside wall +$${TV_ADDONS.inWallWires}.`,
+  `Bundle: above fireplace + wires hidden in the wall together +$${TV_ADDONS.fireplaceWiresBundle} per TV (instead of +$${TV_ADDONS.fireplace + TV_ADDONS.inWallWires}).`,
   'Multi-TV discount on the total: 2 TVs 10%, 3 TVs 15%, 4+ TVs 20%.',
 ].join('\n');
