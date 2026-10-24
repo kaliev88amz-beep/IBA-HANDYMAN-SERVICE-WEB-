@@ -289,9 +289,9 @@ export const TvLanding: React.FC = () => {
               : 'Hidden wires. Fireplaces. Brick. Answer 5 quick questions and see your price.'}
           </p>
           <img
-            src="/images/work/led-niche-tv-fireplace.jpg"
-            alt={ru ? 'ТВ в нише с подсветкой над камином — наша работа' : 'TV in a backlit niche above a fireplace — our work'}
-            className="w-full h-64 sm:h-80 object-cover rounded-3xl"
+            src="/images/tv-hero.webp"
+            alt={ru ? 'Семья смотрит новый телевизор на стене' : 'Family enjoying a newly wall-mounted TV in a bright living room'}
+            className="w-full h-64 sm:h-80 object-cover object-[30%_center] rounded-3xl"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ink-300">
             <a href={SOCIAL_LINKS.thumbtack} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-ink">
