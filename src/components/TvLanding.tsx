@@ -18,6 +18,7 @@ import {
   describeTvAnswers,
   estimateTvJob,
 } from '../config/tvPricing';
+import { trackLead } from '../utils/adsTracking';
 
 export const PHONE_DISPLAY = '(919) 264-6101';
 
@@ -111,6 +112,7 @@ export const TvPriceQuiz: React.FC = () => {
       });
       const data = await res.json().catch(() => null);
       if (!res.ok || data?.success !== true) throw new Error('send failed');
+      trackLead();
       setStep(s => s + 1);
     } catch {
       setError(ru ? `Не удалось отправить. Позвоните или напишите: ${PHONE_DISPLAY}.` : `Couldn't send. Please call or text ${PHONE_DISPLAY}.`);

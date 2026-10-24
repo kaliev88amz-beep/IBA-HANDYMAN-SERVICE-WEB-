@@ -307,6 +307,17 @@ export const SHOW_OWNER_CRM = false;
 /** WhatsApp number in international format, digits only (country code 1 + area code + number). */
 export const WHATSAPP_NUMBER = '19192646101';
 
+/**
+ * Google Ads conversion tracking (Goals > Conversions in Google Ads). Public values from the tag.
+ * id: 'AW-…'; leadLabel: the 'Lead form' action's label; callLabel: optional 'Phone call click' label.
+ * Leave id empty to turn tracking off.
+ */
+export const GOOGLE_ADS = {
+  id: 'AW-18365506453',
+  leadLabel: 'VPS2CO6jq6gdEJXHrbVE',
+  callLabel: '-pEyCPGjq6gdEJXHrbVE',
+};
+
 /** Number for "Text us" (SMS) links and replies to helper leads, in +1 format. */
 export const TEXT_NUMBER = '+19192646101';
 

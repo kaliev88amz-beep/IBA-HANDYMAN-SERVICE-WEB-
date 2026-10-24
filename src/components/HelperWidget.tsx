@@ -3,6 +3,7 @@ import { useApp } from '../context/AppContext';
 import { IbaHandymanIcon } from './Logos';
 import { WEB3FORMS_ACCESS_KEY } from '../config/pricingConfig';
 import { FaqItem } from '../types';
+import { trackLead } from '../utils/adsTracking';
 import { MessageSquare, X, Send, Smartphone, CheckCircle2, Loader2 } from 'lucide-react';
 
 type ChatMessage = { role: 'user' | 'assistant'; text: string };
@@ -146,6 +147,7 @@ export const HelperWidget: React.FC = () => {
       });
       const data = await res.json().catch(() => null);
       if (!res.ok || data?.success !== true) throw new Error('send failed');
+      trackLead();
       setMessages(m => [...m, { role: 'assistant', text: c.sent(lead.name.trim()) }]);
       setLead({ name: '', phone: '', note: '' });
       setView('chat');

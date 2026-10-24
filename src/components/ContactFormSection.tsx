@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { HANDYMAN_SERVICES, WEB3FORMS_ACCESS_KEY, WHATSAPP_NUMBER } from '../config/pricingConfig';
 import { SocialLinks } from './SocialLinks';
+import { trackLead } from '../utils/adsTracking';
 import {
   Send,
   Calendar,
@@ -104,7 +105,9 @@ export const ContactFormSection: React.FC = () => {
         }),
       });
       const data = await res.json().catch(() => null);
-      return res.ok && data?.success === true;
+      const ok = res.ok && data?.success === true;
+      if (ok) trackLead();
+      return ok;
     } catch {
       return false;
     }
