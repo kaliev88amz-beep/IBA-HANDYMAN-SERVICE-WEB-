@@ -7,7 +7,6 @@ import {
   Phone,
   Menu,
   X,
-  Globe,
   LayoutDashboard,
   Calculator,
   ClipboardCheck,
@@ -15,7 +14,7 @@ import {
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
-  const { language, setLanguage, t, activeView, setActiveView } = useApp();
+  const { language, t, activeView, setActiveView } = useApp();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -128,30 +127,6 @@ export const Navbar: React.FC = () => {
 
           {/* Right Action Buttons */}
           <div className="hidden sm:flex items-center gap-3">
-            {/* Language Switch */}
-            <div className="flex items-center bg-surface rounded-lg p-0.5 border border-accent/25">
-              <button
-                onClick={() => setLanguage('en')}
-                className={`px-2 py-1 text-xs font-bold rounded-md transition-all ${
-                  language === 'en'
-                    ? 'bg-accent text-black shadow-xs'
-                    : 'text-ink-400 hover:text-ink'
-                }`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLanguage('ru')}
-                className={`px-2 py-1 text-xs font-bold rounded-md transition-all ${
-                  language === 'ru'
-                    ? 'bg-accent text-black shadow-xs'
-                    : 'text-ink-400 hover:text-ink'
-                }`}
-              >
-                RU
-              </button>
-            </div>
-
             <ThemeToggle />
 
             {/* Primary call to action: opens the request form */}
@@ -167,14 +142,6 @@ export const Navbar: React.FC = () => {
           {/* Mobile hamburger */}
           <div className="flex items-center gap-2 xl:hidden">
             <ThemeToggle className="sm:hidden" />
-            <button
-              onClick={() => setLanguage(language === 'en' ? 'ru' : 'en')}
-              className="sm:hidden px-2.5 py-1 text-xs font-bold text-accent-ink bg-line/5 border border-accent/30 rounded-lg flex items-center gap-1"
-            >
-              <Globe className="w-3 h-3" />
-              <span>{language.toUpperCase()}</span>
-            </button>
-
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-xl text-ink-300 hover:text-ink hover:bg-line/5 border border-line/10 focus:outline-hidden"

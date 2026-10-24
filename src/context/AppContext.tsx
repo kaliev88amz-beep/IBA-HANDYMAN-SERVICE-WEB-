@@ -44,14 +44,8 @@ const STORAGE_KEY_FAQS = 'iba_demo_faqs_v1';
 const STORAGE_KEY_LANG = 'iba_demo_lang_v1';
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY_LANG);
-      return (saved === 'ru' || saved === 'en') ? saved : 'en';
-    } catch {
-      return 'en';
-    }
-  });
+  // English only for the US market (the language switch was removed; Russian strings remain in i18n)
+  const [language, setLanguageState] = useState<Language>('en');
 
   const [activeView, setActiveView] = useState<string>('home');
 

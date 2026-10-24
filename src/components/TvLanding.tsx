@@ -19,9 +19,9 @@ import {
   estimateTvJob,
 } from '../config/tvPricing';
 
-const PHONE_DISPLAY = '(919) 264-6101';
+export const PHONE_DISPLAY = '(919) 264-6101';
 
-const JOBS = [
+export const JOBS = [
   { src: '/images/work/led-niche-tv-fireplace.jpg', en: 'Backlit niche with slat wall', ru: 'Ниша с подсветкой и рейками' },
   { src: '/images/work/stone-fireplace-tv.jpg', en: 'Above a stone fireplace', ru: 'Над каменным камином' },
   { src: '/images/work/slat-wall-tv-blue-led.jpg', en: 'Slat wall with LED lights', ru: 'Рейки с LED-подсветкой' },
@@ -43,7 +43,7 @@ const MountIcon: React.FC<{ kind: 'fixed' | 'tilting' | 'full' | 'pulldown' }> =
 const digitsOnly = (s: string) => s.replace(/\D/g, '').replace(/^1(?=\d{10}$)/, '');
 
 /** The 6-step price quiz: 5 questions, then name/phone/ZIP; the lead goes to Gmail. */
-const TvPriceQuiz: React.FC = () => {
+export const TvPriceQuiz: React.FC = () => {
   const { language } = useApp();
   const ru = language === 'ru';
   const [step, setStep] = useState(0);

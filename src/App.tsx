@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ServiceCards } from './components/ServiceCards';
 import { TvLanding } from './components/TvLanding';
+import { TvAdPage } from './components/TvAdPage';
 import { OurWork } from './components/OurWork';
 import { ProcessSection } from './components/ProcessSection';
 import { ServiceAreaSection } from './components/ServiceAreaSection';
@@ -100,10 +101,13 @@ const AppContent: React.FC = () => {
   );
 };
 
+// Ad landing page lives at its own URL (vercel.json rewrites it to index.html)
+const isTvAdPage = window.location.pathname.replace(/\/+$/, '') === '/tv-mounting';
+
 export default function App() {
   return (
     <AppProvider>
-      <AppContent />
+      {isTvAdPage ? <TvAdPage /> : <AppContent />}
     </AppProvider>
   );
 }

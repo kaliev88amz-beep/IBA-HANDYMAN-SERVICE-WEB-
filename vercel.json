@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/tv-mounting", "destination": "/index.html" },
+    { "source": "/tv-mounting/", "destination": "/index.html" }
+  ]
+}
